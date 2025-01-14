@@ -1,0 +1,105 @@
+<div class="mat-dialog-container">
+  <!-- Modal's header -->
+  <div class="custom-modal-header">
+    <h2>
+      {{ "owner-info.title" | translate }}
+    </h2>
+    <button
+        class="custom-modal-close-button"
+        type="button"
+        aria-label="Close"
+        mat-dialog-close
+        mat-button
+      >
+        <span class="material-icons-outlined">
+          close
+        </span>
+      </button>
+  </div>
+  <!-- Modal's content -->
+  <form
+    [formGroup]="OwnerDetailsForm"
+    class="custom-modal-content white"
+  >
+    <div class="formContent two-column">
+      <!-- Last name -->
+      <label for="floatingInput">
+        <span class="material-icons-outlined"> badge </span>
+        {{ "owner-info.lastName" | translate }}
+      </label>
+      <input
+            readonly
+            formControlName="lastName"
+            class="form-control"
+            placeholder="Nume"
+      />
+      <!-- First name -->
+      <label for="floatingInput">
+        <span class="material-icons-outlined"> badge </span>
+        {{ "owner-info.firstName" | translate }}
+      </label>
+      <input
+        readonly
+        formControlName="firstName"
+        class="form-control"
+        placeholder="Prenume"
+      />
+      <!-- Email -->
+      <label for="floatingInput">
+        <span class="material-icons-outlined"> email </span>
+        {{ "owner-info.email" | translate }}
+      </label>
+      <input
+            readonly
+            formControlName="email"
+            class="form-control"
+            placeholder="exemplu@example.com"
+      />
+      <!-- Phone number -->
+      <label for="floatingInput">
+        <span class="material-icons-outlined"> phone </span>
+        {{ "owner-info.phone" | translate }}
+      </label>
+      <input
+            readonly
+            formControlName="firstPhoneNumber"
+            class="form-control"
+            placeholder="07.."
+      />
+      <!-- Second phone number -->
+      <label for="floatingInput">
+        <span class="material-icons-outlined"> phone </span>
+        {{ "owner-info.phone" | translate }}
+      </label>
+      <input
+            readonly
+            formControlName="secondPhoneNumber"
+            class="form-control"
+            placeholder="07.."
+      />
+      <!-- Bank account -->
+      <label for="floatingInput">
+        <span class="material-icons-outlined"> account_balance </span>
+        {{ "owner-info.bank" | translate }}
+      </label>
+      <input
+            readonly
+            formControlName="bankAccount"
+            class="form-control"
+            placeholder="cont"
+      />
+    </div>
+    <!-- Modal's footer -->
+    <div class="custom-modal-footer one-column">
+      <button
+        type="button"
+        class="footerButton"
+        (click)="onCancelClick()"
+        mat-dialog-close
+        mat-button
+      >
+        {{ "owner-info.cancel" | translate }}
+      </button>
+    </div>
+  </form>
+</div>

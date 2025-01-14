@@ -1,0 +1,433 @@
+<div class="mat-dialog-container">
+  <!-- Modal's header -->
+  <div class="custom-modal-header">
+    <h2>{{ "renter.title" | translate }}</h2>
+    <button
+      type="button"
+      class="btn"
+      aria-label="Close"
+      mat-dialog-close
+      mat-button
+    >
+      <span class="material-icons-outlined"> close </span>
+    </button>
+  </div>
+  <!-- Modal's content -->
+  <form 
+  class="custom-modal-content"
+  [formGroup]="RenterDetailsForm"
+  (ngSubmit)="onSubmit()"
+  >
+    <div class="formContent one-column">
+      <!-- Last name -->
+      <div>
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            formControlName="lastName"
+            [(ngModel)]="renter.lastName"
+            class="form-control"
+            id="lastName"
+            placeholder="Last Name"
+            maxlength="70"
+          />
+          <label for="floatingInput">
+            <span class="material-icons-outlined"> badge </span>
+            {{ "renter.lastname" | translate }}
+          </label>
+        </div>
+        <!-- Warning text -->
+        <!-- Only create if there exists an error message; Otherwise the text boxes would go into each other -->
+        <div
+          class="form-warning"
+          *ngIf="
+            (RenterDetailsForm.controls.lastName.dirty &&
+              RenterDetailsForm.controls.lastName.errors?.pattern) ||
+            (RenterDetailsForm.controls.lastName.dirty &&
+              RenterDetailsForm.controls.lastName.errors?.required)
+          "
+        >
+          <div class="text-danger">
+            <!-- Only Letters -->
+            <div
+              *ngIf="
+                RenterDetailsForm.controls.lastName.dirty &&
+                RenterDetailsForm.controls.lastName.errors?.pattern
+              "
+            >
+              * Use only letters
+            </div>
+            <!-- Required -->
+            <div
+              *ngIf="
+                RenterDetailsForm.controls.lastName.dirty &&
+                RenterDetailsForm.controls.lastName.errors?.required
+              "
+            >
+              * Required
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- First name -->
+      <div>
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            formControlName="firstName"
+            [(ngModel)]="renter.firstName"
+            class="form-control"
+            id="firstName"
+            placeholder="First Name"
+            maxlength="70"
+          />
+          <label for="floatingInput">
+            <span class="material-icons-outlined"> badge </span>
+            {{"renter.firstname" | translate}}
+          </label>
+        </div>
+        <!-- Warning text -->
+        <div
+          class="form-warning"
+          *ngIf="
+            (RenterDetailsForm.controls.firstName.dirty &&
+              RenterDetailsForm.controls.firstName.errors?.pattern) ||
+            (RenterDetailsForm.controls.firstName.dirty &&
+              RenterDetailsForm.controls.firstName.errors?.required)
+          "
+        >
+          <div class="text-danger">
+            <!-- Only Letters -->
+            <div
+              *ngIf="
+                RenterDetailsForm.controls.firstName.dirty &&
+                RenterDetailsForm.controls.firstName.errors?.pattern
+              "
+            >
+              * Use only letters
+            </div>
+            <!-- Required -->
+            <div
+              *ngIf="
+                RenterDetailsForm.controls.firstName.dirty &&
+                RenterDetailsForm.controls.firstName.errors?.required
+              "
+            >
+              * Required
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- CNP -->
+      <div>
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            formControlName="cnp"
+            [(ngModel)]="renter.cnp"
+            class="form-control"
+            id="cnp"
+            placeholder="CNP"
+            maxlength="13"
+  
+          />
+          <label for="floatingInput">
+            <span class="material-icons-outlined"> branding_watermark </span>
+            {{"renter.cnp" | translate}}
+          </label>
+        </div>
+        <!-- Warning text -->
+        <div
+          class="form-warning"
+          *ngIf="
+            RenterDetailsForm.controls.address.dirty &&
+            RenterDetailsForm.controls.address.errors?.required
+          "
+        >
+          <div class="text-danger">
+            <div
+              *ngIf="
+                RenterDetailsForm.controls.cnp.dirty &&
+                RenterDetailsForm.controls.cnp.errors?.patternMismatch
+              "
+            >
+              * Invalid CNP
+            </div>
+            <div
+              *ngIf="
+                RenterDetailsForm.controls.cnp.dirty &&
+                RenterDetailsForm.controls.cnp.errors?.required
+              "
+            >
+              * Required
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Address -->
+      <div>
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            formControlName="address"
+            [(ngModel)]="renter.address"
+            class="form-control"
+            id="adresa"
+            placeholder="Adresa"
+            maxlength="100"
+  
+          />
+          <label for="floatingInput">
+            <span class="material-icons-outlined"> home_work </span>
+            {{ "renter.address" | translate }}
+          </label>
+        </div>
+        <!-- Warning text -->
+        <div
+          class="form-warning"
+          *ngIf="
+            (RenterDetailsForm.controls.email.dirty &&
+              RenterDetailsForm.controls.email.errors?.email) ||
+            (RenterDetailsForm.controls.email.dirty &&
+              RenterDetailsForm.controls.email.errors?.required)
+          "
+        >
+          <div class="text-danger">
+            <div
+              *ngIf="
+                RenterDetailsForm.controls.email.dirty &&
+                RenterDetailsForm.controls.email.errors?.email
+              "
+            >
+              * Example: name@domain.com
+            </div>
+            <div
+              *ngIf="
+                RenterDetailsForm.controls.email.dirty &&
+                RenterDetailsForm.controls.email.errors?.required
+              "
+            >
+              * Required
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Email -->
+      <div>
+        <div class="form-floating mb-3">
+          <!-- Input -->
+          <input
+            type="text"
+            formControlName="email"
+            [(ngModel)]="renter.email"
+            class="form-control"
+            id="email"
+            placeholder="exemplu@example.com"
+            maxlength="70"
+          />
+          <label for="floatingInput">
+            <span class="material-icons-outlined"> email </span>
+            {{ "renter.email" | translate }}
+          </label>
+        </div>
+        <!-- Warning text -->
+        <div
+          class="form-warning"
+          *ngIf="
+            (RenterDetailsForm.controls.email.dirty &&
+              RenterDetailsForm.controls.email.errors?.email) ||
+            (RenterDetailsForm.controls.email.dirty &&
+              RenterDetailsForm.controls.email.errors?.required)
+          "
+        >
+          <div class="text-danger">
+            <div
+              *ngIf="
+                RenterDetailsForm.controls.email.dirty &&
+                RenterDetailsForm.controls.email.errors?.email
+              "
+            >
+              * Example: name@domain.com
+            </div>
+            <div
+              *ngIf="
+                RenterDetailsForm.controls.email.dirty &&
+                RenterDetailsForm.controls.email.errors?.required
+              "
+            >
+              * Required
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Phone number -->
+      <div>
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            formControlName="telephone"
+            [(ngModel)]="renter.telephone"
+            class="form-control"
+            id="telefon"
+            placeholder="07.."
+            maxlength="20"
+          />
+          <label for="floatingInput">
+            <span class="material-icons-outlined"> phone </span>
+            {{ "renter.phone" | translate }}
+          </label>
+        </div>
+        <!-- Warning text -->
+        <div
+          class="form-warning"
+          *ngIf="
+            (RenterDetailsForm.controls.telephone.dirty &&
+              RenterDetailsForm.controls.telephone.errors?.pattern) ||
+            (RenterDetailsForm.controls.telephone.dirty &&
+              RenterDetailsForm.controls.telephone.errors?.required)
+          "
+        >
+          <div class="text-danger">
+            <div
+              *ngIf="
+                RenterDetailsForm.controls.telephone.dirty &&
+                RenterDetailsForm.controls.telephone.errors?.pattern
+              "
+            >
+              * Use only numbers
+            </div>
+            <div
+              *ngIf="
+                RenterDetailsForm.controls.telephone.dirty &&
+                RenterDetailsForm.controls.telephone.errors?.required
+              "
+            >
+              * Required
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Number of individuals -->
+      <div>
+        <div class="form-floating mb-3">
+          <input
+            type="number"
+            formControlName="number_of_individuals"
+            [(ngModel)]="renter.number_of_individuals"
+            class="form-control"
+            id="nr_persoane"
+            placeholder="Persoane"
+            min="0"
+            max="10"
+          />
+          <label for="floatingInput">
+            <span class="material-icons-outlined"> groups </span>
+            {{ "renter.pers" | translate }}
+          </label>
+        </div>
+        <!-- Warning text -->
+        <div
+          class="form-warning"
+          *ngIf="
+            (RenterDetailsForm.controls.number_of_individuals.dirty &&
+              RenterDetailsForm.controls.number_of_individuals.errors?.pattern) ||
+            (RenterDetailsForm.controls.number_of_individuals.dirty &&
+              RenterDetailsForm.controls.number_of_individuals.errors?.required)
+          "
+        >
+          <div class="text-danger">
+            <div
+              *ngIf="
+                RenterDetailsForm.controls.number_of_individuals.dirty &&
+                RenterDetailsForm.controls.number_of_individuals.errors?.pattern
+              "
+            >
+              * Must be > 0
+            </div>
+            <div
+              *ngIf="
+                RenterDetailsForm.controls.number_of_individuals.dirty &&
+                RenterDetailsForm.controls.number_of_individuals.errors?.required
+              "
+            >
+              * Required
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Password generator -->
+      <div>
+        <div class="form-floating mb-3">
+          <div style="display: grid; grid-template-columns: auto auto;">
+            <div>
+              <input
+                name="generatedpassword"
+                [(ngModel)]="renter.password"
+                type="text"
+                class="form-control parola"
+                id="parola"
+                [placeholder]="translatedPassword"
+                [(ngModel)]="input.generatedPassword"
+                [ngModelOptions]="{ standalone: true }"
+              />&nbsp;
+  
+              <!-- TO DO Warning text TO DO
+              <div class="form-warning"
+              *ngIf="RenterDetailsForm.controls.password.errors?.required"
+              >
+                <div class="text-danger ofPassword">
+                  <div
+                    *ngIf="RenterDetailsForm.controls.password.errors?.required"
+                  >
+                    * Generate a password
+                  </div>
+                </div>
+              </div>-->
+            </div>
+  
+            <div>
+              <button
+                id="generate_new_password_button"
+                type="button"
+                class="btn btn-outline-light"
+                value="Generate"
+                (click)="generatePassword()"
+                tabindex="2"
+              >
+              {{ "renter.generate" | translate }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Backend errors -->
+      <div class="form-waring text-danger" *ngIf="signUpErrors">
+        <div>
+          * {{ signUpErrors }}
+        </div>
+      </div>
+
+      <!-- [-] Body -->
+    </div>
+    <!-- Modal's footer -->
+    <div class="custom-modal-footer">
+      <button
+          type="button"
+          class="footerButton"
+          mat-dialog-close
+          mat-button
+        >
+          {{ "renter.close" | translate }}
+        </button>
+        <button
+          id="add_new_renter_button"
+          type="submit"
+          class="footerButton"
+          (click)="onsignup(renter, data.selectedProperty)"
+          data-dismiss="cdk-overlay-container"
+        >
+        {{ "renter.submit" | translate }}
+        </button>
+    </div>
+  </form>
+</div>

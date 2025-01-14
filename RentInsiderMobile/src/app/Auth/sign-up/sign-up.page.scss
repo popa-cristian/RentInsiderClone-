@@ -1,0 +1,174 @@
+
+#title {
+    font-family: Monaco;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-size: max(20px, 5vw);
+    color: white;
+}
+
+// An element that has the width the same as the page, so we can align title center
+#titleContainer
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+// The image that appears at the top of the screen
+.logo
+{
+    width: max(200px, 30vw);
+    height: auto;    
+}
+
+// input - generic responsive input class
+// button - generic responsive button class
+// notRegisteredParagraph - a div that contains the text that prompts user to sign up
+
+//If the screen is in portrait orientation
+@media screen and (orientation: portrait)
+{
+    #title
+    {
+        font-size: 5vw;
+    }
+    .input
+    {
+        font-size: 4vw;
+        height: 15vw;
+    }
+    .button
+    {
+        font-size: 3vw;
+        height: 5vw;
+    }
+    #notRegisteredParagraph
+    {
+        font-size: 3vw;
+    }
+}
+
+//If the screen is in landscape orientation
+@media screen and (orientation: landscape)
+{
+    #title
+    {
+        font-size: 5vh;
+    }
+    .input
+    {
+        font-size: 4vh;
+        height: 15vh;
+    }
+    .button
+    {
+        font-size: 3vh;
+        height: 5vh;
+    }
+    #notRegisteredParagraph
+    {
+        font-size: 3vh;
+    }
+}
+
+.paragraph{
+    // [+] Text
+    font-family: Monaco;
+    color: white;
+    list-style: none;
+    font-size: 16px;
+    text-align: center;
+    // [-] Text
+}
+
+.invalid-feedback {
+    text-align: left;
+}
+
+html{
+    background-color: #112D32;
+    background-size: cover;
+}
+
+body
+{
+    font-size: 100%;
+    margin:auto;
+    text-align: center;
+    background-image: linear-gradient(#88BDBC,#112D32,#4F4A41,#6E6658);
+    background-size: cover;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    overflow: hidden;
+    height: 100vh;
+}
+
+a
+{
+    font-family: Monaco;
+    color:  rgb(86, 158, 155);
+}
+     
+.form-group1
+{
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #112D32;
+    border-width: 5px;
+    padding: 25px;
+    background-color: #254E58;
+    overflow-y: scroll;
+    height: 100%;
+}
+
+h3{
+    font-family: Monaco;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-size: 100%;
+    color: white;
+    text-align: center;
+}
+
+ion-item {
+    // [+] Spacing
+    margin-top: 20px;
+    margin-bottom: 20px;
+    // [-] Spacing
+}
+
+.item-center {
+    // [+] Centering
+    display: block;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+    // [-] Centering
+}
+
+.btn{
+    width: fit-content;
+    padding: 0;
+    // [+] Spacing
+    margin-bottom: 20px;
+    // [-] Spacing
+}
+
+// for change language buttons
+#language-icons > li.li-nav {
+    list-style-type: none;
+}
+
+.button-language {
+    background-color: transparent;
+    border: none;
+    color: white;
+    padding: 9px;
+}
+
+.button-language > img {
+    width: 24px;
+    height: 24px;
+    margin: 0;
+    padding: 0;
+}

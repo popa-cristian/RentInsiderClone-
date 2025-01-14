@@ -1,0 +1,229 @@
+<div *ngIf="item">
+  <h3>{{ "owner-main-page.property_info" | translate }}</h3>
+  <hr class="title-underline" />
+  <div class="wrapper1">
+    <div id="property_details_menu">
+      <label style="padding-top: 2%; margin-left: 5%">
+        <span class="material-icons-outlined"> account_circle </span>
+        {{ "property-detail.renter" | translate }}
+      </label>
+
+      <input
+        id="renter-input"
+        *ngIf="selected_renter"
+        type="text"
+        readonly
+        value="{{ this.getFullName() }}"
+      />
+      
+      <div id="header-buttons">
+        <button
+          id="add_renter"
+          *ngIf="!selected_renter"
+          type="button"
+          class="btn btn-outline-light"
+          (click)="openModal1()"
+        >
+          <span class="material-icons-outlined"> person_add </span>
+        </button>
+
+        <button
+          id="view_renter_details"
+          *ngIf="selected_renter"
+          type="button"
+          class="btn btn-outline-light"
+          (click)="openModalinforenter()"
+        >
+          <span class="material-icons-outlined"> privacy_tip </span>
+        </button>
+
+        <button
+          id="delete_renter"
+          *ngIf="selected_renter"
+          type="button"
+          class="btn btn-outline-danger"
+          (click)="deleteRenter(selected_renter.id, item.id)"
+        >
+          <span class="material-icons-outlined"> delete_forever </span>
+        </button>
+
+        <button
+          *ngIf="item.renterID!"
+          id="send_message_button"
+          type="button"
+          class="btn btn-outline-light"
+          ata-bs-toggle="modal"
+          (click)="openSubjectComponent()"
+        >
+          <span class="material-icons-outlined"> announcement </span>
+        </button>
+      </div>
+
+
+      <label style="margin-left: 5%; padding-top: 3%">
+        <span class="material-icons-outlined"> event </span>
+        {{ "property-detail.date" | translate }}
+      </label>
+      <input
+        id="date-input"
+        type="number"
+        readonly
+        value="{{ item.due_date }}"
+      />
+
+      <label style="margin-left: 5%; padding-top: 3%">
+        <span class="material-icons-outlined"> water_drop </span>
+        {{ "property-detail.water" | translate }}
+      </label>
+      <input
+        id="water_consumption_index-input"
+        type="number"
+        readonly
+        value="{{ item.water_consumption_index }}"
+      />
+      <br />
+
+      <label style="margin-left: 5%; padding-top: 3%">
+        <span class="material-icons-outlined"> home_work </span>
+        {{ "property-detail.address" | translate }}
+      </label>
+      <input
+        id="address-input"
+        style="margin-left: 2%"
+        type="text"
+        readonly
+        value="{{ item.address }}"
+      />
+      <br />
+
+      <label style="margin-left: 5%; padding-top: 3%">
+        <span class="material-icons-outlined"> location_city </span>
+        {{ "property-detail.city" | translate }}
+      </label>
+      <input id="city-input" type="text" readonly value="{{ item.city }}" />
+      <br />
+
+      <label style="margin-left: 5%; padding-top: 3%">
+        <span class="material-icons-outlined"> holiday_village </span>
+        {{ "property-detail.county" | translate }}
+      </label>
+      <input id="county-input" type="text" readonly value="{{ item.county }}" />
+      <br />
+
+      <label style="margin-left: 5%; padding-top: 3%">
+        <span class="material-icons-outlined"> follow_the_signs </span>
+        {{ "property-detail.floor" | translate }}
+      </label>
+      <input id="floor-input" type="text" readonly value="{{ item.floor }}" />
+
+      <label>
+        <span class="material-icons-outlined"> king_bed </span>
+        {{ "property-detail.rooms" | translate }}
+      </label>
+      <input
+        id="number-of-rooms-input"
+        type="text"
+        readonly
+        value="{{ item.number_of_rooms }}"
+      />
+      <br />
+
+      <label style="margin-left: 5%; padding-top: 3%">
+        <span class="material-icons-outlined"> account_tree </span>
+        {{ "property-detail.compart" | translate }}
+      </label>
+      <input
+        id="partitioning-input"
+        type="text"
+        readonly
+        [value]="'add-property.comparts.'+item.partitioning | translate"
+      />
+      <br />
+
+      <label style="margin-left: 5%; padding-top: 3%">
+        <span class="material-icons-outlined"> local_offer </span>
+        {{ "property-detail.price" | translate }}
+      </label>
+      <input id="price-input" type="text" readonly value="{{ item.price }}" />
+
+      <label>
+        <span class="material-icons-outlined"> area_chart </span>
+        {{ "property-detail.surface" | translate }}
+      </label>
+      <input
+        id="surface-input"
+        type="text"
+        readonly
+        value="{{ item.surface }}"
+      />
+      <br />
+
+      <div id="footer-buttons">
+        <div class="menu_buttons">
+          <button
+            type="button"
+            class="btn btn-outline-light"
+            ata-bs-toggle="modal"
+            (click)="openModalForEdit()"
+          >
+            {{ "property-detail.edit-property" | translate }}
+          </button>
+        </div>
+  
+        <div id="delete_property">
+          <button
+            type="button"
+            class="btn btn-outline-danger"
+            ata-bs-toggle="modal"
+            (click)="deleteProperty(selected_renter, item)"
+          >
+            {{ "property-detail.delete-property" | translate }}
+          </button>
+        </div>
+      </div>
+      
+      <div class="wrapper2">
+        <div *ngIf="item.renterID">
+          <label>
+            <input
+              style="margin-top: 5%; margin-left: 3%; margin-bottom: 5%"
+              type="file"
+              (change)="selectFile($event)"
+            />
+          </label>
+
+          <button
+            class="btn btn-success btn-sm"
+            [disabled]="!selectedFiles"
+            (click)="upload()"
+          >
+            {{ "property-detail.add" | translate }}
+          </button>
+
+          <div *ngIf="currentFileUpload" class="progress mt-2">
+            <div
+              style="
+                background-image: -webkit-linear-gradient(
+                  top left,
+                  #112d32,
+                  #6e6658,
+                  #88bdbc
+                );
+              "
+              class="progress-bar progress-bar-info"
+              role="progressbar"
+              attr.aria-valuenow="{{ percentage }}"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              [ngStyle]="{ width: percentage + '%' }"
+            >
+              {{ percentage }}%
+            </div>
+          </div>
+          <br />
+        </div>
+      </div>
+      <br />
+    </div>
+  </div>
+</div>

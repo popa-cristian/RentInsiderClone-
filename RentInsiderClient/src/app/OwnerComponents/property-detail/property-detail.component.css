@@ -1,0 +1,275 @@
+:root {
+  margin: auto;
+  min-width: 520px;
+}
+
+.wrapper1 {
+  box-shadow: 10px 5px 5px white;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: #fff;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  margin-top: 5%;
+  margin-bottom: 40px;
+  width: 100%;
+  min-width: 450px;
+  height: 100%;
+  position: relative;
+  padding: 0px;
+  -webkit-box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
+  align-items: left;
+}
+
+.wrapper2 {
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: #fff;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 2%;
+  margin-top: 5%;
+  width: 90%;
+  font-size: 14px;
+  position: relative;
+  padding: 0px;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+  align-items: left;
+}
+
+h3, hr {
+  color: white;
+}
+
+#property_details_menu {
+  padding: 2% 2% 0 2%;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.label {
+  color: black;
+  padding-left: 25px;
+  font-size: 12px;
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
+
+#number-of-rooms-input,
+#address-input,
+#floor-input,
+#date-input,
+#price-input,
+#address-input {
+  text-align: center;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-left: 1%;
+}
+
+#city-input,
+#county-input {
+  text-align: center;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-left: 3000%;
+}
+#floor-input,
+#date-input {
+  width: 50px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-left: 1%;
+}
+
+#number-of-rooms-input,
+#surface-input,
+#date-input {
+  width: 40px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-left: 1%;
+}
+
+#water_consumption_index-input {
+  width: 60px;
+  text-align: center;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-left: 1%;
+}
+
+#price-input {
+  width: 60px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-left: 1%;
+}
+
+#floor-input,
+#price-input {
+  margin-right: 50px;
+  margin-left: 6px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-left: 1%;
+}
+
+#surface-input {
+  text-align: center;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-left: 1%;
+}
+#partitioning-input {
+  text-align: center;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-left: 1%;
+}
+
+/* #city-input{
+   
+}
+*/
+#county-input {
+  width: 260px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-left: 5%;
+}
+
+#city-input,
+#address-input {
+  width: 260px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-left: 6%;
+}
+
+.btn-success,
+.btn-success:hover,
+.btn-success:active,
+.btn-success:visited {
+  background-color: #6e6658 !important;
+  color: white;
+}
+
+.menu_buttons {
+  background-color: #6e6658;
+  border: none;
+  color: white;
+  text-align: center;
+  margin: 3% auto 3% auto;
+  text-decoration: none;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 13px;
+  -webkit-box-shadow: 0 2px 5px 0 #b1b4b4;
+  box-shadow: 0 5px 5px 0 #b1b4b4;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+
+#view_renter_details {
+  color: black;
+  border: black;
+  margin-left: 0;
+}
+
+#renter-input {
+  width: 265px;
+  text-align: center;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-left: 1%;
+}
+
+#delete_renter {
+  align-items: center;
+  font-size: 3%;
+  -webkit-box-shadow: 0 2px 5px 0 #b1b4b4;
+  box-shadow: 0 5px 5px 0 #b1b4b4;
+}
+
+#delete_property {
+  border: none;
+  color: white;
+  text-align: center;
+  margin: 3% auto 3% auto;
+  text-decoration: none;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 13px;
+  -webkit-box-shadow: 0 2px 5px 0 #b1b4b4;
+  box-shadow: 0 5px 5px 0 #b1b4b4;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+#header-buttons {
+  display: flex;
+  justify-content: center;
+  padding: 4% 0 3% 0;
+}
+
+#footer-buttons {
+  display: flex;
+  justify-content: center;
+  left: 0px;
+}
+
+#add_renter {
+  color: black;
+  border: 1px black;
+  border-style: solid;
+  font-size: 3%;
+  align-items: left;
+  -webkit-box-shadow: 0 2px 5px 0 #b1b4b4;
+  box-shadow: 0 5px 5px 0 #b1b4b4;
+}
+#send_message_button {
+  color: black;
+  font-size: 3%;
+  border: 1px black;
+  border-style: solid;
+  margin-left: 20%;
+  -webkit-box-shadow: 0 2px 5px 0 #b1b4b4;
+  box-shadow: 0 5px 5px 0 #b1b4b4;
+}
+#view_renter_details {
+  color: black;
+  font-size: 3%;
+  border: 1px black;
+  border-style: solid;
+  margin-right: 20%;
+  -webkit-box-shadow: 0 2px 5px 0 #b1b4b4;
+  box-shadow: 0 5px 5px 0 #b1b4b4;
+}

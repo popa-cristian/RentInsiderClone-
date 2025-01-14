@@ -1,0 +1,124 @@
+<div class="form-group1">
+  <div id="titleContainer">
+    <img
+      src="./assets/icon/Untitled-1_3.png"
+      class="logo"
+      alt="Responsive image"
+    />
+    <h3 id="title">{{ "register.title" | translate}}</h3>
+  </div>
+
+  <form [formGroup]="SignUpForm" (ngSubmit)="onSubmit()">
+    <div>
+      <!-- Last Name -->
+      <ion-item>
+        <ion-label position="floating"
+          ><ion-icon name="person-outline"></ion-icon>{{ "register.lastname" |
+          translate }}</ion-label
+        >
+        <ion-input
+          type="text"
+          formControlName="lastName"
+          class="input"
+          required
+          maxlength="70"
+        ></ion-input>
+      </ion-item>
+
+      <!-- First Name -->
+      <ion-item>
+        <ion-label position="floating"
+          ><ion-icon name="person-outline"></ion-icon>{{ "register.firstname" |
+          translate }}</ion-label
+        >
+        <ion-input
+          type="text"
+          formControlName="firstName"
+          class="input"
+          id="floatingInput"
+          placeholder="Nume"
+          [ngClass]="{ 'is-invalid': submitted && getForm.lastName.errors }"
+          required
+          maxlength="70"
+        ></ion-input>
+      </ion-item>
+
+      <!-- Email -->
+      <ion-item>
+        <ion-label position="floating"
+          ><ion-icon name="mail-outline"></ion-icon>{{ "register.email" |
+          translate }}</ion-label
+        >
+        <ion-input
+          type="text"
+          formControlName="email"
+          class="input"
+          required
+          maxlength="70"
+        ></ion-input>
+      </ion-item>
+
+      <!-- Phone -->
+      <ion-item>
+        <ion-label position="floating"
+          ><ion-icon name="call-outline"></ion-icon> {{ "register.phone" |
+          translate }}</ion-label
+        >
+        <ion-input
+          type="text"
+          formControlName="telephone"
+          class="input"
+          required
+          maxlength="20"
+        ></ion-input>
+      </ion-item>
+
+      <!-- Password -->
+      <ion-item>
+        <ion-label position="floating"
+          ><ion-icon name="lock-closed-outline"></ion-icon>{{
+          "register.password" | translate }}</ion-label
+        >
+        <ion-input
+          type="password"
+          formControlName="password"
+          class="input"
+          required
+          maxlength="70"
+        ></ion-input>
+      </ion-item>
+
+      <!-- Submit button -->
+      <ion-button type="submit" class="btn item-center button"
+        >{{ "register.sign-up" | translate }}</ion-button
+      >
+    </div>
+  </form>
+
+  <ion-footer class="footer">
+    <!-- Sign in text link -->
+    <div class="paragraph">
+      {{ "register.exists" | translate }}
+      <a routerLink="/sign-in">{{ "register.login" | translate }}</a>
+    </div>
+
+    <div id="language-icons" class="item-center">
+      <li class="li-nav">
+        <button
+          type="button"
+          class="button-language button"
+          (click)="changeLanguage(importedLanguages.ro)"
+        >
+          <img src="../../../assets/language-icons/romania.png" />
+        </button>
+        <button
+          type="button"
+          class="button-language button"
+          (click)="changeLanguage(importedLanguages.eng)"
+        >
+          <img src="../../../assets/language-icons/united-kingdom.png" />
+        </button>
+      </li>
+    </div>
+  </ion-footer>
+</div>

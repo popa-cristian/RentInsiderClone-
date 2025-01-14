@@ -1,0 +1,187 @@
+<div class="row big-container window-restriction">
+  <div class="col-lg-4 col-md-1"></div>
+  <div class="col-lg-4 col-md-12 p-5 d-flex justify-content-center">
+    <div id="formContent">
+      <div class="form-group1">
+        <img
+          src="../../../assets/img/logo/logo_black.png"
+          class="img-fluid"
+          alt="Logo image"
+        />
+        <h2>{{ "registration.title" | translate }}</h2>
+        <form [formGroup]="SignUpForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                formControlName="lastName"
+                class="form-control"
+                placeholder="Nume"
+                [ngClass]="{
+                  'is-invalid': submitted && getForm.lastName.errors
+                }"
+                maxlength="70"
+              />
+              <label for="floatingInput">
+                <span class="material-icons-outlined"> info </span>
+                {{ "registration.lastname" | translate }}
+              </label>
+              <div
+                *ngIf="submitted && getForm.lastName.errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="getForm.lastName.errors.required">
+                  {{ "registration.req-lastname" | translate }}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                formControlName="firstName"
+                class="form-control"
+                placeholder="Prenume"
+                [ngClass]="{
+                  'is-invalid': submitted && getForm.firstName.errors
+                }"
+                maxlength="70"
+              />
+              <label for="floatingInput">
+                <span class="material-icons-outlined"> info </span>
+                {{ "registration.firstname" | translate }}
+              </label>
+              <div
+                *ngIf="submitted && getForm.firstName.errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="getForm.firstName.errors.required">
+                  {{ "registration.req-firstname" | translate }}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                formControlName="email"
+                class="form-control"
+                placeholder="email@email.com"
+                [ngClass]="{
+                  'is-invalid': submitted && getForm.email.errors
+                }"
+                maxlength="70"
+              />
+              <label for="floatingInput">
+                <span class="material-icons-outlined"> email </span>
+                {{ "registration.email" | translate }}
+              </label>
+              <div
+                *ngIf="submitted && getForm.email.errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="getForm.email.errors.required">
+                  {{ "registration.req-email" | translate }}
+                </div>
+                <div *ngIf="getForm.email.errors.email">
+                  {{ "registration.invalid-lastname" | translate }}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                formControlName="telephone"
+                class="form-control"
+                placeholder="Telefon"
+                [ngClass]="{
+                  'is-invalid': submitted && getForm.telephone.errors
+                }"
+                maxlength="70"
+              />
+              <label for="floatingInput">
+                <span class="material-icons-outlined"> phone </span>
+                {{ "registration.phone" | translate }}
+              </label>
+              <div
+                *ngIf="submitted && getForm.telephone.errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="getForm.telephone.errors.required">
+                  {{ "registration.req-phone" | translate }}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="form-floating">
+              <input
+                type="password"
+                formControlName="password"
+                class="form-control"
+                placeholder="parola"
+                [ngClass]="{
+                  'is-invalid': submitted && getForm.password.errors
+                }"
+                maxlength="70"
+              />
+              <label for="floatingPassword">
+                <span class="material-icons-outlined"> lock </span>
+                {{ "registration.password" | translate }}
+              </label>
+              <div
+                *ngIf="submitted && getForm.password.errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="getForm.password.errors.required">
+                  {{ "registration.req-password" | translate }}
+                </div>
+                <div *ngIf="getForm.password.errors.minlength">
+                  {{ "registration.invalid-password" | translate }}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <button type="submit" class="btn btn-outline-light">
+              {{ "registration.reg" | translate }}
+            </button>
+          </div>
+        </form>
+
+        <ul class="create_account">
+          <div class="row">
+            <div class="col-8">
+              <li>
+                {{ "registration.acc" | translate }}
+                <a routerLink="/sign-in-component">
+                  {{ "registration.log" | translate }}</a
+                >
+              </li>
+            </div>
+            <div class="col-4">
+              <label class="switch">
+                <input
+                  type="checkbox"
+                  [(ngModel)]="checked"
+                  (click)="check()"
+                />
+                <span [ngClass]="sliderClass()"></span>
+              </label>
+            </div>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-1"></div>
+</div>

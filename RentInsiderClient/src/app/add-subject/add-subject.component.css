@@ -1,0 +1,8 @@
+input[type="checkbox"] {
+    background-color: initial;
+    cursor: default;
+    appearance: auto;
+    background-color: #112D32;
+    padding: initial;
+    border: initial;
+}

@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-toolbar class="culoare">
+    <ion-buttons slot="start" (click)="PreviousPage()">
+      <ion-icon size="large" name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+
+    <ion-buttons slot="start">
+      <h1 class="h1">{{ "owner-edit.title" | translate }}</h1>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="currentOwner">
+    <form [formGroup]="OwnerDetailsForm" (ngSubmit)="onSubmit()">
+      <ion-item lines="full">
+        <ion-label position="floating"
+          ><ion-icon name="person-outline"></ion-icon>{{ "owner-edit.lastName" |
+          translate }}</ion-label
+        >
+        <ion-input type="text" formControlName="lastName" maxlength="70"></ion-input>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-label position="floating"
+          ><ion-icon name="person-outline"></ion-icon> {{ "owner-edit.firstName"
+          | translate }}</ion-label
+        >
+        <ion-input type="text" formControlName="firstName" maxlength="70"></ion-input>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-label position="floating"
+          ><ion-icon name="mail-outline"></ion-icon>{{ "owner-edit.email" |
+          translate }}</ion-label
+        >
+        <ion-input type="text" formControlName="email" maxlength="70"></ion-input>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-label position="floating"
+          ><ion-icon name="call-outline"></ion-icon>{{ "owner-edit.phone" |
+          translate }}</ion-label
+        >
+        <ion-input type="tel" formControlName="firstPhoneNumber" maxlength="20"></ion-input>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-label position="floating"
+          ><ion-icon name="id-card-outline"></ion-icon>{{ "owner-edit.cnp" |
+          translate }}</ion-label
+        >
+        <ion-input type="text" formControlName="cnp" maxlength="13"></ion-input>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-label position="floating"
+          ><ion-icon name="keypad-outline"></ion-icon>{{ "owner-edit.bank" |
+          translate }}</ion-label
+        >
+        <ion-input type="text" formControlName="bankAccount" maxlength="24"></ion-input>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-label position="floating"
+          ><ion-icon name="call-outline"></ion-icon>{{
+          "owner-edit.secondary-phone" | translate }}</ion-label
+        >
+        <ion-input type="text" formControlName="secondPhoneNumber" maxlength="20"></ion-input>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-label position="floating"
+          ><ion-icon name="home-outline"></ion-icon>{{ "owner-edit.address" |
+          translate }}</ion-label
+        >
+        <ion-input type="text" formControlName="address" maxlength="70"></ion-input>
+      </ion-item>
+
+      <ion-item class="culoare" lines="none">
+        <ion-button
+          size="medium"
+          fill="outline"
+          id="edit_btn1"
+          class="whitening_borders"
+          type="submit"
+          (click)="checkFormular()"
+        >
+          {{ "owner-edit.save" | translate }}
+        </ion-button>
+      </ion-item>
+    </form>
+  </div>
+</ion-content>

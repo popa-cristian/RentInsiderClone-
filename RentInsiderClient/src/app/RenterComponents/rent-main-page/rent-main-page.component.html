@@ -1,0 +1,282 @@
+<ul class="ul-nav">
+  <h2>
+    <div id="title_text">Rent Insider</div>
+  </h2>
+
+  <li class="li-nav">
+    <button class="button-nav" type="button" (click)="openModalDetails()">
+      <label style="color: white">
+        <span class="material-icons" style="font-size: 18px"> post_add </span>
+        {{ "rent-main-page.edit" | translate }}
+      </label>
+    </button>
+  </li>
+
+  <li class="li-nav">
+    <button
+      type="button"
+      class="button-nav"
+      (click)="changeLanguageToRomanian()"
+      style="font-size: 18px"
+      alt="Ro"
+    >
+      <img src="../../../assets/icons/language-icons/romania.ico" />
+    </button>
+    <button
+      type="button"
+      class="button-nav"
+      (click)="changeLanguageToEnglish()"
+      style="font-size: 18px"
+      alt="En"
+    >
+      <img src="../../../assets/icons/language-icons/united-kingdom.ico" />
+    </button>
+  </li>
+
+  <li class="li-nav">
+    <button
+      type="button"
+      style="margin-top: 210%"
+      class="button-nav"
+      (click)="onLogout()"
+    >
+      <label style="color: white">
+        <span
+          class="material-icons-outlined"
+          style="font-size: 18px; margin-top: 70%"
+        >
+          logout
+        </span>
+        {{ "rent-main-page.logout.button-name" | translate }}
+      </label>
+    </button>
+  </li>
+</ul>
+
+<div class="wrapperRenter">
+  <div id="formContentRenter">
+    <div class="row">
+      <div class="column-detail2">
+        <div *ngIf="currentProperty">
+          <div class="wrapper-details">
+            <div id="formContent-details">
+              <br />
+              <div *ngIf="owner">
+                <label>
+                  <span class="material-icons-outlined"> account_circle </span>
+                  {{ "rent-main-page.owner" | translate }}
+                </label>
+                <input type="text" readonly value="{{ GetOwner_FullName() }}" />
+              </div>
+
+              <button
+                style="text-align: center"
+                id="view_renter_details"
+                type="button"
+                class="btn btn-outline-light"
+                (click)="openModalOwner()"
+              >
+                <span class="material-icons-outlined"> privacy_tip </span>
+              </button>
+
+              <button
+                id="send_message_button"
+                style="text-align: center"
+                type="button"
+                class="btn btn-outline-light"
+                ata-bs-toggle="modal"
+                (click)="openSubjectList()"
+              >
+                <span class="material-icons-outlined"> announcement </span>
+              </button>
+
+              <br />
+              <label>
+                <span class="material-icons-outlined"> water_drop </span>
+                {{ "rent-main-page.water" | translate }}
+              </label>
+              <input
+                class="water_index"
+                id="water_index"
+                type="number"
+                (change)="waterIndexChanged($event)"
+                (keypress)="waterIndexChanged($event)"
+                [value]="currentProperty.water_consumption_index"
+              />
+              <button
+                id="water_index_button"
+                (click)="
+                  onWaterConsumptionIndexUpdate(
+                    currentProperty.water_consumption_index
+                  )
+                "
+                type="button"
+              >
+                {{ "rent-main-page.send" | translate }}
+              </button>
+              <br />
+
+              <label>
+                <span
+                  class="material-icons-outlined"
+                  style="padding-right: 15px"
+                >
+                  home_work
+                </span>
+                {{ "rent-main-page.address" | translate }}
+              </label>
+              <input
+                type="text"
+                readonly
+                value="{{ currentProperty.address }}"
+              />
+              <br />
+
+              <label>
+                <span
+                  class="material-icons-outlined"
+                  style="padding-right: 18px"
+                >
+                  location_city
+                </span>
+                {{ "rent-main-page.city" | translate }}
+              </label>
+              <input
+                id="city-input"
+                type="text"
+                readonly
+                value="{{ currentProperty.city }}"
+              />
+              <br />
+
+              <label>
+                <span
+                  class="material-icons-outlined"
+                  style="padding-right: 15px"
+                >
+                  holiday_village
+                </span>
+                {{ "rent-main-page.county" | translate }}
+              </label>
+              <input
+                id="county-input"
+                type="text"
+                readonly
+                value="{{ currentProperty.county }}"
+              />
+              <br />
+
+              <label>
+                <span class="material-icons-outlined"> follow_the_signs </span>
+                {{ "rent-main-page.floor" | translate }}
+              </label>
+              <input
+                id="floor-input"
+                type="text"
+                readonly
+                value="{{ currentProperty.floor }}"
+              />
+
+              <label>
+                <span class="material-icons-outlined"> king_bed </span>
+                {{ "rent-main-page.rooms" | translate }}
+              </label>
+              <input
+                id="number-of-rooms-input"
+                type="text"
+                readonly
+                value="{{ currentProperty.number_of_rooms }}"
+              />
+              <br />
+
+              <label>
+                <span class="material-icons-outlined"> account_tree </span>
+                {{ "rent-main-page.compart" | translate }}
+              </label>
+              <input
+                id="partitioning-input"
+                type="text"
+                readonly
+                value="{{
+                  'add-property.comparts.' + currentProperty.partitioning
+                    | translate
+                }}"
+              />
+              <br />
+
+              <label>
+                <span class="material-icons-outlined"> area_chart </span>
+                {{ "rent-main-page.surface" | translate }}
+              </label>
+              <input
+                id="surface-input"
+                type="text"
+                readonly
+                value="{{ currentProperty.surface }}"
+              />
+
+              <br />
+
+              <div class="wrapper-duedate">
+                <br />
+                <div class="duedate">
+                  <b
+                    >{{ "rent-main-page.paragraph" | translate }}: {{ due_date
+                    }}{{ currentDate | date: "/MM/yyyy" }}</b
+                  >
+                </div>
+                <div class="wrapper2" *ngIf="currentProperty">
+                  <div>
+                    <label>
+                      <input
+                        style="margin-top: 5%; margin-left: 3%; margin-bottom: 5%"
+                        type="file"
+                        (change)="selectFile($event)"
+                      />
+                    </label>
+          
+                    <button
+                      class="btn btn-success btn-sm"
+                      [disabled]="!selectedFiles"
+                      (click)="upload()"
+                    >
+                      {{ "property-detail.add" | translate }}
+                    </button>
+          
+                    <div *ngIf="currentFileUpload" class="progress mt-2">
+                      <div
+                        style="
+                          background-image: -webkit-linear-gradient(
+                            top left,
+                            #112d32,
+                            #6e6658,
+                            #88bdbc
+                          );
+                        "
+                        class="progress-bar progress-bar-info"
+                        role="progressbar"
+                        attr.aria-valuenow="{{ percentage }}"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                        [ngStyle]="{ width: percentage + '%' }"
+                      >
+                        {{ percentage }}%
+                      </div>
+                    </div>
+                    <br />
+                  </div>
+                </div>
+                <br />
+              </div>
+              <br />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="column-files">
+        <app-upload-detail></app-upload-detail>
+      </div>
+    </div>
+  </div>
+</div>

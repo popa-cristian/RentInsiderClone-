@@ -1,0 +1,208 @@
+<div class="mat-dialog-container">
+  <!-- Modal's header -->
+  <div class="custom-modal-header">
+    <h2>
+      {{ "renter-details.title" | translate }}
+    </h2>
+    <button
+        class="custom-modal-close-button"
+        type="button"
+        aria-label="Close"
+        mat-dialog-close
+        mat-button
+      >
+        <span class="material-icons-outlined">
+          close
+        </span>
+      </button>
+  </div>
+  <!-- Modal's content -->
+  <form
+    class="custom-modal-content white"
+    [formGroup]="this.RenterDetailsForm"
+  >
+    <div class="formContent two-column">
+      <!-- Last name -->
+      <label for="floatingInput">
+        <span class="material-icons-outlined"> badge </span>
+        {{ "renter-details.lastName" | translate }}
+      </label>
+      <input
+            type="text"
+            formControlName="lastName"
+            [(ngModel)]="currentRenter.lastName"
+            class="form-control"
+            [placeholder]="'placeholders.lastName' | translate"
+            [ngClass]="{ 'is-invalid': submitted && getForm.lastName.errors }"
+            maxlength="70"
+
+      />
+      <div
+            *ngIf="submitted && getForm.lastName.errors"
+            class="invalid-feedback"
+      >
+            <div *ngIf="getForm.lastName.errors.required">
+              {{ "errors.lastNameRequired" | translate }}
+            </div>
+      </div>
+      <!-- First name -->
+      <label for="floatingInput">
+        <span class="material-icons-outlined"> badge </span>
+        {{ "renter-details.firstName" | translate }}
+      </label>
+      <input
+            type="text"
+            formControlName="firstName"
+            class="form-control"
+            [(ngModel)]="currentRenter.firstName"
+            [placeholder]="'placeholders.firstName' | translate"
+            [ngClass]="{ 'is-invalid': submitted && getForm.firstName.errors }"
+            maxlength="70"
+      />
+      <div
+            *ngIf="submitted && getForm.firstName.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="getForm.firstName.errors.required">
+              {{ "errors.firstNameRequired" | translate }}
+            </div>
+      </div>
+      <!-- Email -->
+      <label for="floatingInput">
+        <span class="material-icons-outlined"> email </span>
+        {{ "renter-details.email" | translate }}
+      </label>
+      <input
+            type="email"
+            formControlName="email"
+            class="form-control"
+            [(ngModel)]="currentRenter.email"
+            [placeholder]="'placeholders.email' | translate"
+            [ngClass]="{ 'is-invalid': submitted && getForm.email.errors }"
+            maxlength="70"
+      />
+      <div
+            *ngIf="submitted && getForm.email.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="getForm.email.errors.required">
+              {{ "errors.emailRequired" | translate }}
+            </div>
+            <div *ngIf="getForm.email.errors.Email">
+              {{ "errors.validEmailRequired" | translate }}
+            </div>
+      </div>
+      <!-- Phone number -->
+      <label for="floatingInput">
+        <span class="material-icons-outlined"> phone </span>
+        {{ "renter-details.phone" | translate }}
+      </label>
+      <input
+            type="text"
+            formControlName="telephone"
+            [(ngModel)]="currentRenter.telephone"
+            class="form-control"
+            placeholder="07.."
+            [ngClass]="{ 'is-invalid': submitted && getForm.telephone.errors }"
+            maxlength="20"
+      />
+      <div
+      *ngIf="submitted && getForm.telephone.errors"
+      class="invalid-feedback"
+      >
+        <div *ngIf="getForm.firstPhoneNumber.errors.required">
+          {{ "errors.phoneRequired" | translate }}
+        </div>
+      </div>
+      <!-- Second phone number -->
+      
+      <label for="floatingInput">
+        <span class="material-icons-outlined">phone</span>
+        {{"renter-details.secondPhone" | translate}}
+      </label>
+      <input
+        type="text"
+        formControlName="secondPhoneNumber"
+        [(ngModel)]="currentRenter.secondPhoneNumber"
+        class="form-control"
+        placeholder="07.."
+        maxlength="20"
+      >
+      <!-- CNP -->
+      <label for="floatingInput">
+        <span class="material-icons-outlined"> branding_watermark </span>
+        {{ "renter-details.cnp" | translate }}
+      </label>
+      <input
+            type="text"
+            formControlName="cnp"
+            [(ngModel)]="currentRenter.cnp"
+            class="form-control"
+            [placeholder]="'placeholders.cnp' | translate"
+            [ngClass]="{ 'is-invalid': submitted && getForm.cnp.errors }"
+            maxlength="13"
+      />
+          <div *ngIf="submitted && getForm.cnp.errors" class="invalid-feedback">
+            <div *ngIf="getForm.cnp.errors.patternMismatch">
+              {{ "errors.cnpFormat" | translate }}
+            </div>
+            <div *ngIf="getForm.cnp.errors.controlDigitError">
+              {{ "errors.cnpControlDigit" | translate }}
+            </div>
+          </div>
+      <!-- Address -->
+      <label for="floatingInput">
+        <span class="material-icons-outlined"> home_work </span>
+        {{ "renter-details.address" | translate }}
+      </label>
+      <input
+        type="text"
+        formControlName="address"
+        [(ngModel)]="currentRenter.address"
+        class="form-control"
+        [placeholder]="'placeholders.address' | translate"
+        maxlength="70"
+      />
+      <!-- People number -->
+      <label for="floatingInput">
+        <span class="material-icons-outlined"> groups </span>
+        {{ "renter-details.pers" | translate }}
+      </label>
+      <input
+        type="text"
+        formControlName="number_of_individuals"
+        [(ngModel)]="currentRenter.number_of_individuals"
+        class="form-control"
+        [placeholder]="'placeholders.numberOfTenants' | translate"
+        maxlength="10"
+      />
+      <!-- Bank account -->
+      <label for="floatingInput">
+        <span class="material-icons-outlined"> account_balance </span>
+        {{ "renter-details.bank" | translate }}
+      </label>
+      <input
+        type="text"
+        formControlName="bankAccount"
+        [(ngModel)]="currentRenter.bankAccount"
+        class="form-control"
+        placeholder="RO09 BCYP 0000 0012 3456 7890"
+        maxlength="24"
+      />
+    </div>
+    <!-- Modal's footer -->
+    <div class="custom-modal-footer">
+      <button
+        type="button"
+        mat-dialog-close
+        mat-button
+        class="footerButton"
+      >
+        {{ "renter-details.cancel" | translate }}
+      </button>
+      <button class="footerButton" type="submit">
+        {{ "renter-details.save" | translate }}
+      </button>
+    </div>
+  </form>
+</div>

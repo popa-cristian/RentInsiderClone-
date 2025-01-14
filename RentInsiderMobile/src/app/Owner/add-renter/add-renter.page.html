@@ -1,0 +1,299 @@
+<ion-header>
+  <ion-toolbar class="culoare">
+    <ion-buttons slot="start" (click)="PreviousPage()">
+      <ion-icon size="large" name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+
+    <ion-title>{{ "add-renter.title" | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form
+    [formGroup]="AddRenterForm"
+    (ngSubmit)="onSubmit(renter)"
+    class="add-renter"
+  >
+    <!-- Last Name -->
+    <ion-row>
+      <ion-item lines="none" class="form-field">
+        <ion-label>
+          <ion-icon name="person-outline"></ion-icon>
+          {{ "add-renter.lastName" | translate }}:
+        </ion-label>
+        <ion-input
+          formControlName="lastName"
+          placeholder="{{'add-renter.lastName-placeholder' | translate }}"
+          required
+          maxlength="70"
+        ></ion-input>
+      </ion-item>
+    </ion-row>
+
+    <!-- Last Name Warning text -->
+    <div
+      class="form-warning"
+      *ngIf="
+        AddRenterForm.controls.lastName.dirty &&
+        AddRenterForm.controls.lastName.errors?.required
+      "
+    >
+      <div class="text-danger">
+        <div *ngIf="AddRenterForm.controls.lastName.errors?.required">
+          * {{"renter-errors.obligatory"|translate }}
+        </div>
+
+        <div *ngIf="AddRenterForm.controls.lastName.errors?.pattern">
+          * {{"renter-errors.lettersOnly"|translate }}
+        </div>
+      </div>
+    </div>
+
+    <!-- First Name -->
+    <ion-row>
+      <ion-item lines="none" class="form-field">
+        <ion-label
+          ><ion-icon name="person-outline"></ion-icon>
+          {{ "add-renter.firstName" | translate }}:
+        </ion-label>
+        <ion-input
+          formControlName="firstName"
+          placeholder="{{'add-renter.firstName-placeholder' | translate }}"
+          required
+          maxlength="70"
+        ></ion-input>
+      </ion-item>
+    </ion-row>
+
+    <!-- First Name Warning text -->
+    <div
+      class="form-warning"
+      *ngIf="
+        AddRenterForm.controls.firstName.dirty &&
+          (AddRenterForm.controls.firstName.errors?.required ||
+          AddRenterForm.controls.firstName.errors?.pattern)
+      "
+    >
+      <div class="text-danger">
+        <div *ngIf="AddRenterForm.controls.firstName.errors?.required">
+          * {{"renter-errors.obligatory"|translate }}
+        </div>
+
+        <div *ngIf="AddRenterForm.controls.firstName.errors?.pattern">
+          * {{"renter-errors.lettersOnly"|translate }}
+        </div>
+      </div>
+    </div>
+
+    <!-- Email -->
+    <ion-row>
+      <ion-item lines="none" class="form-field">
+        <ion-label>
+          <ion-icon name="mail-outline"></ion-icon>
+          {{ "add-renter.email" | translate }}:
+        </ion-label>
+        <ion-input
+          formControlName="email"
+          placeholder="{{'add-renter.email-placeholder' | translate }}"
+          required
+          maxlength="70"
+        ></ion-input>
+      </ion-item>
+    </ion-row>
+
+    <!-- Email Warning text -->
+    <div
+      class="form-warning"
+      *ngIf="
+        AddRenterForm.controls.email.dirty &&
+          (AddRenterForm.controls.email.errors?.required ||
+           AddRenterForm.controls.email.errors?.email)
+      "
+    >
+      <div class="text-danger">
+        <div *ngIf="AddRenterForm.controls.email.errors?.required">
+          * {{"renter-errors.obligatory"|translate }}
+        </div>
+
+        <div *ngIf="AddRenterForm.controls.email.errors?.email">
+          * {{"renter-errors.mail"|translate }}
+        </div>
+      </div>
+    </div>
+
+    <!-- Phone number -->
+    <ion-row>
+      <ion-item lines="none" class="form-field">
+        <ion-label
+          ><ion-icon name="call-outline"></ion-icon>
+          {{ "add-renter.telephone" | translate }}:
+        </ion-label>
+        <ion-input formControlName="telephone" required maxlength="20"></ion-input>
+      </ion-item>
+    </ion-row>
+
+    <!-- Phone number Warning text -->
+    <div
+      class="form-warning"
+      *ngIf="
+        AddRenterForm.controls.telephone.dirty &&
+         (AddRenterForm.controls.telephone.errors?.required ||
+          AddRenterForm.controls.telephone.errors?.pattern)
+      "
+    >
+      <div class="text-danger">
+        <div *ngIf="AddRenterForm.controls.telephone.errors?.required">
+          * {{"renter-errors.obligatory"|translate }}
+        </div>
+
+        <div *ngIf="AddRenterForm.controls.telephone.errors?.pattern">
+          * {{"renter-errors.numbersOnly"|translate }}
+        </div>
+      </div>
+    </div>
+
+    <!-- CNP -->
+    <ion-row>
+      <ion-item lines="none" class="form-field">
+        <ion-label>
+          <ion-icon name="id-card-outline"></ion-icon>
+          {{ "add-renter.cnp" | translate }}:
+        </ion-label>
+        <ion-input
+          formControlName="cnp"
+          placeholder="{{'add-renter.cnp-placeholder' | translate }}"
+          required
+          maxlength="13"
+        ></ion-input>
+      </ion-item>
+    </ion-row>
+
+    <!-- cnp Warning text -->
+    <div
+      class="form-warning"
+      *ngIf="
+        AddRenterForm.controls.cnp.dirty &&
+         (AddRenterForm.controls.cnp.errors?.required || 
+          AddRenterForm.controls.cnp.errors?.patternMismatch)
+      "
+    >
+      <div class="text-danger">
+        <div *ngIf="AddRenterForm.controls.cnp.errors?.required">
+          * {{"renter-errors.obligatory"|translate }}
+        </div>
+
+        <div *ngIf="AddRenterForm.controls.cnp.errors?.patternMismatch">
+          * {{"renter-errors.invalidCNP"|translate }}
+        </div>
+      </div>
+    </div>
+
+    <!-- Address -->
+    <ion-row>
+      <ion-item lines="none" class="form-field">
+        <ion-label>
+          <ion-icon name="home-outline"></ion-icon>
+          {{ "add-renter.address" | translate }}:
+        </ion-label>
+        <ion-input
+          formControlName="address"
+          placeholder="{{'add-renter.address-placeholder' | translate }}"
+          required
+          maxlength="70"
+        ></ion-input>
+      </ion-item>
+    </ion-row>
+
+    <!-- Address Warning text -->
+    <div
+      class="form-warning"
+      *ngIf="
+        AddRenterForm.controls.address.dirty &&
+        AddRenterForm.controls.address.errors?.required
+      "
+    >
+      <div class="text-danger">
+        <div *ngIf="AddRenterForm.controls.address.errors?.required">
+          * {{"renter-errors.obligatory"|translate }}
+        </div>
+      </div>
+    </div>
+
+    <!-- Nr. of people -->
+    <ion-row>
+      <ion-item lines="none" class="form-field">
+        <ion-label>
+          <ion-icon name="people-outline"></ion-icon>
+          {{ "add-renter.number_of_individuals" | translate }}:
+        </ion-label>
+        <ion-input
+          formControlName="number_of_individuals"
+          type="number"
+          required
+          step="1"
+          min="1"
+          max="100"
+        ></ion-input>
+      </ion-item>
+    </ion-row>
+
+    <!-- Nr. of people Warning text -->
+    <div
+      class="form-warning"
+      *ngIf="
+        AddRenterForm.controls.number_of_individuals.dirty &&
+         (AddRenterForm.controls.number_of_individuals.errors?.required ||
+          AddRenterForm.controls.number_of_individuals.errors?.pattern  ||
+          AddRenterForm.controls.number_of_individuals.errors?.min      ||
+          AddRenterForm.controls.number_of_individuals.errors?.max)
+      "
+    >
+      <div class="text-danger">
+        <div
+          *ngIf="AddRenterForm.controls.number_of_individuals.errors?.required"
+        >
+          * {{"renter-errors.obligatory" | translate }}
+        </div>
+
+        <div
+          *ngIf="AddRenterForm.controls.number_of_individuals.errors?.pattern"
+        >
+          * {{"renter-errors.numbersOnly" | translate }}
+        </div>
+
+        <div *ngIf="AddRenterForm.controls.number_of_individuals.errors?.min">
+          * {{"renter-errors.moreThan0"|translate }}
+        </div>
+
+        <div *ngIf="AddRenterForm.controls.number_of_individuals.errors?.max">
+          * {{"renter-errors.lessThan9"|translate }}
+        </div>
+      </div>
+    </div>
+
+    <!-- Password generator -->
+    <ion-row id="password-generator-row">
+      <ion-item lines="none"><ion-label>{{"add-renter.password"|translate }}: </ion-label></ion-item>
+      <ion-input formControlName="password" readonly></ion-input>
+      <ion-button (click)="generatePassword()">{{ "add-renter.generate-password" | translate }}</ion-button>
+    </ion-row>
+
+    <!-- Cancel and submit buttons -->
+    <ion-row id="submit-btn-row">
+      <ion-item lines="none">
+        <ion-button
+          size="medium"
+          slot="start"
+          fill="outline"
+          (click)="PreviousPage()"
+          >{{ "add-renter.cancel" | translate }}</ion-button
+        >
+      </ion-item>
+      <ion-item lines="none">
+        <ion-button size="medium" slot="end" fill="outline" type="submit"
+          >{{ "add-renter.save" | translate }}</ion-button
+        >
+      </ion-item>
+    </ion-row>
+  </form>
+</ion-content>

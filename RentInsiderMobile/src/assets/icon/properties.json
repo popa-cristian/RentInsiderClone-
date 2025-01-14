@@ -1,0 +1,38 @@
+[
+    {
+        "title": "New Apartment",
+        "price": 80000,
+        "type": "apartment",
+        "county": "Cluj",
+        "city":"Cluj-Napoca",
+        "address": "str. Nicolae Iorga, nr. 8",
+        "surface": 5,
+        "partitioning":"rooms",
+        "floor": 3,
+        "Number_of_rooms": 2
+    },
+    {
+        "title": "Second Apartment",
+        "price": 55000,
+        "type": "apartment",
+        "county": "Alba",
+        "city":"Teius",
+        "address": "str. Avram Iancu, nr. 20",
+        "surface": 3,
+        "partitioning":"rooms",
+        "floor": 2,
+        "Number_of_rooms": 4
+    },
+    {
+        "title": "Apartment",
+        "price": 70000,
+        "type": "apartment",
+        "county": "Sibiu",
+        "city":"Medias",
+        "address": "str. Mihail Kogalniceanu, nr. 1",
+        "surface": 6,
+        "partitioning":"rooms",
+        "floor": 5,
+        "Number_of_rooms": 6
+    }
+]

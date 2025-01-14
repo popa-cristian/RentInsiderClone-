@@ -1,0 +1,154 @@
+<div class="wrapper-page">
+  <!-- Navbar - begin -->
+  <div class="wrapper-nav">
+    <!-- Navbar header - begin -->
+    <div id="nav-header">
+      <h2 class="title-text">Rent Insider</h2>
+    </div>
+    <!-- Navbar header - end -->
+
+    <!-- Nav upper content - begin -->
+    <div id="nav-upper-content">
+      <ul class="ul-nav">
+        <!-- Nav list of properties - begin -->
+        <li class="li-nav">
+          <label>
+            <span
+              *ngIf="listOfPropertiesIsShowed === true"
+              class="material-icons-outlined custom-nav-icon-normal"
+              (click)="showListOfProperties()"
+            >
+              expand_more
+            </span>
+            <span
+              *ngIf="listOfPropertiesIsShowed === false"
+              class="material-icons-outlined custom-nav-icon-normal"
+              (click)="showListOfProperties()"
+            >
+              chevron_right
+            </span>
+            {{ "owner-main-page.name" | translate }}
+          </label>
+          <ul
+            id="ul-properties"
+            [class.hidden]="listOfPropertiesIsShowed === false"
+          >
+            <li
+              class="li-property"
+              *ngFor="let item of properties"
+              [class.selected]="item === selectedItem"
+              (click)="onSelect(item)"
+            >
+              <span class="material-icons-outlined custom-nav-icon-small">
+                home
+              </span>
+              {{ item.title }}
+            </li>
+          </ul>
+        </li>
+        <!-- Nav list of properties - end -->
+        <!-- Nav add property - begin -->
+        <li class="li-nav">
+          <div class="tooltipTarget">
+            <label
+              [ngClass]="{
+                'has-tooltip': !properties,
+                'no-tooltip': properties
+              }"
+              (click)="openModal()"
+            >
+              <span class="material-icons custom-nav-icon-normal">
+                post_add
+              </span>
+              {{ "owner-main-page.add_property" | translate }}
+            </label>
+            <div class="tooltipWrapper">
+              <span class="tooltip animation-float"
+                ><p>
+                  {{ "owner-main-page.tooltip_add_property" | translate }}
+                </p></span
+              >
+            </div>
+          </div>
+        </li>
+        <!-- Nav add property - end -->
+        <!-- Nav edit personal info - begin -->
+        <li class="li-nav">
+          <label (click)="openModalDetails()">
+            <span class="material-icons-outlined custom-nav-icon-normal">
+              edit_note
+            </span>
+            {{ "owner-main-page.edit_info" | translate }}
+          </label>
+        </li>
+        <!-- Nav edit personal info - end -->
+      </ul>
+    </div>
+    <!-- Nav upper content - end -->
+
+    <!-- Nav bottom content - begin -->
+    <div id="nav-bottom-content">
+      <ul class="ul-nav">
+        <!-- Nav logout - begin -->
+        <li class="li-nav">
+          <label (click)="onLogout()">
+            <span
+              class="material-icons-outlined custom-nav-icon-normal"
+            >
+              logout
+            </span>
+            {{ "owner-main-page.logout.button-name" | translate }}
+          </label>
+        </li>
+        <!-- Nav logout - end -->
+        <!-- Nav list of language options - begin -->
+        <li class="li-nav">
+          <ul id="ul-languages">
+            <li class="li-language" (click)="openWiki()">
+              <img src="../../../assets/img/question.png" />
+            </li>
+            <li
+              class="li-language"
+              (click)="changeLanguage(importedLanguages.ro)"
+            >
+              <img src="../../../assets/icons/language-icons/romania.ico" />
+            </li>
+            <li
+              class="li-language"
+              (click)="changeLanguage(importedLanguages.eng)"
+            >
+              <img
+                src="../../../assets/icons/language-icons/united-kingdom.ico"
+              />
+            </li>
+          </ul>
+        </li>
+        <!-- Nav list of language options - end -->
+      </ul>
+    </div>
+    <!-- Nav bottom content - end -->
+  </div>
+  <!-- Navbar - end -->
+
+  <!-- Property content - begin -->
+  <div id="wrapper-property-content">
+    <!-- Property details - begin -->
+    <div id="property-detail" *ngIf="selectedItem">
+      <app-property-detail
+        [item]="selectedItem"
+        [selected_renter]="renter"
+      ></app-property-detail>
+    </div>
+    <!-- Property details - end -->
+    <!-- Property files details - begin -->
+    <div
+      id="property-files-details"
+      *ngIf="selectedItem"
+      style="margin-left: 4%"
+    >
+      <app-upload-detail></app-upload-detail>
+    </div>
+    <!-- Property files details - end -->
+  </div>
+  <!-- Property content - end -->
+</div>

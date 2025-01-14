@@ -1,0 +1,170 @@
+<div class="mat-dialog-container">
+  <!-- Modal's header -->
+  <div class="custom-modal-header">
+    <h2 class="custom-modal-header-content">
+      {{ "add_expenses.title" | translate }}
+    </h2>
+  </div>
+
+  <!-- Modal's content -->
+  <form
+    [formGroup]="ExpenseFormGroup"
+    (ngSubmit)="onSubmit()"
+    class="custom-modal-content white"
+  >
+    <div class="formContent two-column">
+      <!-- Provider -->
+      <label for="floatingInput">
+        <span class="material-icons-outlined"> precision_manufacturing </span>
+        {{ "add_expenses.supplier" | translate }}
+      </label>
+      <select
+        formControlName="service"
+        class="form-select-sm form-input"
+        aria-label="Default select example"
+        value="{{ 'add_expenses.supplier' | translate }}"
+      >
+        <option value="gas" selected>
+          {{ "add_expenses.gas" | translate }}
+        </option>
+        <option value="water">{{ "add_expenses.water" | translate }}</option>
+        <option value="internet">
+          {{ "add_expenses.internet" | translate }}
+        </option>
+        <option value="electricity">
+          {{ "add_expenses.electricity" | translate }}
+        </option>
+        <option value="rent">
+          {{ "add_expenses.rent" | translate }}
+        </option>
+        <option value="">{{ "add_expenses.other" | translate }}</option>
+      </select>
+      <!-- Possible bug: If the user types a known service, the input below dissapears
+      (as expected), but the select above doesn't change its value -->
+      <div
+        *ngIf="serviceExpenses[ExpenseFormGroup.value.service] === undefined"
+      >
+        <label>
+          {{ "add_expenses.additionalService" | translate }}
+        </label>
+      </div>
+      <div
+        *ngIf="serviceExpenses[ExpenseFormGroup.value.service] === undefined"
+      >
+        <input
+          type="text"
+          maxlength="30"
+          formControlName="service"
+          placeholder="Ex: fond rulment"
+        />
+      </div>
+      <!-- Consumtion -->
+      <label for="floatingInput">
+        <span class="material-icons-outlined"> loupe </span>
+        {{ "add_expenses.consum" | translate }}
+      </label>
+      <input
+        type="number"
+        min="0"
+        formControlName="consumed"
+        class="form-control form-input"
+        placeholder=" m3/kW"
+      />
+      <!-- Start date -->
+      <label for="floatingInput">
+        <span class="material-icons-outlined"> hourglass_top </span>
+        {{ "add_expenses.start" | translate }}
+      </label>
+      <input
+        type="date"
+        formControlName="start"
+        class="form-control form-input"
+        value=""
+      />
+      <!-- Finish date -->
+      <label for="floatingInput">
+        <span class="material-icons-outlined"> hourglass_bottom </span>
+        {{ "add_expenses.finish" | translate }}
+      </label>
+      <input
+        type="date"
+        formControlName="end"
+        class="form-control form-input"
+        value=""
+      />
+      <!-- Sum/Value to pay -->
+      <label for="floatingInput">
+        <span class="material-icons-outlined"> local_atm </span>
+        {{ "add_expenses.sum" | translate }}
+      </label>
+      <input
+        type="number"
+        formControlName="sum"
+        class="form-control form-input"
+        placeholder="0"
+      />
+      <!-- Expense type -->
+      <label for="floatingInput">
+        <span class="material-icons-outlined"> filter_alt </span>
+        {{ "add_expenses.type" | translate }}
+      </label>
+      <select formControlName="type" class="form-select-sm form-input">
+        <option value="estimation" selected>
+          {{ "add_expenses.readingType.estimation" | translate }}
+        </option>
+        <option value="regularization">
+          {{ "add_expenses.readingType.regularization" | translate }}
+        </option>
+        <option value="self-read">
+          {{ "add_expenses.readingType.self-read" | translate }}
+        </option>
+      </select>
+      <!-- Associated file (bill) -->
+      <label>
+        <span class="material-icons-outlined"> folder </span>
+        {{ "add_expenses.file" | translate }}
+      </label>
+      <input
+        style="margin-left: 5%"
+        type="file"
+        class="text-nowrap text-truncate"
+        (change)="selectFile($event)"
+      />
+      <div *ngIf="currentFileUpload" class="progress mt-2">
+        <div
+          style="
+            background-image: -webkit-linear-gradient(
+              top left,
+              #112d32,
+              #6e6658,
+              #88bdbc
+            );
+          "
+          class="progress-bar progress-bar-info"
+          role="progressbar"
+          attr.aria-valuenow="{{ percentage }}"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          [ngStyle]="{ width: percentage + '%' }"
+        >
+          {{ percentage }}%
+        </div>
+      </div>
+    </div>
+    
+    <!-- Modal's footer -->
+    <div class="custom-modal-footer">
+      <button
+        type="button"
+        class="btn btn-secondary footerButton"
+        mat-dialog-close
+        mat-button
+      >
+        {{ "add_expenses.cancel" | translate }}
+      </button>
+      <button type="submit" class="btn btn-primary footerButton">
+        {{ "add_expenses.save" | translate }}
+      </button>
+    </div>
+  </form>
+</div>

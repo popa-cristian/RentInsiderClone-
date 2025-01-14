@@ -1,0 +1,174 @@
+<div class="wrapper-page">
+  <!-- Navbar - begin -->
+  <div class="wrapper-nav">
+    <!-- Navbar header - begin -->
+    <div id="nav-header">
+      <h2 class="title-text">Rent Insider</h2>
+    </div>
+    <!-- Navbar header - end -->
+
+    <!-- Nav upper content - begin -->
+    <div id="nav-upper-content">
+      <ul class="ul-nav">
+        <!-- Nav add subject - begin -->
+        <li class="li-nav">
+          <label (click)="openModalAddSubject()">
+            <span class="material-icons custom-nav-icon-normal">
+              post_add
+            </span>
+            {{ "subject-list.add" | translate }}
+          </label>
+        </li>
+        <!-- Nav add subject - end -->
+        <!-- Nav back to main - begin -->
+        <li class="li-nav">
+          <label (click)="PreviousPage()">
+            <span class="material-icons-outlined custom-nav-icon-normal">
+              logout
+            </span>
+            {{ "subject-list.exit" | translate }}
+          </label>
+        </li>
+        <!-- Nav back to main - end -->
+      </ul>
+    </div>
+    <!-- Nav upper content - end -->
+
+    <!-- Nav bottom content - begin -->
+    <div id="nav-bottom-content">
+      <ul class="ul-nav">
+        <!-- Nav logout - begin -->
+        <li class="li-nav">
+          <label (click)="onLogout()">
+            <span class="material-icons-outlined custom-nav-icon-normal">
+              logout
+            </span>
+            {{ "owner-main-page.logout.button-name" | translate }}
+          </label>
+        </li>
+        <!-- Nav logout - end -->
+        <!-- Nav list of language options - begin -->
+        <li class="li-nav">
+          <ul id="ul-languages">
+            <li class="li-language" (click)="openWiki()">
+              <img src="assets/img/question.png" />
+            </li>
+            <li
+              class="li-language"
+              (click)="changeLanguage(importedLanguages.ro)"
+            >
+              <img src="assets/icons/language-icons/romania.ico" />
+            </li>
+            <li
+              class="li-language"
+              (click)="changeLanguage(importedLanguages.eng)"
+            >
+              <img src="assets/icons/language-icons/united-kingdom.ico" />
+            </li>
+          </ul>
+        </li>
+        <!-- Nav list of language options - end -->
+      </ul>
+    </div>
+    <!-- Nav bottom content - end -->
+  </div>
+  <!-- Navbar - end -->
+
+  <!-- Chatroom - begin -->
+  <div id="wrapper-chatroom">
+    <!-- Subject list - begin -->
+    <div id="chatroom-subject-list">
+      <!-- Subject list header - begin -->
+      <div id="subject-list-header">
+        {{ "subject-list.title" | translate }}
+        <hr class="title-underline" />
+      </div>
+      <!-- Subject list header - end -->
+      <!-- Subject list content - begin -->
+      <div id="subject-list-content" class="mat-elevation-z8 table_class">
+        <table
+          id="center_table"
+          mat-table
+          [dataSource]="subjects"
+          matSort
+          matSortActive="title"
+          matSortDisableClear
+          matSortDirection="asc"
+        >
+          <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef>
+              {{ "subject-list.subjects" | translate }}
+            </th>
+            <td mat-cell *matCellDef="let subject">
+              {{ subject.title }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="importance">
+            <th mat-header-cell *matHeaderCellDef>
+              {{ "subject-list.importance" | translate }}
+            </th>
+            <td mat-cell *matCellDef="let subject">
+              {{ subject.importance }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef>
+              {{ "subject-list.description" | translate }}
+            </th>
+            <td mat-cell *matCellDef="let subject">
+              {{ subject.description }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>
+              {{ "subject-list.option1" | translate }}/{{
+                "subject-list.option2" | translate
+              }}
+            </th>
+            <td mat-cell *matCellDef="let subject" id="options_cell">
+              <button
+                class="button-icon"
+                type="button"
+                (click)="openUpdateSubjectModal(subject)"
+              >
+                <span class="material-icons-outlined"> edit </span>
+              </button>
+              <button
+                class="button-icon"
+                type="button"
+                (click)="deleteSubject(subject.id)"
+              >
+                <span class="material-icons-outlined"> delete </span>
+              </button>
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr
+            mat-row
+            *matRowDef="let subject; columns: displayedColumns"
+            [class.selected]="subject === selectedSubject"
+            (click)="enterChat(subject)"
+          ></tr>
+        </table>
+      </div>
+      <!-- Subject list content - end -->
+    </div>
+    <!-- Subject list - end -->
+    <!-- Conversation - begin -->
+    <div id="chatroom-conversation">
+      <!-- Conversation header - begin -->
+      <div *ngIf="selectedSubject">
+        {{ "subject-list.conv" | translate }}
+        <hr class="title-underline" />
+      </div>
+      <!-- Conversation header - end -->
+      <!-- Conversation content - begin -->
+      <div id="conversation-content" *ngIf="selectedSubject">
+        <app-chat-room [subject]="selectedSubject"></app-chat-room>
+      </div>
+      <!-- Conversation content - end -->
+    </div>
+    <!-- Conversation - end -->
+  </div>
+  <!-- Chatroom - end -->
+</div>

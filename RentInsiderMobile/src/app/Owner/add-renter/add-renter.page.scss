@@ -1,0 +1,168 @@
+.culoare{
+    --background:#88BDBC !important;
+}
+
+ion-content, ion-item{
+    --background:#112D32;
+}
+
+ion-label, ion-input{
+    --color:white !important;
+    color:white !important;
+}
+
+form.add-renter ion-row {
+  width: 100%;
+}
+
+/* Password generator row */
+/* Cancel + Submit button row */
+#submit-btn-row,
+#password-generator-row {
+  padding: 0 15px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+#password-generator-row ion-label {
+  min-width: 120px;
+}
+
+
+#password-generator-row ion-input,
+#password-generator-row ion-button {
+  min-width: 155px;
+  box-sizing: border-box;
+  margin-left: 15px;
+  text-align: center;
+}
+
+#password-generator-row ion-input {
+  --background: #19444d;
+}
+
+#password-generator-row ion-button {
+  --background: #1f545e;
+}
+
+/* password invalid */
+#password-generator-row ion-input.ion-invalid {
+  border-bottom: 2px solid tomato;
+  transition: border 200ms;
+}
+
+#submit-btn-row ion-button {
+  color: white;
+  --border-color: white;
+  margin: 0;
+}
+
+/* gets warning text closer to the text field */
+.form-warning {
+    margin-top: -2px;
+ }
+  
+  /* resets form-warning margin top for the warning text so it does not
+    go under the text box*/
+  .text-danger > div {
+    color: tomato;
+    font-weight: bold;
+    font-size: 13px;
+    margin-top: 0px;
+    margin-left: 38px;
+    margin-right: 30px;
+  
+    animation-duration: 300ms;
+    animation-name: appear;
+  }
+  
+  @keyframes appear {
+    from {
+      max-height: 0px;
+      transform: scale(0);
+      opacity: 0;
+    }
+  
+    to {
+      max-height: 40px;
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  /* Typing */
+form.add-renter .form-field {
+    /* display block and margin auto are mandatory for centering
+    when shrinking the text box with width */
+    display: block;
+    margin: auto;
+    /* transition for focus and hover; only needed on the element
+    with no status such as focus or hover
+    
+     for the transition to be possible, the other classes (focus, hover)
+    need to have different values for "border" and "width"
+    
+    width is used to shrink the text box on hover
+    
+    dirty = modified*/
+    transition:  border-width 100ms ease-out, border-color 200ms ease-out, width 200ms ease-out;
+    border-bottom: 0px solid #112D32 !important;
+    border-left: 0px solid #112D32 !important;
+    border-top: 0px solid #112D32 !important;
+    border-color: #112D32;
+    border-radius: 1px;
+    width: 100%;
+}
+
+form.add-renter .form-field.item-has-focus {
+  outline: none;
+  transition:  border-width 100ms ease-out, border-color 200ms ease-out,  width 200ms ease-out;
+  border-bottom: 5px solid #88BDBC !important;
+  border-left: 3px solid #88BDBC !important;
+  border-color: #88BDBC;
+  width: 97%;
+}
+
+/* Modified && Invalid */
+form.add-renter .form-field.ion-invalid.ion-dirty {
+  border-bottom: 1px solid tomato !important;
+  border-left: 0px solid tomato !important;
+  transition:  border-width 100ms ease-out,  width 200ms ease-out;
+  width: 100%;
+}
+
+/* Modified && Invalid [Focus]*/
+form.add-renter .form-field.ion-invalid.ion-dirty.item-has-focus {
+    transition:  border-width 100ms ease-out,  width 200ms ease-out;
+  border-bottom: 5px solid tomato !important;
+  border-left: 3px solid tomato !important;
+  width: 96%;
+}
+
+form.add-renter .form-field.ion-valid.ion-dirty {
+    border-bottom: 1px solid#88bdbc !important;
+    border-left: 0px solid #88BDBC !important;
+    transition:  border-width 100ms ease-out,  width 200ms ease-out;
+  width: 100%;
+}
+
+/* Modified && Valid */
+form.add-renter .form-field.ion-valid.ion-dirty.item-has-focus {
+    transition:  border-width 100ms ease-out,  width 200ms ease-out;
+    border-bottom: 5px solid#88bdbc !important;
+    border-left: 3px solid #88BDBC !important;
+  width: 97%;
+}
+
+
+/* reposition 'generate password button' */
+@media screen and (max-width: 550px) {
+  #password-generator-row ion-button {
+    margin: 20px auto 0 auto;
+  }
+
+  #password-generator-row ion-input {
+    margin-right: 15px;
+  }
+}

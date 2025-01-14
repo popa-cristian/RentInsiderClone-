@@ -1,0 +1,117 @@
+<ion-header>
+  <ion-toolbar class="culoare">
+    <ion-buttons slot="start" (click)="close()">
+      <ion-icon size="large" name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+
+    <ion-title>{{ "owner-details.title" | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="OwnerDetailsForm">
+    <ion-item lines="full">
+      <ion-label position="floating"
+        ><ion-icon name="person-outline"></ion-icon>{{ "owner-details.lastName"
+        | translate }}</ion-label
+      >
+      <ion-input
+        type="text"
+        style="color: white"
+        formControlName="lastName"
+        readonly
+      ></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating"
+        ><ion-icon name="person-outline"></ion-icon>{{ "owner-details.firstName"
+        | translate }}</ion-label
+      >
+      <ion-input
+        type="text"
+        style="color: white"
+        formControlName="firstName"
+        readonly
+      ></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating"
+        ><ion-icon name="mail-outline"></ion-icon>{{ "owner-details.email" |
+        translate }}</ion-label
+      >
+      <ion-input
+        type="text"
+        style="color: white"
+        formControlName="email"
+        readonly
+      ></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating"
+        ><ion-icon name="id-card-outline"></ion-icon>{{ "owner-details.cnp" |
+        translate }}</ion-label
+      >
+      <ion-input
+        type="text"
+        style="color: white"
+        formControlName="cnp"
+        readonly
+      ></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating"
+        ><ion-icon name="call-outline"></ion-icon>{{ "owner-details.phone" |
+        translate }}</ion-label
+      >
+      <ion-input
+        type="text"
+        style="color: white"
+        formControlName="firstPhoneNumber"
+        readonly
+      ></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating"
+        ><ion-icon name="call-outline"></ion-icon>{{ "owner-details.phone2" |
+        translate }}</ion-label
+      >
+      <ion-input
+        type="text"
+        style="color: white"
+        formControlName="secondPhoneNumber"
+        readonly
+      ></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating"
+        ><ion-icon name="keypad-outline"></ion-icon>{{ "owner-details.bank" |
+        translate }}</ion-label
+      >
+      <ion-input
+        type="text"
+        style="color: white"
+        formControlName="bankAccount"
+        readonly
+      ></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating"
+        ><ion-icon name="home-outline"></ion-icon>{{ "owner-details.address" |
+        translate }}</ion-label
+      >
+      <ion-input
+        type="text"
+        style="color: white"
+        formControlName="address"
+        readonly
+      ></ion-input>
+    </ion-item>
+  </form>
+</ion-content>

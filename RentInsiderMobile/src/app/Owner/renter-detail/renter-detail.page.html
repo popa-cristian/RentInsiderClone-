@@ -1,0 +1,165 @@
+<ion-header>
+  <ion-toolbar class="culoare">
+    <ion-buttons slot="start" (click)="close()">
+      <ion-icon size="large" name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+
+    <ion-title>{{ "renter-detail.title" | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="currentRenter">
+    <!-- Last name -->
+    <ion-item lines="full">
+      <ion-label position="floating"
+        ><ion-icon name="person-outline"></ion-icon>{{ "renter-detail.lastName"
+        | translate }}</ion-label
+      >
+      <ion-input
+        type="text"
+        style="color: white"
+        value="{{currentRenter.lastName}}"
+        readonly
+      ></ion-input>
+    </ion-item>
+
+    <!-- First name -->
+    <ion-item lines="full">
+      <ion-label position="floating"
+        ><ion-icon name="person-outline"></ion-icon>{{ "renter-detail.firstName"
+        | translate }}</ion-label
+      >
+      <ion-input
+        type="text"
+        style="color: white"
+        value="{{currentRenter.firstName}}"
+        readonly
+      ></ion-input>
+    </ion-item>
+
+    <!-- CNP (numerical personal code) -->
+    <ion-item lines="full">
+      <ion-label position="floating"
+        ><ion-icon name="id-card-outline"></ion-icon>{{ "renter-detail.cnp" |
+        translate }}</ion-label
+      >
+      <ion-input
+        type="text"
+        style="color: white"
+        value="{{currentRenter.cnp}}"
+        readonly
+      ></ion-input>
+    </ion-item>
+
+    <!-- Address -->
+    <ion-item lines="full">
+      <ion-label position="floating"
+        ><ion-icon name="home-outline"></ion-icon>{{ "renter-detail.address" |
+        translate }}</ion-label
+      >
+      <ion-input
+        type="text"
+        style="color: white"
+        value="{{currentRenter.address}}"
+      ></ion-input>
+    </ion-item>
+
+    <!-- Email -->
+    <ion-item lines="full">
+      <ion-label position="floating"
+        ><ion-icon name="mail-outline"></ion-icon>{{ "renter-detail.email" |
+        translate }}</ion-label
+      >
+      <ion-input
+        type="text"
+        style="color: white"
+        value="{{currentRenter.email}}"
+      ></ion-input>
+    </ion-item>
+
+    <!-- Phone number -->
+    <ion-item lines="full">
+      <ion-label position="floating"
+        ><ion-icon name="call-outline"></ion-icon>{{ "renter-detail.phone" |
+        translate }}</ion-label
+      >
+      <ion-input
+        type="text"
+        style="color: white"
+        value="{{currentRenter.telephone}}"
+        readonly
+      ></ion-input>
+    </ion-item>
+
+    <!-- Second phone number -->
+    <ion-item lines="full">
+      <ion-label position="floating"
+        ><ion-icon name="call-outline"></ion-icon>{{ "renter-detail.secondPhone" |
+        translate }}</ion-label
+      >
+      <ion-input
+        type="text"
+        style="color: white"
+        value="{{currentRenter.secondPhoneNumber}}"
+        readonly
+      ></ion-input>
+    </ion-item>
+
+    <!-- Number of people living in the apartment (?) -->
+    <ion-item lines="full">
+      <ion-label position="floating"
+        ><ion-icon name="people-circle-outline"></ion-icon>{{
+        "renter-detail.pers" | translate }}</ion-label
+      >
+      <ion-input
+        type="text"
+        style="color: white"
+        value="{{currentRenter.number_of_individuals}}"
+        readonly
+      ></ion-input>
+    </ion-item>
+
+    <!-- Bank account -->
+    <ion-item lines="full">
+      <ion-label position="floating"
+        ><ion-icon name="people-circle-outline"></ion-icon>{{
+        "renter-detail.bank" | translate }}</ion-label
+      >
+      <ion-input
+        type="text"
+        style="color: white"
+        value="{{currentRenter.bankAccount}}"
+        readonly
+      ></ion-input>
+    </ion-item>
+
+    <!-- First auxiliary payment method -->
+    <ion-item lines="full">
+      <ion-label position="floating"
+        ><ion-icon name="people-circle-outline"></ion-icon>{{
+        "renter-detail.pay-method" | translate }} 1</ion-label
+      >
+      <ion-input
+        type="text"
+        style="color: white"
+        value="{{currentRenter.firstAuxiliaryPaymentMethod}}"
+        readonly
+      ></ion-input>
+    </ion-item>
+
+    <!-- Second auxiliary payment method -->
+    <ion-item lines="full">
+      <ion-label position="floating"
+        ><ion-icon name="people-circle-outline"></ion-icon>{{
+        "renter-detail.pay-method" | translate }} 2</ion-label
+      >
+      <ion-input
+        type="text"
+        style="color: white"
+        value="{{currentRenter.secondAuxiliaryPaymentMethod}}"
+        readonly
+      ></ion-input>
+    </ion-item>
+  </div>
+</ion-content>

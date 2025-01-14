@@ -1,0 +1,223 @@
+/* # # # # # # # # # # # # # # # # # */
+/* # # # # # START_TOOLTIP # # # # # */
+
+/* TO DO entrance animation with a delay
+  TO DO need to adapt the animation to the positioning of the tooltip TO DO
+*/
+
+/* Usage: 
+  <div class="tooltipTarget">
+    <tag [ngClass]="{'has-tooltip': condition, 'no-tooltip': condition}">
+        ...
+    </tag>
+    <div class="tooltipWrapper">
+      <span class="tooltip"><p>  [tooltip text] </p></span>
+    </div>
+  </div>
+
+  Use one of the following 3 classes to align your tooltip:
+
+  * For more info read below
+*/
+
+/* tooltip container
+- Used to position the tooltip correctly
+- Stores variables for whole tooltip */
+
+.float-top {
+    --tooltip-position-top: 1;
+    --tooltip-position-right: 0;
+    --tooltip-position-down: 0;
+    --tooltip-position-left: 0;
+}
+
+.float-right {
+    --tooltip-position-top: 0;
+    --tooltip-position-right: 1;
+    --tooltip-position-down: 0;
+    --tooltip-position-left: 0;
+}
+
+.float-left {
+    --tooltip-position-top: 0;
+    --tooltip-position-right: 0;
+    --tooltip-position-down: 0;
+    --tooltip-position-left: 1;
+}
+
+.tooltipTarget {
+    --tooltip-shadow: black;
+    --tooltip-background-color: rgba(78, 197, 163, 0.9);
+    --tooltip-arrow-color: rgba(255,255,255,0.85);
+    --tooltip-text-color: white;
+  
+    /* tooltip dimension */
+    --tooltip-height: 60px;
+    --tooltip-width: 200px;
+  
+    /* set 1 for the position where you want your tooltip to be relative to the content 
+      ONLY ONE SHOULD BE EQUAL TO 1
+      all can be 0 if want to be on top*/
+    --tooltip-position-top: 0;
+    --tooltip-position-right: 1; /* Default */
+    --tooltip-position-down: 0; /* doesn't work as expected for now */
+    --tooltip-position-left: 0;
+  
+    position: relative;
+    
+  }
+  
+  .tooltipWrapper {
+    position: absolute;
+    will-change: transform, opacity;
+    margin: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+  
+    opacity: 1;
+    /* transition and animation must have the same lenght*/
+    animation: expand 0.5s ease-in-out 4s;
+    transition: 0.5s ease-in-out 4s;
+    transform-origin: center;
+    pointer-events: none;
+  }
+  
+  /* tootltips visible */
+  .has-tooltip:visited + .tooltipWrapper,
+  .has-tooltip:focus + .tooltipWrapper,
+  .has-tooltip:hover + .tooltipWrapper {
+    opacity: 0;
+      transform: scaleX(0) scaleY(0);
+    animation: none;
+    animation: shrink 0.36s ease-in-out;
+    pointer-events: none;
+  }
+  
+  /* tooltips hidden */
+  .no-tooltip + .tooltipWrapper {
+    display: none;
+    pointer-events: none;
+  }
+  
+  .tooltip {
+    will-change: transform; /* smoother animations for text */
+  
+    visibility: visible;
+    display: inline;
+    vertical-align: center;
+    top: 0px;
+    left: 50%;
+    width: 95%;
+    max-width: 100vw;
+    padding: 10px 30px;
+  
+    border-radius: 5px;
+    background: var(--tooltip-background-color);
+      text-align: center;
+      color: var(--tooltip-text-color);
+    font-weight: bold;
+  
+    /* START floating position */
+    /* centering verticaly and horizontaly */
+    height: var(--tooltip-height);
+    width: var(--tooltip-width);
+    position: absolute;
+  
+    /* used as condition to know if we are positioning horizontaly or verticaly */
+    --left-or-right: calc(var(--tooltip-position-left) + var(--tooltip-position-right));
+    --up-or-down: calc(var(--tooltip-position-top) + var(--tooltip-position-down));
+  
+    /* left and top are used as part of centering only in the case needed*/
+    left: calc(50% * var(--up-or-down));
+    --center-with-left-margin: calc(var(--tooltip-width) / -2); /* these variables are the second step in centering correctly and are put into the calc() below */
+    top: calc(50% * var(--left-or-right));
+    --center-with-top-margin: calc(var(--tooltip-height) / -2);
+  
+    /* here we offset the position to be outside of the element targeted (at the according position) and then we apply the second step for centering described above */
+    --mTop: calc(100% * var(--tooltip-position-down) - var(--tooltip-height) * var(--tooltip-position-top) + var(--center-with-top-margin) * var(--left-or-right));
+    --mRight: 0;
+    --mDown: 0;
+    --mLeft: calc(100% * var(--tooltip-position-right) - var(--tooltip-width) * var(--tooltip-position-left) + var(--center-with-left-margin) * var(--up-or-down));
+  
+    /* The notation order is clockwise notation and NOT related to where you want to position your tooltip*/
+    margin: var(--mTop) var(--mRight) var(--mDown) var(--mLeft);
+  
+    /* END floating position */
+    
+    opacity: 1;
+      
+    z-index: 5;
+  
+    transition: 0.18s ease-in-out;
+    pointer-events: inherit;
+  }
+  
+  /* tooltip's arrow */
+  /* you can put it ::before or ::after the tooltip (top/bottom)
+  and then use top,bottom,left,right properties to position it correctly */
+  .tooltip::before {
+    content: "";
+    display: block;
+    margin: 0 auto;
+    width: 0;
+    height: 0;
+    border: 5px solid transparent var(--tooltip-arrow-color);
+    border-right: 5px solid ; /* opposite direction you want it to point to */
+    position: absolute;
+    left: -10px;
+    top: 40%;
+  }
+  
+  /* float animation */
+  .animation-float {
+    animation: float 4s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+      0% {
+          box-shadow: 0 5px 15px 0px rgba(var(--tooltip-shadow),0.6);
+          transform: translate(0, 0);
+      }
+      50% {
+          box-shadow: 0 10px 15px 0px rgba(var(--tooltip-shadow),0.2);
+          transform: translate(20px, 0);
+      }
+      100% {
+          box-shadow: 0 5px 15px 0px rgba(var(--tooltip-shadow),0.6);
+          transform: translate(0, 0);
+      }
+  }
+  
+  /* shrink animation */
+  @keyframes shrink {
+    0% {
+      transform: scaleX(1) scaleY(1);
+    }
+    50% {
+      transform: scaleX(1) scaleY(0.2);
+    }
+    100% {
+      transform: scaleX(0) scaleY(0.1);
+    }
+  }
+  
+  /* expand animation not yet used for tooltips because of some bugs */
+  @keyframes expand {
+    0% {
+      transform: scaleX(0) scaleY(0);
+      }
+    20% {
+      transform: scaleX(1) scaleY(0.2);
+    }
+      100% {
+          transform: scaleX(1) scaleY(1);
+      }
+  }
+  
+  /* # # # # # END_TOOLTIP # # # # # */
+  

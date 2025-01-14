@@ -1,0 +1,31 @@
+<ion-menu  menuId="rent" contentId="rentmenu">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>RentInsider</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+
+  <div *ngIf="currentRenter" (click)="openModalDetails()">
+    <ion-menu-toggle>
+      <ion-item routerDirection="root" [routerLink]="" detail="false" lines="none">
+        <ion-icon slot="start" name="create"></ion-icon>
+        <ion-label>{{  "rent-main.edit"  | translate }}</ion-label>
+      </ion-item>
+    </ion-menu-toggle>
+  </div>
+
+  <div (click)="close()">
+    <ion-menu-toggle>
+      <ion-item routerDirection="root" [routerLink]="" detail="false" lines="none">
+        <ion-icon slot="start" name="exit"></ion-icon>
+        <ion-label>{{ "owner-main-menu-page.logout" | translate }}</ion-label>
+      </ion-item>
+    </ion-menu-toggle>
+  </div>
+
+  </ion-content>
+</ion-menu>
+
+<ion-router-outlet id="rentmenu"></ion-router-outlet>

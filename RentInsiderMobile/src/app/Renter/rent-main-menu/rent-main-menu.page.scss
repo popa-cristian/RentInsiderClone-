@@ -1,0 +1,65 @@
+
+ion-toolbar{
+    --background:#88BDBC !important;
+}
+
+ion-title{
+    --color:white;
+}
+
+ion-content, ion-item{
+    --background:#112D32;
+}
+
+ion-label, ion-icon{
+    --color:white !important;
+    color:white !important;
+}
+
+.item-center {
+    // [+] Centering
+    display: block;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+    // change min-width and width where needed in custom class (like btn/btn2)
+    // [-] Centering
+}
+
+// for change language buttons
+#language-icons {
+    margin-top: 8px;
+}
+
+#language-icons > li.li-nav {
+    list-style-type: none;
+    position: relative;
+}
+
+.button-language {
+    background-color: transparent;
+    border: none;
+    color: white;
+    padding: 9px;
+}
+
+.button-language > img {
+    width: 24px;
+    height: 24px;
+    margin: 0;
+    padding: 0;
+}
+
+.button-info {
+    background-color: transparent;
+    border: none;
+    color: white;
+    padding: 9px;
+}
+
+.button-info > img {
+    width: 24px;
+    height: 24px;
+    margin: 0;
+    padding: 0;
+}

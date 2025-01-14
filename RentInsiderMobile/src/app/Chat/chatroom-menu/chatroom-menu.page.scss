@@ -1,0 +1,64 @@
+
+ion-toolbar{
+    --background:#88BDBC !important;
+}
+
+ion-title{
+    --color:white;
+}
+
+ion-content, ion-item{
+    --background:#112D32;
+}
+
+ion-label, ion-icon{
+    --color:white !important;
+    color:white !important;
+}
+
+ion-menu[contentId='chatmenu'] #back-btn {
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+ion-menu[contentId='chatmenu'] ion-menu-toggle ion-item.selected {
+    --background:#215861;
+}
+
+ion-footer {
+    margin-top: 6px;
+}
+
+.item-center {
+    // [+] Centering
+    display: block;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+    // [-] Centering
+}
+
+// for change language buttons
+#language-icons {
+    margin-top: 8px;
+    position: relative;
+}
+
+#language-icons > li.li-nav {
+    list-style-type: none;
+}
+
+.button-language {
+    background-color: transparent;
+    border: none;
+    color: white;
+    padding: 9px;
+}
+
+.button-language > img {
+    width: 24px;
+    height: 24px;
+    margin: 0;
+    padding: 0;
+}

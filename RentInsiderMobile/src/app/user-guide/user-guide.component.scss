@@ -1,0 +1,77 @@
+
+ion-toolbar{
+    --background:#88BDBC !important;
+}
+
+ion-title{
+    --color:white;
+}
+
+ion-content, ion-item{
+    --background:#112D32;
+}
+
+ion-label{
+    --color:white !important;
+    color:rgba(105, 204, 199, 0.877);
+}
+
+ion-icon{
+    --color:white !important;
+    columns: white;
+}
+
+#wikiTextRow {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+
+}
+
+#wikiTextItem{
+        width:100%;
+        min-width: 150px;
+
+    }
+
+#TitleWiki{
+    font-size: 90%;
+    text-align: center;
+    color:white;
+    
+}
+
+#TextWiki{
+    font-size: 75%;
+    text-align: center;
+    color:rgb(19, 209, 92) !important;
+}
+
+#language-icons {
+    margin-top: 8px;
+}
+
+#language-icons > li.li-nav {
+    list-style-type: none;
+    position: relative;
+}
+
+.button-language {
+    background-color: transparent;
+    border: none;
+    color: white;
+    padding: 9px;
+}
+
+.button-language > img {
+    width: 24px;
+    height: 24px;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+
+

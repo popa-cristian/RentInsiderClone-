@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar id="add-subject-toolbar">
+    <ion-buttons slot="start" (click)="PreviousPage()">
+      <ion-icon size="large" name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+
+    <div *ngIf="currentSubject" class="column-title">
+      <ion-title>{{ "add-subject.title-modal-edit" | translate }}</ion-title>
+    </div>
+    <div *ngIf="!currentSubject" class="column-title">
+      <ion-title>{{ "add-subject.title-modal" | translate }}</ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content id="add-subject-form-container">
+  <form [formGroup]="subjectForm" (ngSubmit)="onSubmit()">
+
+    <ion-row>
+      <ion-item lines="none" class="label-container">
+        <ion-icon name="clipboard-outline"></ion-icon>
+        <ion-label>{{"add-subject.title-text-box" | translate }}</ion-label>
+      </ion-item>
+      <ion-input class="form-input" type="text" formControlName="title" required maxlength="70"></ion-input>
+    </ion-row>
+   
+    <ion-row>
+      <ion-item lines="none" class="label-container">
+        <ion-icon name="copy-outline"></ion-icon>
+        <ion-label>{{ "add-subject.description"| translate }}</ion-label>
+      </ion-item>
+      <ion-input id="description" class="form-input" type="text" formControlName="description" required maxlength="200"></ion-input>  
+    </ion-row>
+    
+    <ion-row>
+      <ion-item lines="none" class="label-container">
+        <ion-icon name="alert-circle-outline"></ion-icon>
+        <ion-label>{{ 'add-subject.importance' | translate }}</ion-label>
+      </ion-item>
+      <ion-select
+        class="form-input"
+        interface="alert"
+        formControlName="importance"
+        required>
+        <ion-select-option value="Normal">{{ "add-subject.normal" | translate }}</ion-select-option>
+        <ion-select-option value="Important">{{ "add-subject.important" | translate }}</ion-select-option>
+        <ion-select-option value="Urgent">{{ "add-subject.urgent" | translate }}</ion-select-option>
+      </ion-select>
+    </ion-row>
+   
+    <ion-row id="save-btn-container">
+      <ion-button
+        id="save-btn"
+        size="medium"
+        fill="outline"
+        type="submit"
+      >
+        {{ "add-subject.save" | translate }}
+      </ion-button>
+    </ion-row>
+  </form>
+</ion-content>

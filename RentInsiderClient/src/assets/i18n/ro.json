@@ -1,0 +1,419 @@
+{
+    "authentification":{
+        "title": "Autentificare - RentInsider",
+        "choose": "Alegere rol pentru autentificare",
+        "choice1": "Proprietar",
+        "choice2": "Chirias",
+        "email": "E-mail",
+        "password": "Parola",
+        "log": "Autentificare",
+        "passreset": "Ti-ai uitat parola?",
+        "recover": "Recupereaza" ,
+        "registration": "Nu ai cont? Mergi la pagina de ",
+        "reg": "inregistrare",
+
+        "req-choose": "Se cere o optiune",
+        "req-email": "Se cere o adresa de e-mail",
+        "invalid-email": "Adresa de email trebuie sa fie valida",
+        "req-password": "Se cere o parola",
+        "on-submit": {
+            "error": {
+                "wrong-credentials": {
+                    "title": "Credentiale gresite",
+                    "message": "Ai introdus un email sau o parola gresita!"
+                }
+            }
+        },
+        "reset-password": {
+            "success": {
+                "title": "Resetare parola",
+                "message": "Un link pentru resetarea parolei a fost trimis pe acesta adresa de email!"
+            },
+            "error": {
+                "empty-email": {
+                    "title": "Lipsa email",
+                    "message": "Pentru a schimba parola este nevoie de o adresa de email valida!"
+                },
+                "wrong-email": {
+                    "title": "Email nerecunoscut",
+                    "message": "Pentru a schimba parola este nevoie de o adresa de email valida!"
+                }
+            }
+        }
+    },
+
+    "errors":{
+        "lastNameRequired": "Se cere un nume",
+        "firstNameRequired": "Se cere un prenume",
+        "emailRequired": "Se cere o adresă de email",
+        "validEmailRequired": "Se cere o adresă de email validă",
+        "cnpFormat": "Se cere un CNP valid (trebuie să aibă 13 cifre)",
+        "cnpControlDigit": "Se cere un CNP valid (asigură-te că ai introdus corect CNP)",
+        "phoneRequired": "Se cere un număr de telefon"
+    },
+
+    "registration":{
+        "title": "Inregistrare",
+        "lastname": "Nume",
+        "firstname": "Prenume",
+        "email": "E-mail",
+        "phone": "Telefon",
+        "password": "Parola",
+        "reg": "Inregistrare",
+        "acc": "Ai deja un cont?",
+        "log": "Autentifica-te",
+
+        "req-lastname": "Se cere un nume",
+        "req-firstname": "Se cere un prenume",
+        "req-email": "Se cere o adresa de e-mail",
+        "invalid-email": "Adresa de email trebuie sa fie valida",
+        "req-phone": "Se cere un numar de telefon",
+        "req-password": "Se cere o parola",
+        "invalid-passowrd": "Parola trebuie sa aiba cel putin 6 caractere"
+
+    },
+
+    "owner-main-page":{
+        "name": "Lista proprietatilor",
+        "add_property": "Adaugă proprietate" ,
+        "edit_info": "Editare informatii personale",
+        "logout": {
+            "button-name": "Deconectare",
+            "confirmation-dialog":{
+                "title": "Confirmare deconectare",
+                "message": "Esti sigur ca vrei sa te deconectezi?"
+            }
+        },
+        "property_info": "Informatii proprietate",
+        "expenses": "Cheltuieli",
+        "change_language": "Schimbati limba",
+
+        "tooltip_add_property": "Click pentru a adauga o proprietate"
+    },
+
+    "property-detail":{
+        "renter": "Chiriaș",
+        "date": "Data plății chiriei",
+        "water": "Index apă (mc)",
+        "address": "Adresa",
+        "city": "Oraș",
+        "county": "Județ",
+        "floor": "Etaj",
+        "rooms": "Camere",
+        "compart": "Compartimentare",
+        "price": "Preț (RON/lună)",
+        "surface": "Suprafață (mp)",
+        "edit-property": "Editare proprietate",
+        "add": "Adaugă",
+        "delete-property": "Stergere proprietate",
+
+        "delete-renter-modal-title": "Sunteti sigur ca vreti sa stergeti acest chirias ?",
+        "delete-property-modal-title": "Sunteti sigur ca vreti sa stergeti aceasta proprietate ? Veti sterge si chiriasul !",
+        "delete-modal-error": "A aparut o eroare...",
+        "delete-modal-cancel": "Renunta",
+        "delete-modal-delete": "Sterge"
+    },
+
+    "info-renter":{
+        "title": "Date chirias",
+        "lastname":"Nume",
+        "firstname":"Prenume",
+        "cnp": "CNP",
+        "address":"Adresa",
+        "email":"E-mail",
+        "phone":"Telefon",
+        "pers": "Numar persoane"
+    },
+
+    "renter":{
+        "title": "Adauga un chirias",
+        "lastname":"Nume",
+        "firstname":"Prenume",
+        "cnp": "CNP",
+        "address":"Addresa de domiciliu",
+        "email":"Adresa de e-mail",
+        "phone":"Numar de telefon",
+        "pers": "Nr. de persoane",
+        "pass": "Parola generata",
+        "generate": "Genereaza parola",
+        "close": "Renunta",
+        "submit": "Adauga"
+    },
+
+    "renter-success": {
+        "title": "Succes!",
+        "message": "Chiriasul a fost adaugat cu succes",
+        "close": "Inchide"
+    },
+
+    "add-property":{
+        "add_title": "Adaugă proprietate",
+        "edit_title": "Editare proprietate",
+        "title": "Titlu",
+        "county":"Județ",
+        "locality": "Localitate",
+        "address": "Adresa",
+        "price": "Pret",
+        "surface": "Suprafata",
+        "compart": "Compartimentare",
+        "floor": "Etaj",
+        "rooms": "Camere",
+        "date": "Plata chirie",
+        "water": "Index apa",
+        "cancel": "Anulare",
+        "save": "Salvare",
+        "comparts":{
+            "detached": "Decomandat",
+            "semidetached": "Semidecomandat",
+            "nondetached": "Nedecomandat"
+        },
+        "on-submit": {
+            "success": {
+                "title": "Proprietatea a fost adaugata cu succes",
+                "message": "Proprietatea ta a fost adaugata cu succes!"
+            },
+            "error": {
+                "title": "Proprietatea nu a fost adaugata",
+                "message": "Ai introdus niste informatii nepotrivite despre proprietate!"
+            }
+        }
+    },
+
+    "upload-detail":{
+        "date": "Data incarcarii",
+        "file": "Fisier",
+        "open": "Deschidere",
+        "delete": "Stergere",
+        "files_title": "Fisiere",
+        "payment": "Total plata",
+        "add_expense": "Adăugare cheltuieli",
+        "unpaid_expense": "Cheltuieli neplatite",
+        "cond": "Stare",
+        "supplier": "Furnizor",
+        "sum": "Suma de plata (RON)",
+        "type": "Tip",
+        "consum": "Consum",
+        "date_add": "Data Adăugarii",
+        "pdf": "PDF",
+        "pay": "Plata",
+        "expenses": "Cheltuieli",
+        "delete-file": {
+            "warning":{
+                "title": "Stergerea fisierului",
+                "message": "Doresti sa stergi acest fisier?"
+            },
+            "success":{
+                "title": "Fisier sters cu succes",
+                "message": "Fisierul a fost sters cu succes!"
+            } 
+        }
+    },
+
+    "add_expenses":{
+        "title":"Adăugare cheltuieli",
+        "consum":"Consum",
+        "start":"Inceput perioada de facturare",
+        "finish": "Final perioada de facturare", 
+        "supplier":"Furnizor",
+        "sum":"Suma de plata",
+        "type":"Tip(estimare/regulzarizare)",
+        "file":"Fisier",
+        "cancel":"Anulare",
+        "save":"Salvare",
+        "additionalService":"Serviciu",
+        "gas":"Gaz",
+        "water":"Apa",
+        "internet":"Cablu/Internet",
+        "electricity":"Electricitate",
+        "rent": "Chirie",
+        "other":"Altele",
+        "readingType": {
+            "estimation": "Estimare",
+            "regularization": "Regularizare",
+            "self-read": "Autocitire"
+        }
+    },
+
+    "placeholders":{
+        "lastName": "Popescu",
+        "firstName": "Ion",
+        "email": "exemplu@domeniu.ro",
+        "cnp": "1234567890123 (13 cifre)",
+        "address":"Strada, Numar, Bloc, Scara, Etaj, Apartament",
+        "buildingName": "ex: Casa Poporului",
+        "price": "RON/lună",
+        "numberOfTenants": "Număr locatari (ex. 2)"
+    },
+
+    "owner_details":{
+        "title":"Editare informatii personale",
+        "lastName":"Nume",
+        "firstName": "Prenume",
+        "email": "E-mail",
+        "cnp": "CNP",
+        "phone": "Telefon",
+        "secondPhone": "Telefon secundar",
+        "payment":"Metodă de plată",
+        "bank": "Cont bancar",
+        "address":"Adresa",
+        "cancel":"Anulare",
+        "save":"Salvare"
+    },
+
+    "rent-main-page":{
+        "title": "Detalii chirie",
+        "owner": "Proprietar",
+        "water": "Index apă (mc)",
+        "send": "Trimite",
+        "address":"Adresă",
+        "city":"Oraș",
+        "county":"Județ",
+        "floor":"Etaj",
+        "rooms":"Camere",
+        "compart":"Compartimentare",
+        "surface":"Suprafață",
+        "options":"Opțiuni",
+        "message":"Trimite mesaj",
+        "edit":"Editează informațiile personale",
+        "logout": {
+            "button-name": "Deconectare",
+            "confirmation-dialog":{
+                "title": "Confirmare deconectare",
+                "message": "Esti sigur ca vrei sa te deconectezi?"
+            }
+        },
+        "paragraph": "Termen de plată chirie",
+        "files": "Fișiere de la proprietar",
+        "calendar":"Calendar"
+    },
+
+    "renter-details":{
+        "title": "Edit informatii personale",
+        "lastName": "Nume",
+        "firstName": "Prenume",
+        "email": "E-mail",
+        "phone": "Telefon",
+        "secondPhone": "Telefon secundar",
+        "cnp": "CNP",
+        "bank": "Cont bancar",
+        "address": "Adresa",
+        "pers": "Numar persoane",
+        "pay_method": "Modalitate de plată",
+        "details":"Detalii",
+        "cancel":"Anulare",
+        "save":"Salvare"
+    },
+
+    "owner-info":{
+        "title": "Informatiile proprietarului",
+        "lastName":"Nume",
+        "firstName":"Prenume",
+        "email":"E-mail",
+        "phone":"Telefon",
+        "cnp":"CNP",
+        "bank":"Cont bancar",
+        "pay_method":"Modalitati de plata",
+        "address":"Adresa",
+        "details":"Detailii",
+        "cancel": "Iesire"
+    },
+
+    "add-subject":{
+        "add_title": "Adaugă un nou subiect",
+        "edit_title": "Editeaza subiectul",
+        "title1": "Titlu",
+        "importance": "Alege un nivel de importanta",
+        "importance1": "Normal",
+        "importance2": "Important",
+        "importance3": "Urgent",
+        "description": "Descriere",
+        "cancel": "Anulare",
+        "save": "Salvare"
+    },
+
+    "subject-list":{
+        "title": "Lista subiectelor",
+        "subjects": "Subiecte",
+        "importance": "Importanta",
+        "description": "Descriere",
+        "options": "Optiuni",
+        "option1": "Modificare",
+        "option2": "Stergere",
+        "exit": "Iesire",
+        "add": "Adaugă un nou subiect",
+        "conv": "Conversatia curenta"
+    },
+
+    "user-guide":{
+        "titleGuide": "Ghidul Proprietarului",
+        "title_1": "Ce este RentInsider?",
+        "title_2": "Cum pot utiliza aplicatia ca si proprietar?",
+        "title_3": "Care este rolul alertelor?",
+        "text_1": "RentInsider este o aplicatie creata pentru o mai buna gestionare a proprietatiilor. Aplicatia se adreseaza atat proprietarilor de chirii, cat si chiriasilor. Fiecare categorie de utilizator are cateva beneficii: ",
+        "text_2": "Proprietarul:",
+        "text_3": "- posibilitatea de a-si adauga apartamentele si casele administrate;",
+        "text_4": "- tinerea in evidenta a chiriasilor, a tuturor platilor(facturi, chirie etc.) si documentelor aferente fiecarei proprietati;",
+        "text_5": "- chat disponibil cu orice chirias, impartit pe subiect discutie si importanta acestuia;",
+        "text_6": "Chiriasul:",
+        "text_7": "- primirea si confirmarea platii cheltuielilor in timp real;",
+        "text_8": "- chat disponibil cu proprietarul, impartit pe subiect discutie si importanta acestuia;",
+        "text_9": "- posibilitatea de a primi sau trimite documente proprietarului in diferite formate(PDF, Word etc.);",
+        "text_14": "ChatMenu -'Image5' reprezinta una dintre cele mai utile functionalitati din cadrul aplicatiei. Acesta ofera posibilitatea unui proprietar de a comunica prin mesaje cu un chirias. Pagina de chat poate fi accesata apasand butonul descris in 'Image2'.  Mai mult decat atat, un chat are un titlu, un subiect de discutie, o scurta descriere si un nivel de importanta. Toate chat-urile pot fi vizualizate in 'Lista de subiecte(2)', unde user-ul are si optiunea de editare a acestor detalii pentru un chat anume. Acest detalui este aratat in 'Image5', unde apare pe ecran un pop-up cu titlul 'Editeaza subiectul(3) ' prin apasarea butonului in forma de stilou. Orice subiect din lista poate fi sters. 'Meniul de Chat(1) ' ofera user-ului obtiunea de a adauga un nou subiet in lista sau de a parasi meniul de chat (prin butonul 'Iesire'). In dreapta ecranului este 'Fereastra de chat(4)' unde este afisata conversatia curenta pentru subiectul selectat. Un mesaj poate fi scris in 'Casuta text(1)' si este trimis prin apasarea a 'Sageata send(1)' din -'Image6'."
+    },
+    "user-guide_main-page":{
+        "title_1": "Pagina principala proprietar",
+        "text_1": "Pagina principal pentru proprietar contine: elemente de design: imaginea de fundal, titlul aplicatiei  -Default Page(2) si un meniu aplicatiei, in partea stanga a ecranului, -Meniu operatii pentru proprietar(1).",
+        "text_2": "Meniul aplicatiei este alcatuit din: ",
+        "text_3": "lista de proprietati",
+        "text_4": "butonul de adaugare al unei noi proprietati",
+        "text_5": "posibilitatea pentru editare a informatiilor personale",
+        "text_6": "butonul de deconectare, iesire din meniul de proprietar",
+        "text_7": "3 butoane de actiuni, in partea de jos a ecranului",
+        "text_8": "Cele 3 butoane descrise mai sus au urmatoarele functionalitati: primul buton(",
+        "text_9": " ) acceseaza ghidul de utilizare al aplicatiei pentru proprietar, iar celelalte doua butone(",
+        "text_10": " ) sunt pentru a schimba limba aplicatiei."
+    },
+
+    "user-guide_operations_on_property":{
+        "title_1": "Detaliile despe o proprietate",
+        "text_1": "Detaliile despre o proprietate –'Image2' pot fi accesate dand click pe o proprietate din lista. Acestea se impart in mai multe categorii:",
+        "text_2": "Meniu actiuni proprietate/chirias(1)",
+        "text_3": "detalii despre proprietate",
+        "text_4": "buton pentru editare detalii proprietate",
+        "text_5": "detalii despre chirias",
+        "text_6": "butonul 'Adauga' pentru a adauga un file/document selectat cu 'Choose file' in -Tabelul de fisiere(4)",
+        "text_7": "buton pentru stergere proprietate",
+        "text_8": "Butoane relatie cu chirias(2)",
+        "text_9": "vizualizare detalii chirias",
+        "text_10": "sterge chirias curent",
+        "text_11": "deschide meniul de chat pentru chiriasul curent"
+    },
+
+    "user-guide_operations_on_property_second":{
+        "text_1": "Cele doua tabele: Tabelul de cheltuieli(3) si Tabelul de fisiere(4)- din 'Image2' reprezinta partea administrativa a chiriei. ",
+        "text_2": "Primul tabel -'Image3' afiseaza toate facturile si platile efectuate in cadrul imobilului. O noua factura poate fi aduagata apasand butonul 'Adauga cheluieli' din dreapta sus. Tabelul poate fi de asemenea filtrat folosind bara de search('cautare') sau bifand casuta de 'Cheltuieli neplatite'. Intr-un tabel de cheltuieli avem  urmatoarele informatii despre o cheltuiala:",
+        "text_3": "starea facturii: platita- ",
+        "text_4": " sau neplatita- ",
+        "text_5": "furnizorul facturii",
+        "text_6": "suma de plata",
+        "text_7": "tipul de cheltuiala",
+        "text_8": "consumul inregistrat (daca este cazul)",
+        "text_9": "data adaugarii in tabel",
+        "text_10": "optiunea de descarcare a fisierului apasand butonul ",
+        "text_11": "posibilitatea de confirmare a platii apasand butonul ",
+        "text_12": "Tabelul de fisiere -'Image4' are rolul de a tine evidenta unor documente importante la nivelul proprietar-chirias(ex. Contractul de inchiriere). Despre un fisier aflam: ",
+        "text_13": "data adaugarii in tabel",
+        "text_14": "numele fisierului",
+        "text_15": "optiunea de deschidere a fisierului apasand pe butonul 'Deschidere'",
+        "text_16": "posibilitatea de stergere a fisierului din table apasand pe butonul de 'Stergere'",
+        "text_17": "Orice chirias al proprietatii selectate poate vizualiza toate fisierele adaugate in cele 2 tabele, cu acelasi format si detalii."
+    },
+
+    "user-guide_sweet-alerts":{
+        "text_1": "Alertele au rolul de a informa user-ul cu privire la faptul ca datele introduse de catre acesta nu sunt valide sau pentru a confirma o operatie selectata. Un exemplu de alerta este in 'Image6'.",
+        "text_2": "Pentru a 'scapa' de o alerta cu privire la data invalide, user-ul ar trebui sa verifice urmatoarele lucruri: ",
+        "text_3": "- mesajul alertei(poate spune exact unde este problema);",
+        "text_4": "- daca a furnizat toate datele cerute;",
+        "text_5": "- daca toate datele completate sunt corecte;"
+    }
+}

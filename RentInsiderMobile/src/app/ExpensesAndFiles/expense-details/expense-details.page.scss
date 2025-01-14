@@ -1,0 +1,100 @@
+ion-content, ion-item{
+    --background:#112D32;
+}
+
+ion-label{
+    --color:white !important;
+    color:white !important;
+}
+
+
+// toolbar in header
+#expense-toolbar {
+    --background: #88BDBC !important;
+}
+
+// expense form
+#expense-container {
+    display: flex;
+    flex-direction: column;
+    --background: #112D32;
+}
+
+#expense-container ion-item {
+    --background: #112D32;
+    padding: 0;
+}
+
+// form rows
+#expense-container ion-row {
+    box-sizing: border-box;
+    width: 100%;
+    justify-content: start;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    padding: 0 15px;
+}
+
+#expense-container .label-container,
+#expense-container .expense-info {
+    width: 50%;
+    box-sizing: border-box;
+}
+
+// labels
+#expense-container .label-container {
+    min-width: 270px;
+}
+
+#expense-container .label-container ion-icon {
+    max-width: 50px;
+    margin-right: 10px;
+    color: white;
+}
+
+#expense-container .label-container ion-label {
+    color: white;
+}
+
+// inputs
+#expense-container .expense-info {
+    min-width: 270px;
+    max-width: 600px;
+    border-radius: 4px;
+    background-color: #1d4d55;
+    color: white;
+}
+
+#expense-container #expense-paid-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#expense-container #expense-paid-btn {
+    margin-right: 10px;
+}
+
+#expense-container .expense-paid {
+    --background: #339751;
+}
+
+#expense-container .expense-unpaid { 
+    --background: #ca2727;
+}
+
+#expense-container #expense-file-view-btn {
+    width: 100%;
+    height: 2.5rem;
+    font-size: 0.8rem;
+    margin-bottom: 15px;
+}
+
+// smaller screens
+@media screen and (max-width: 550px) {
+    #expense-container .label-container,
+    #expense-container .expense-info {
+        width: 100%;
+    }
+}
+

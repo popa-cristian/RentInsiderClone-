@@ -1,0 +1,162 @@
+@import url("../../utils/tooltip.scss");
+
+.wrapper-page {
+  // flex container for "wrapper-nav"  and "wrapper-property-content"
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+
+  // other properties 
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 100%;
+  background-size: auto;
+}
+
+.wrapper-nav {
+  // flex item for wrapper-page container
+  order: 1;
+  flex-grow: 1;
+
+  // flex container for "nav-header", "nav-upper-content" and "nav-upper-content" 
+  display: flex;
+  flex-direction: column;
+
+  // other properties
+  color: white;
+  font-size: 18px;
+  background-image: -webkit-linear-gradient(
+    top left,
+    #112d32,
+    #6e6658,
+    #88bdbc
+  );
+  padding: 0.5%;
+  min-width: 200px;
+  max-width: 15.5%;
+  border-radius: 0% 5% 5% 0%;
+
+  #nav-header {
+    // flex item for wrapper-nav container 
+    order: 1;
+
+    //other properties
+    .title-text {
+      font-family: "Dela Gothic One";
+      text-align: center;
+    }
+  }
+
+  #nav-upper-content{
+    // flex item for wrapper-nav container 
+    order: 2;
+
+    //other properties
+    #ul-properties {
+      list-style-type: none;
+
+      .li-property {
+        margin-top: 3%;
+        font-size: 16px;
+      
+        &:hover {
+          font-size: 17px;
+        }
+    
+      }
+    
+      .selected {
+        font-size: 17px;
+        color: rgb(209, 204, 204);
+      }
+    }
+  }
+
+  #nav-bottom-content{
+    // flex item for wrapper-nav container
+    order: 3;
+    margin-top: auto;
+
+    //other properties
+    #ul-languages {
+        // flex container for "li-language" items
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+
+        //other properties
+        list-style-type: none;
+        padding: 0;
+
+        .li-language {
+          width: 26px;
+          height: 26px;
+          margin: 0;
+          padding: 0;
+
+          &:hover {
+            transform: scale(1.3);
+          }
+
+          img {
+            width: inherit;
+            height: inherit;
+          }
+        }
+      
+    }
+    
+  }
+
+  .ul-nav {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .li-nav {
+    margin-bottom: 4%;
+    .custom-nav-icon-normal {
+      font-size: 18px;
+    }
+
+    .custom-nav-icon-small {
+      font-size: 10px;
+    }
+
+  }
+
+}
+
+#wrapper-property-content{
+  // flex item for wrapper-page container
+  order: 2;
+  flex-grow: 3;
+
+  // flex container for "property-detail" and "property-files-details"
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+
+  //other properties
+  margin: 1% 5%;
+  #property-detail{
+    // flex item for wrapper-property-content container
+    order: 1;
+    flex-grow: 1;
+
+    //other properties
+  }
+
+  #property-files-details{
+    // flex item for wrapper-property-content container
+    order: 2;
+    flex-grow: 2;
+
+    //other properties
+  }
+}
+
+.hidden {
+  display: none;
+}

@@ -1,0 +1,121 @@
+<div class="mat-dialog-container">
+  <!-- Modal's header -->
+  <div class="custom-modal-header">
+    <div *ngIf="!data.subject" class="column-title">
+      <h2>{{ "add-subject.add_title" | translate }}</h2>
+    </div>
+    <div *ngIf="data.subject" class="column-title">
+      <h2>{{ "add-subject.edit_title" | translate }}</h2>
+    </div>
+    <button
+        class="custom-modal-close-button"
+        type="button"
+        aria-label="Close"
+        mat-dialog-close
+        mat-button
+      >
+        <span class="material-icons-outlined"> close </span>
+      </button>
+  </div>
+  <!-- Modal's content -->
+  <form
+    class="custom-modal-content white"
+    [formGroup]="Add_New_Subject_Form"
+  >
+    <div class="formContent two-column">
+      <!-- Subject's title -->
+      <label>
+        {{ "add-subject.title1" | translate }}
+      </label>
+      <input
+        type="text"
+        placeholder="text"
+        formControlName="subjectTitle"
+        [ngClass]="{ 'is-invalid': submitted && getForm.subjectTitle.errors }"
+      />
+      <div *ngIf="submitted && getForm.subjectTitle.errors">
+        <div *ngIf="getForm.subjectTitle.errors.required">Se cere un titlu</div>
+      </div>
+      <!-- Subject's importance -->
+      <div>
+        {{ "add-subject.importance" | translate }}
+      </div>
+      <form
+        [formGroup]="Importance_Level_Form_Group"
+      >
+
+      <ul>
+        <li>
+          <input
+            type="checkbox"
+            formControlName="normalCheckbox"
+            id="normalCheckbox"
+          />
+          <label>
+            {{ "add-subject.importance1" | translate }}
+          </label>
+        </li>
+        <li>
+          <input
+            type="checkbox"
+            formControlName="importantCheckbox"
+          />
+          <label>
+            {{ "add-subject.importance2" | translate }}
+          </label>
+        </li>
+        <li>
+          <input
+            type="checkbox"
+            formControlName="alertCheckbox"
+          />
+          <label>
+            {{ "add-subject.importance3" | translate }}
+          </label>
+        </li>
+        <div
+          *ngIf="
+            submitted &&
+            Importance_Level_Form_Group.errors &&
+            Importance_Level_Form_Group.errors.importanceLevel
+          "
+        >
+          Se cere un nivel de importanta
+        </div>
+      </ul>
+      </form>
+      <!-- Description -->
+      <label>
+        {{ "add-subject.description" | translate }}
+      </label>
+      <input
+        type="text"
+        placeholder="text"
+        formControlName="description"
+        [ngClass]="{ 'is-invalid': submitted && getForm.description.errors }"
+      />
+      <div *ngIf="submitted && getForm.description.errors">
+        <div *ngIf="getForm.description.errors.required">Se cere o descriere</div>
+      </div>
+    </div>
+    <!-- Modal's footer -->
+    <div class="custom-modal-footer">
+      <button
+        type="button"
+        class="footerButton"
+        mat-dialog-close
+        mat-button
+        (click)="closeModal()"
+      >
+        {{ "add-subject.cancel" | translate }}
+      </button>
+      <button
+        type="submit"
+        class="footerButton"
+        (click)="addSubject()"
+      >
+        {{ "add-subject.save" | translate }}
+      </button>
+    </div>
+  </form>
+</div>

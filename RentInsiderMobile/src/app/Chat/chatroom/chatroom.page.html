@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="second"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{ "chatroom.title" | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content #chatContainer id="chat-container">
+  <ion-row *ngFor = "let message of chats">
+    <ion-col size="9" *ngIf="userID !== message.sender" class="message other-message">
+      <p><b>{{ receiverName }}</b></p>
+      <p>{{message.message}}</p>
+      <div class="time">
+        {{message.date}}
+      </div>
+    </ion-col>
+
+    <ion-col offset="3" size="9" *ngIf="userID === message.sender" class="message my-message">
+      <p><b>{{ senderName }}</b></p>
+      <p>{{message.message}}</p>
+      <div class="time">
+        {{message.date}}
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="#88BDBC">
+    <ion-row>
+      <ion-col size="10">
+        <textarea autosize [(ngModel)]="newMsg" class="msg-input"></textarea>
+      </ion-col>
+      <ion-col size="2">
+        <ion-button expand="block" fill="clear" color="primary" [disabled]="newMsg === ''" class="msg-btn"
+        (click)="sendMessage()"
+        [disabled]="!currentSubjectID">
+        <ion-icon name="paper-plane-outline"></ion-icon></ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>
+
+

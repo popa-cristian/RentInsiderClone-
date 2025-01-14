@@ -1,0 +1,63 @@
+<ion-header>
+<ion-toolbar>
+  <ion-buttons slot="start" (click)="PreviousPage()">
+    <ion-icon size="large" name="arrow-back-outline"></ion-icon>
+  </ion-buttons>
+  <ion-title size="large">{{"user-guide.titleGuide"|translate}}</ion-title>
+</ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row id="wikiTextRow">
+    <ion-item id="wikiTextItem">
+      <ion-label id="TitleWiki" >{{"user-guide.title_1"|translate}}</ion-label>
+    </ion-item>
+      <ion-label id="TextWiki" class="ion-text-wrap">{{"user-guide.text_1"|translate}}
+      </ion-label>
+  </ion-row>
+
+  <ion-row id="wikiTextRow">
+    <ion-item id="wikiTextItem">
+      <ion-label id="TitleWiki" >{{"user-guide.title_2"|translate}}<br></ion-label>
+    </ion-item>
+    <ion-label id="TextWiki" class="ion-text-wrap">{{"user-guide.text_2"|translate}}
+    </ion-label>
+  </ion-row>
+
+  <ion-row id="wikiTextRow">
+    <ion-item id="wikiTextItem">
+      <ion-label id="TitleWiki" >{{"user-guide.title_3"|translate}}<br></ion-label>
+    </ion-item>
+    <ion-label id="TextWiki" class="ion-text-wrap">{{"user-guide.text_3"|translate}}
+    </ion-label>
+    </ion-row>
+
+    <ion-row id="wikiTextRow">
+      <ion-item id="wikiTextItem">
+        <ion-label id="TitleWiki" >{{"user-guide.title_4"|translate}}</ion-label>
+      </ion-item>
+      <ion-label id="TextWiki" class="ion-text-wrap">{{"user-guide.text_4"|translate}}
+      </ion-label>
+      </ion-row>
+
+      <div id="language-icons">
+        <li class="li-nav">
+          <button
+            type="button"
+            class="button-language button"
+            (click)="changeLanguage(importedLanguages.ro)"
+          >
+            <img src="../../../assets/language-icons/romania.png" />
+          </button>
+          <button
+            type="button"
+            class="button-language button"
+            (click)="changeLanguage(importedLanguages.eng)"
+          >
+            <img src="../../../assets/language-icons/united-kingdom.png" />
+          </button>
+        </li>
+      </div>
+</ion-content>
+
+

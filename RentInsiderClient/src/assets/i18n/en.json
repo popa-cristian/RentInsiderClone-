@@ -1,0 +1,346 @@
+{
+    "authentification": {
+        "title": "RentInsider authentification",
+        "choose": "Choose role",
+        "choice1": "Owner",
+        "choice2": "Renter",
+        "email": "E-mail",
+        "password": "Password",
+        "log": "Login",
+        "passreset": "Forgot your password?",
+        "recover": "Recover",
+        "registration": "Don't have an account? ",
+        "reg": "Register",
+        "req-choose": "Must choose an option",
+        "req-email": "Must enter an e-mail",
+        "invalid-email": "E-mail address must be valid",
+        "req-password": "Must enter a password",
+        "on-submit": {
+            "error": {
+                "wrong-credentials": {
+                    "title": "Wrong credentials",
+                    "message": "You have entered a wrong email or password!"
+                }
+            }
+        },
+        "reset-password": {
+            "success": {
+                "title": "Reset password",
+                "message": "A password reset link has been sent to this email address!"
+            },
+            "error": {
+                "empty-email": {
+                    "title": "Missing email",
+                    "message": "A valid email address is required to change the password"
+                },
+                "wrong-email": {
+                    "title": "Unrecognized email",
+                    "message": "A valid email address is required to change the password"
+                } 
+            }
+        }
+    },
+    "errors": {
+        "lastNameRequired": "Last name is required",
+        "firstNameRequired": "First name is required",
+        "emailRequired": "Email address is required",
+        "validEmailRequired": "A correct email address is required",
+        "cnpFormat": "A valid CNP is required (13 digits)",
+        "cnpControlDigit": "A valid CNP is required (make sure you typed your CNP correctly)",
+        "phoneRequired": "Phone number is required"
+    },
+    "registration": {
+        "title": "Registration",
+        "lastname": "Last Name",
+        "firstname": "First Name",
+        "email": "E-mail",
+        "phone": "Phone",
+        "password": "Password",
+        "reg": "Register",
+        "acc": "Do you already have an account?",
+        "log": "Login",
+        "req-lastname": "Must enter a last name",
+        "req-firstname": "Must enter a first name",
+        "req-email": "Must enter an e-mail",
+        "invalid-email": "E-mail address must be valid",
+        "req-phone": "Must enter a phone number",
+        "req-password": "Must enter a password",
+        "invalid-passowrd": "Password must have at least 6 characters"
+    },
+    "owner-main-page": {
+        "name": "List of properties",
+        "add_property": "Add new property",
+        "edit_info": "Edit personal information",
+        "logout": {
+            "button-name": "Logout",
+            "confirmation-dialog":{
+                "title": "Logout confirmation",
+                "message": "Are you sure you wanna logout?"
+            }
+        },
+        "property_info": "Property information",
+        "expenses": "Cheltuieli",
+        "change_language": "Change Language",
+
+        "tooltip_add_property": "Click to add a new property"
+    },
+    "property-detail": {
+        "renter": "Renter",
+        "date": "Payment day",
+        "water": "Water index (cu)",
+        "address": "Address",
+        "city": "City",
+        "county": "County",
+        "floor": "Floor",
+        "rooms": "Rooms",
+        "compart": "Partitioning",
+        "price": "Price",
+        "surface": "Surface",
+        "edit-property": "Edit Property",
+        "add": "Add",
+        "delete-property": "Delete Property",
+        "delete-renter-modal-title": "Are you sure you want to delete this renter ?",
+        "delete-property-modal-title": "Are you sure you want to delete this property ? You will also delete the renter !",
+        "delete-modal-error": "An error has occured...",
+        "delete-modal-cancel": "Cancel",
+        "delete-modal-delete": "Delete"
+    },
+    "info-renter": {
+        "title": "Tenant info",
+        "lastname": "Last Name",
+        "firstname": "First Name",
+        "cnp": "CNP",
+        "address": "Address",
+        "email": "E-mail",
+        "phone": "Phone",
+        "pers": "No. of persons"
+    },
+    "renter": {
+        "title": "Add a renter",
+        "lastname": "Last Name",
+        "firstname": "First Name",
+        "cnp": "Personal identity code",
+        "address": "Home address",
+        "email": "E-mail address",
+        "phone": "Phone number",
+        "pers": "No. of persons",
+        "pass": "Password generated",
+        "generate": "Generate password",
+        "close": "Discard",
+        "submit": "Add"
+    },
+    "renter-success": {
+        "title": "Success!",
+        "message": "The renter has been added successfuly",
+        "close": "Close"
+    },
+    "add-property": {
+        "add_title": "Add new property",
+        "edit_title": "Edit property",
+        "title": "Title",
+        "county": "County",
+        "locality": "Locality",
+        "address": "Address",
+        "price": "Price",
+        "surface": "Surface",
+        "compart": "Partitioning",
+        "floor": "Floor",
+        "rooms": "Rooms",
+        "date": "Payment day",
+        "water": "Water",
+        "cancel": "Cancel",
+        "save": "Save",
+        "comparts": {
+            "detached": "Detached",
+            "semidetached": "Semi-detached",
+            "nondetached": "Non-detached"
+        },
+        "on-submit": {
+            "success": {
+                "title": "Property added successfully",
+                "password": "Your new property was added successfully!"
+            },
+            "error": {
+                "title": "Unsuccessfully property adding",
+                "password": "You have entered some wrong information about the property!"
+            }
+        }
+    },
+    "placeholders": {
+        "lastName": "Smith",
+        "firstName": "John",
+        "email": "example@domain.com",
+        "cnp": "1234567890123 (13 digits)",
+        "address": "Street, Number, Building, Stairway, Floor, Apartment",
+        "buildingName": "ex: Empire State Building",
+        "price": "RON/month",
+        "numberOfTenants": "Number of tenants (ex. 2)"
+    },
+    "upload-detail": {
+        "date": "Upload date",
+        "file": "File",
+        "open": "Open",
+        "delete": "Delete",
+        "files_title": "Files",
+        "payment": "Total payment",
+        "add_expense": "Add expenses",
+        "unpaid_expense": "Unpaid expenses",
+        "cond": "State",
+        "supplier": "Supplier",
+        "sum": "Payment amount (RON)",
+        "type": "Type",
+        "consum": "Consumption",
+        "date_add": "Date of addition",
+        "pdf": "PDF",
+        "pay": "Pay",
+        "expenses": "Expenses",
+        "delete-file": {
+            "warning":{
+                "title": "File deletion",
+                "message": "Do you want to delete this file?"
+            },
+            "success":{
+                "title": "File deleted successfully",
+                "message": "Your file was deleted successfully!"
+            }
+        }
+    },
+    "add_expenses": {
+        "title": "Add expenses",
+        "consum": "Consumption",
+        "start": "Billing start date",
+        "finish": "Billing final date",
+        "supplier": "Supplier",
+        "sum": "Payment amount",
+        "type": "Type",
+        "file": "File",
+        "cancel": "Cancel",
+        "save": "Save",
+        "additionalService": "Service",
+        "gas": "Gas",
+        "water": "Water",
+        "internet": "Cable/Internet",
+        "electricity": "Electricity",
+        "rent": "Rent",
+        "other": "Other",
+        "readingType": {
+            "estimation": "Estimation",
+            "regularization": "Regularization",
+            "self-read": "Self-read"
+        }
+    },
+    "owner_details": {
+        "title": "Edit information",
+        "lastName": "Last Name",
+        "firstName": "First Name",
+        "email": "E-mail",
+        "cnp": "CNP",
+        "phone": "Phone",
+        "secondPhone": "Secondary phone",
+        "payment": "Payment method",
+        "bank": "Bank account",
+        "address": "Address",
+        "cancel": "Cancel",
+        "save": "Save"
+    },
+    "rent-main-page": {
+        "title": "Rent details",
+        "owner": "Owner",
+        "water": "Water",
+        "send": "Send",
+        "address": "Address",
+        "city": "City",
+        "county": "County",
+        "floor": "Floor",
+        "rooms": "Rooms",
+        "compart": "Partitioning",
+        "surface": "Surface",
+        "options": "Options",
+        "message": "Send message",
+        "edit": "Edit personal data",
+        "logout": {
+            "button-name": "Logout",
+            "confirmation-dialog":{
+                "title": "Logout confirmation",
+                "message": "Are you sure you wanna logout?"
+            }
+        },
+        "paragraph": "Rent payment term",
+        "files": "Files from owner",
+        "calendar": "Calendar"
+    },
+    "renter-details": {
+        "title": "Edit information",
+        "lastName": "Last Name",
+        "firstName": "FirstName",
+        "email": "E-mail",
+        "phone": "Phone",
+        "secondPhone": "Secondary phone",
+        "cnp": "CNP",
+        "bank": "Bank account",
+        "address": "Address",
+        "pers": "No. of persons",
+        "pay_method": "Payment method",
+        "details": "Details",
+        "cancel": "Cancel",
+        "save": "Save"
+    },
+    "owner-info": {
+        "title": "Owner informations",
+        "lastName": "Last Name",
+        "firstName": "FirstName",
+        "email": "E-mail",
+        "phone": "Phone",
+        "cnp": "CNP",
+        "bank": "Bank account",
+        "pay_method": "Payment",
+        "address": "Address",
+        "details": "Details",
+        "cancel": "Exit"
+    },
+    "add-subject": {
+        "add_title": "Add new subject",
+        "edit_title": "Edit subject",
+        "title1": "Title",
+        "importance": "Choose the importance level",
+        "importance1": "Normal",
+        "importance2": "Important",
+        "importance3": "Urgent",
+        "description": "Description",
+        "cancel": "Cancel",
+        "save": "Save"
+    },
+    "subject-list": {
+        "title": "List of subjects",
+        "subjects": "Subjects",
+        "importance": "Importance level",
+        "description": "Description",
+        "options": "Options",
+        "option1": "Modify",
+        "option2": "Delete",
+        "exit": "Exit",
+        "add": "Add new subject",
+        "conv": "Current conversatione"
+    },
+    "user-guide":{
+        "titleGuide":"Owner Guide",
+        "title_1":"What is RentInsider?",
+        "text_1":"RentInsider is an application designed for a better property management. The application can be used by both property owners and renters. Each user category has the following benefits: ",
+        "text_2":"The owner: ",
+        "text_3":"- the possibility to add the apartments and houses administrated;",
+        "text_4":"- keep track of renters, all payments and documents for each property;",
+        "text_5":"- possibility to chat with any renter, divided in chat subject name and its importance;",
+        "text_6":"The renter: ",
+        "text_7":"- get the confirmation of bills payment in real time;",
+        "text_8":"- available chat with the owner, divided in chat subject name and its importance;",
+        "text_9":"- possibility to receive or send documents in different formats to the owner(PDF, Word etc.);",
+        "title_2":"How could I use the application as an owner?",
+        "text_11_1":"Pagina principala proprietar -'Image1' are elemente de design -Default page(2): imaginea de fundal, titlul etc. si un intreg meniu in partea stanga -Meniu operatii pentru proprietari(1). Meniul este alcatuit din: lista de proprietati, butonul de adaugare al unei noi proprietati, posibilitatea de editare a informatiilor personale din aplicatie si butonul de deconectare(iesire din aplicatie). Totodata, in partea de jos a meniului sunt alte 3 butone. Primul, butonul ",
+        "text_11_2":", acceseaza 'Ghidul de utlizare pentru proprietar'. Celelalte 2 butoane sunt pentru a schimba limba aplicatie in Romana sau Engleza.",
+        "text_12":"Detaliile despre proprietate -'Image2' pot fi accesate selectand o proprietate din lista de proprietati descrisa mai sus. Aceste detalii sunt de mai multe feluri. Meniu actiuni proprietate/chirias(1) prezinta detaliile despre chirie, chirias(daca este cazul) si in partea de jos 3 butoane: in stanga 'Editare proprietate' care ofera posibilitatea user-ului de a edita detaliile unei proprietati, 'Stergere proprietate' buton care sterge proprietatea selectata si 'Adauga' un buton care adauga un file/document in -Tabelul de fisiere(4) selectat din butonul 'Choose file'. Butoane relatie cu chirias(2) sunt butone de actiuni legate de chirias. Primul buton ofera posibilitatea de a vizualiza detaliile personale ale chiriasului. Al doilea buton sterge chiriasul curent, iar ultimul buton deschide meniul de chat -descris in 'Image5'.",
+        "text_13_1":"Cele doua tabele: de cheltuieli(3) si de fisiere(4)- din 'Image2' reprezinta partea administrativa a chiriei. Primul tabel -'Image3' afiseaza toate facturile si platile efectuate in cadrul imobilului. O noua factura poate fi aduagata apasand butonul 'Adauga cheluieli' din dreapta sus. Tabelul poate fi de asemenea filtrat folosind bara de search('cautare') sau bifand casuta de 'Cheltuieli neplatite'. Tabelul ofera urmatoarele detalii despre o cheltuiala: starea acesteia, furnizorul, suma de plata, tipul de cheltuiala, consumul(daca este cazul), data adaugarii in table, dar si optiunea de descarcare a fisierului si posibilitatea  de confirmare a platii. In tabel facturile platite apar cu 'Stare bifa', in timp ce cele neplatite apar cu 'Stare x'. Pentru  a confirma o plata trebuie apasat butonul ", 
+        "text_13_2":" din dreptul facturii. Tabelul de fisiere  -'Image4' are rolul de a tine evidenta unor documente importante la nivelul proprietar-chirias(ex. Contractul de inchiriere). Despre un fisier aflam: data adaugarii in table, numele acestuia, dar putem si sa il deschidem apasand pe butonul 'Deschidere' sau sa il stergem din table apasand pe butonul de 'Stergere'. Chiriasul aferent proprietatii curente poate vizualiza toate fisierele adaugate in cele 2 tabele, cu acelasi format si detalii.",
+        "text_14":"ChatMenu -'Image5' reprezinta una dintre cele mai utile functionalitati din cadrul aplicatiei. Acesta ofera posibilitatea unui proprietar de a comunica prin mesaje cu un chirias. Pagina de chat poate fi accesata apasand butonul descris in 'Image2'.  Mai mult decat atat, un chat are un titlu, un subiect de discutie, o scurta descriere si un nivel de importanta. Toate chat-urile pot fi vizualizate in 'Lista de subiecte(2)', unde user-ul are si optiunea de editare a acestor detalii pentru un chat anume. Acest detalui este aratat in 'Image5', unde apare pe ecran un pop-up cu titlul 'Editeaza subiectul(3) ' prin apasarea butonului in forma de stilou. Orice subiect din lista poate fi sters. 'Meniul de Chat(1) ' ofera user-ului obtiunea de a adauga un nou subiet in lista sau de a parasi meniul de chat (prin butonul 'Iesire'). In dreapta ecranului este 'Fereastra de chat(4)' unde este afisata conversatia curenta pentru subiectul selectat. Un mesaj poate fi scris in 'Casuta text(1)' si este trimis prin apasarea a 'Sageata send(1)' din -'Image6'."
+
+    }
+}

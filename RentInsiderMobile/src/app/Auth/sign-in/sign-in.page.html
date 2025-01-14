@@ -1,0 +1,121 @@
+<div class="form-group1">
+  <div id="titleContainer">
+    <img
+      src="./assets/icon/Untitled-1_3.png"
+      class="logo"
+      alt="Responsive image"
+    />
+    <h3 id="title">{{ "authentification.title" | translate}}</h3>
+  </div>
+
+  <!-- Dropdown Owner/Renter -->
+  <div class="form-margins-dropdown input">
+    <div class="alert-wrapper.ion-overlay-wrapper.sc-ion-alert-md">
+      <ion-item>
+        <ion-select
+          interface="alert"
+          [(ngModel)]="selectedOption"
+          (ionChange)="onChange($event)"
+          placeholder="{{ 'authentification.choose' | translate}}"
+        >
+          <ion-select-option value="1"
+            >{{ "authentification.choice1" | translate}}</ion-select-option
+          >
+          <ion-select-option value="2"
+            >{{ "authentification.choice2" | translate}}</ion-select-option
+          >
+        </ion-select>
+      </ion-item>
+    </div>
+  </div>
+
+  <!-- [Start] Sign In Form -->
+  <form (ngSubmit)="onSubmit()" [formGroup]="signInForm">
+    <div class="form-margins input">
+      <!-- Email -->
+      <ion-item>
+        <ion-label position="floating">
+          <ion-icon name="mail-outline"></ion-icon>{{ "authentification.email" |
+          translate}}
+        </ion-label>
+        <ion-input
+          formControlName="email"
+          placeholder="{{ 'authentification.email' | translate }}"
+          type="email"
+          required
+          maxlength="70"
+        >
+        </ion-input>
+      </ion-item>
+    </div>
+
+    <div class="form-margins input">
+      <!-- Password -->
+      <ion-item>
+        <ion-label position="floating">
+          <ion-icon name="lock-closed-outline"></ion-icon>{{
+          "authentification.password" | translate}}
+        </ion-label>
+        <ion-input
+          formControlName="password"
+          id="floatingPassword"
+          type="password"
+          placeholder="{{ 'authentification.password' | translate }}"
+          required
+          maxlength="70"
+        >
+        </ion-input>
+      </ion-item>
+    </div>
+
+    <!-- Auth Button -->
+    <ion-button
+      type="submit"
+      color="medium"
+      class="btn button-margins item-center button"
+    >
+      {{ "authentification.login" | translate}}
+    </ion-button>
+  </form>
+  <!-- [End] Sign In Form -->
+
+  <!-- Forgot Pass Button -->
+  <ion-button
+    type="button"
+    fill="solid"
+    class="btn2 button-margins item-center button"
+    size="medium"
+    (click)="onPasswordReset()"
+    (click)="passwordChanged()"
+  >
+    {{ "authentification.password-reset" | translate}}
+  </ion-button>
+
+  <!-- Register text -->
+  <ion-footer class="create_account item-center">
+    <div class="paragraph" id="notRegisteredParagraph">
+      {{ "authentification.not-registered" | translate}}<a routerLink="/sign-up"
+        >{{ "authentification.register" | translate}}</a
+      >
+    </div>
+
+    <div id="language-icons">
+      <li class="li-nav">
+        <button
+          type="button"
+          class="button-language button"
+          (click)="changeLanguage(importedLanguages.ro)"
+        >
+          <img src="../../../assets/language-icons/romania.png" />
+        </button>
+        <button
+          type="button"
+          class="button-language button"
+          (click)="changeLanguage(importedLanguages.eng)"
+        >
+          <img src="../../../assets/language-icons/united-kingdom.png" />
+        </button>
+      </li>
+    </div>
+  </ion-footer>
+</div>

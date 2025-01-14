@@ -1,0 +1,172 @@
+<div class="mat-dialog-container">
+
+  <!-- Modal's header -->
+  <div class="custom-modal-header">
+    <h2 class="custom-modal-header-content">
+      {{ "owner_details.title" | translate }}
+    </h2>
+  </div>
+
+  <!-- Modal's content -->
+  <form
+    [formGroup]="OwnerDetailsForm"
+    (ngSubmit)="onSubmit()"
+    class="custom-modal-content white"
+  >
+    <div class="formContent two-column">
+      <!-- Last name -->
+      <label for="floatingInput">
+        <span class="material-icons-outlined"> badge </span>
+        {{ "owner_details.lastName" | translate }}
+      </label>
+      <input
+        type="text"
+        formControlName="lastName"
+        [(ngModel)]="currentOwner.lastName"
+        placeholder="{{ 'placeholders.lastName' | translate }}"
+        [ngClass]="{ 'is-invalid': submitted && getForm.lastName.errors }"
+        maxlength="70"
+      />
+      <div *ngIf="submitted && getForm.lastName.errors">
+        <div *ngIf="getForm.lastName.errors.required">
+          {{ "errors.lastNameRequired" | translate }}
+        </div>
+      </div>
+      <!-- If there is an error, we push contents of the grid the next row. -->
+      <div *ngIf="submitted && getForm.lastName.errors"></div>
+      <!-- First name -->
+      <label for="floatingInput">
+        <span class="material-icons-outlined"> badge </span>
+        {{ "owner_details.firstName" | translate }}
+      </label>
+      <input
+        type="text"
+        formControlName="firstName"
+        [(ngModel)]="currentOwner.firstName"
+        placeholder="{{ 'placeholders.firstName' | translate }}"
+        [ngClass]="{ 'is-invalid': submitted && getForm.firstName.errors }"
+        maxlength="70"
+      />
+      <div *ngIf="submitted && getForm.firstName.errors">
+        <div *ngIf="getForm.firstName.errors.required">
+          {{ "errors.firstNameRequired" | translate }}
+        </div>
+      </div>
+      <div *ngIf="submitted && getForm.firstName.errors"></div>
+      <!-- Email -->
+      <label for="floatingInput">
+        <span class="material-icons-outlined"> email </span>
+        {{ "owner_details.email" | translate }}
+      </label>
+      <input
+        type="email"
+        formControlName="email"
+        [(ngModel)]="currentOwner.email"
+        [placeholder]="'placeholders.email' | translate"
+        [ngClass]="{ 'is-invalid': submitted && getForm.email.errors }"
+        maxlength="70"
+      />
+      <div *ngIf="submitted && getForm.email.errors">
+        <div *ngIf="getForm.email.errors.required">
+          {{ "errors.emailRequired" | translate }}
+        </div>
+        <div *ngIf="getForm.email.errors.Email">
+          {{ "errors.validEmailRequired" | translate }}
+        </div>
+      </div>
+      <div *ngIf="submitted && getForm.email.errors"></div>
+      <!-- CNP -->
+      <label for="floatingInput">
+        <span class="material-icons-outlined"> branding_watermark </span>
+        {{ "owner_details.cnp" | translate }}
+      </label>
+      <input
+        type="text"
+        formControlName="cnp"
+        [(ngModel)]="currentOwner.cnp"
+        [placeholder]="'placeholders.cnp' | translate"
+        [ngClass]="{ 'is-invalid': submitted && getForm.cnp.errors }"
+        maxlength="13"
+      />
+      <div *ngIf="submitted && getForm.cnp.errors">
+        <div *ngIf="getForm.cnp.errors.patternMismatch">
+          {{ "errors.cnpFormat" | translate }}
+        </div>
+        <div *ngIf="getForm.cnp.errors.controlDigitError">
+          {{ "errors.cnpControlDigit" | translate }}
+        </div>
+      </div>
+      <div *ngIf="submitted && getForm.cnp.errors"></div>
+      <!-- Phone number -->
+      <label for="floatingInput">
+        <span class="material-icons-outlined"> phone </span>
+        {{ "owner_details.phone" | translate }}
+      </label>
+      <input
+        type="text"
+        formControlName="firstPhoneNumber"
+        [(ngModel)]="currentOwner.firstPhoneNumber"
+        placeholder="07.."
+        [ngClass]="{
+          'is-invalid': submitted && getForm.firstPhoneNumber.errors
+        }"
+        maxlength="20"
+      />
+      <div *ngIf="submitted && getForm.firstPhoneNumber.errors">
+        <div *ngIf="getForm.firstPhoneNumber.errors.required">
+          {{ "errors.phoneRequired" | translate }}
+        </div>
+      </div>
+      <div *ngIf="submitted && getForm.firstPhoneNumber.errors"></div>
+      <!-- Secondary phone number -->
+      <label for="floatingInput">
+        <span class="material-icons-outlined"> phone </span>
+        {{ "owner_details.secondPhone" | translate }}
+      </label>
+      <input
+        type="text"
+        formControlName="secondPhoneNumber"
+        placeholder="07.."
+        maxlength="20"
+      />
+      <!-- Bank account -->
+      <label for="floatingInput">
+        <span class="material-icons-outlined"> account_balance </span>
+        {{ "owner_details.bank" | translate }}
+      </label>
+      <input
+        type="text"
+        formControlName="bankAccount"
+        [(ngModel)]="currentOwner.bankAccount"
+        placeholder="RO09 BCYP 0000 0012 3456 7890"
+        maxlength="24"
+      />
+      <!-- Address -->
+      <label for="floatingInput">
+        <span class="material-icons-outlined"> home_work </span>
+        {{ "owner_details.address" | translate }}
+      </label>
+      <input
+        type="text"
+        formControlName="address"
+        [(ngModel)]="currentOwner.address"
+        placeholder="{{ 'placeholders.address' | translate }}"
+        maxlength="70"
+      />
+    </div>
+    <!-- Footer -->
+    <div class="custom-modal-footer">
+      <button
+        type="button"
+        class="btn btn-secondary footerButton"
+        mat-dialog-close
+        mat-button
+      >
+        {{ "owner_details.cancel" | translate }}
+      </button>
+      <button type="submit" class="btn btn-primary footerButton" mat-button>
+        {{ "owner_details.save" | translate }}
+      </button>
+    </div>
+  </form>
+</div>

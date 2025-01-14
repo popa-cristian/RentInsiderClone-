@@ -1,0 +1,109 @@
+<div class="mat-dialog-container">
+  <!-- Modal's header -->
+  <div class="custom-modal-header">
+    <h2>{{ "info-renter.title" | translate }}</h2>
+    <button
+        class="custom-modal-close-button"
+        type="button"
+        aria-label="Close"
+        mat-dialog-close
+        mat-button
+      >
+        <span class="material-icons-outlined"> close </span>
+      </button>
+  </div>
+  <!-- Modal's content -->
+  <form
+  class="custom-modal-content white">
+    <div class="formContent two-column">
+      <!-- Last name -->
+      <label for="floatingInput">
+        <span class="material-icons-outlined"> badge </span>
+        {{ "info-renter.lastname" | translate }}
+      </label>
+      <input
+        readonly
+        type="text"
+        id="nume"
+        value="{{ data.item.lastName }}"
+        placeholder="Nume"
+      />
+      <!-- First name -->
+      <label for="floatingInput">
+        <span class="material-icons-outlined"> badge </span>
+        {{ "info-renter.firstname" | translate }}
+      </label>
+      <input
+        readonly
+        type="text"
+        id="prenume"
+        value="{{ data.item.firstName }}"
+        placeholder="Prenume"
+      />
+      <!-- CNP -->
+      <label for="floatingInput">
+        <span class="material-icons-outlined"> branding_watermark </span>
+        {{ "info-renter.cnp" | translate }}
+      </label>
+      <input
+        readonly
+        type="text"
+        id="cnp"
+        value="{{ data.item.cnp }}"
+        placeholder="CNP"
+      />
+      <!-- Address -->
+      <label for="floatingInput">
+        <span class="material-icons-outlined"> home_work </span>
+        {{ "info-renter.address" | translate }}
+      </label>
+      <input
+        readonly
+        type="text"
+        id="adresa"
+        value="{{ data.item.address }}"
+        placeholder="Adresa"
+      />
+      <!-- Email -->
+      <label for="floatingInput">
+        <span class="material-icons-outlined"> email </span>
+        {{ "info-renter.email" | translate }}
+      </label>
+      <input
+        readonly
+        type="text"
+        id="email"
+        value="{{ data.item.email }}"
+        placeholder="exemplu@example.com"
+      />
+      <!-- Phone number -->
+      <label for="floatingInput">
+        <span class="material-icons-outlined"> phone </span>
+        {{ "info-renter.phone" | translate }}
+      </label>
+      <input
+        readonly
+        type="text"
+        id="telefon"
+        value="{{ data.item.telephone }}"
+        placeholder="07.."
+      />
+      <!-- People number -->
+      <label for="floatingInput">
+        <span class="material-icons-outlined"> groups </span>
+        {{ "info-renter.pers" | translate }}
+      </label>
+      <input
+        readonly
+        type="text"
+        id="nr_persoane"
+        value="{{ data.item.number_of_individuals }}"
+        placeholder="Persoane"
+      />
+    </div>
+    <!-- Modal's footer -->
+    <div class="custom-modal-footer">
+
+    </div>
+  </form>
+</div>

@@ -1,0 +1,143 @@
+<div class="row big-container window-restriction">
+  <div class="col-lg-4 col-md-1"></div>
+  <div class="col-lg-4 col-md-12 p-5 d-flex justify-content-center">
+    <div id="formContent">
+      <div class="form-group1">
+        <img
+          src="../../../assets/img/logo/logo_black.png"
+          class="img-fluid"
+          alt="Logo image"
+        />
+        <h2>{{ "authentification.title" | translate }}</h2>
+        <form [formGroup]="SignInForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <select
+              class="form-select"
+              formControlName="option"
+              (change)="onChange($event.target.value)"
+              aria-label="Default select example"
+              [(ngModel)]="selectedOption"
+              [ngClass]="{
+                'is-invalid': submitted && getForm.option.errors
+              }"
+            >
+              <option disabled selected value="undefined">
+                {{ "authentification.choose" | translate }}
+              </option>
+              <option value="1">
+                {{ "authentification.choice1" | translate }}
+              </option>
+              <option value="2">
+                {{ "authentification.choice2" | translate }}
+              </option>
+            </select>
+            <div
+              *ngIf="submitted && getForm.option.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="getForm.option.errors.required">
+                {{ "authentification.req-choose" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="form-floating mb-3">
+              <input
+                class="form-control form-control-sm input-sm"
+                formControlName="email"
+                type="email"
+                placeholder="exemplu@example.com"
+                [ngClass]="{
+                  'is-invalid': submitted && getForm.email.errors
+                }"
+                maxlength="70"
+              />
+              <label for="floatingInput">
+                <span class="material-icons-outlined"> email </span>
+                {{ "authentification.email" | translate }}
+              </label>
+              <div
+                *ngIf="submitted && getForm.email.errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="getForm.email.errors.required">
+                  {{ "authentification.req-email" | translate }}
+                </div>
+                <div *ngIf="getForm.email.errors.email">
+                  {{ "authentification.invalid-email" | translate }}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="form-floating">
+              <input
+                class="form-control form-control-sm input-sm"
+                formControlName="password"
+                type="password"
+                placeholder="Parola"
+                [ngClass]="{
+                  'is-invalid': submitted && getForm.password.errors
+                }"
+                maxlength="70"
+              />
+              <label for="floatingPassword">
+                <span class="material-icons-outlined"> lock </span>
+                {{ "authentification.password" | translate }}
+              </label>
+              <div
+                *ngIf="submitted && getForm.password.errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="getForm.password.errors.required">
+                  {{ "authentification.req-password" | translate }}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <button type="submit">
+              {{ "authentification.log" | translate }}
+            </button>
+          </div>
+        </form>
+
+        <ul class="create_account">
+          <li>
+            {{ "authentification.passreset" | translate }}
+            <a
+              (click)="onPasswordReset()"
+              style="color: rgb(86, 158, 155); text-decoration: underline"
+            >
+              {{ "authentification.recover" | translate }}
+            </a>
+          </li>
+          <div class="row">
+            <div class="col-8">
+              <li>
+                {{ "authentification.registration" | translate }}
+                <a routerLink="/sign-up-component">
+                  {{ "authentification.reg" | translate }}</a
+                >
+              </li>
+            </div>
+            <div class="col-4">
+              <label class="switch">
+                <input
+                  type="checkbox"
+                  [(ngModel)]="checked"
+                  (click)="check()"
+                />
+                <span [ngClass]="sliderClass()"></span>
+              </label>
+            </div>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-1"></div>
+</div>

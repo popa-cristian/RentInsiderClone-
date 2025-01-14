@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "rentinsiderdb": {
+      "hosting": {
+        "RentInsiderClient": [
+          "rentinsiderdb"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "rentinsiderdb"
+  }
+}

@@ -1,0 +1,173 @@
+<div class="mat-dialog-container">
+  <!-- Modal's header -->
+  <div class="custom-modal-header">
+    <h2 *ngIf="!data.selectedProperty" class="custom-modal-header-content">
+      {{ "add-property.add_title" | translate }}
+    </h2>
+    <h2 *ngIf="data.selectedProperty" class="custom-modal-header-content">
+      {{ "add-property.edit_title" | translate }}
+    </h2>
+  </div>
+
+  <!-- Modal's content -->
+  <form
+    [formGroup]="PropertyFormGroup"
+    (ngSubmit)="onSubmit()"
+    class="custom-modal-content white"
+  >
+    <div class="formContent two-column">
+      <!-- Property's title -->
+      <label>
+        <span class="material-icons-outlined"> title </span>
+        {{ "add-property.title" | translate }}
+      </label>
+      <input
+        formControlName="title"
+        type="text"
+        [placeholder]="'placeholders.buildingName' | translate"
+        required
+        maxlength="70"
+      />
+      <!-- County -->
+      <label>
+        <span class="material-icons-outlined"> holiday_village </span>
+        {{ "add-property.county" | translate }}
+      </label>
+      <select
+        formControlName="county"
+        (change)="setCities()"
+        aria-label="Default select example"
+      >
+        <option selected="selected" hidden disable>
+          {{ initialCounty }}
+        </option>
+        <option
+          *ngFor="let item of counties"
+          [name]="item.name"
+          [ngValue]="item"
+        >
+          {{ item.name }}
+        </option>
+      </select>
+      <!-- City -->
+      <label>
+        <span class="material-icons-outlined"> location_city </span>
+        {{ "add-property.locality" | translate }}
+      </label>
+      <select formControlName="city" aria-label="Default select example">
+        <option *ngIf="!modifiedCounty" selected="selected" hidden disable>
+          {{ initialCity }}
+        </option>
+        <option *ngFor="let item of cities" [name]="item.name">
+          {{ item.name }}
+        </option>
+      </select>
+      <!-- Address -->
+      <label>
+        <span class="material-icons-outlined"> home_work </span>
+        {{ "add-property.address" | translate }}
+      </label>
+      <input
+        formControlName="address"
+        type="text"
+        [placeholder]="'placeholders.address' | translate"
+        maxlength="70"
+      />
+      <!-- Price -->
+      <label>
+        <span class="material-icons-outlined"> local_offer </span>
+        {{ "add-property.price" | translate }}
+      </label>
+      <input
+        formControlName="price"
+        type="number"
+        min="0"
+        placeholder="ron"
+        max="1000000"
+        min="0"
+      />
+      <!-- Surface -->
+      <label>
+        <span class="material-icons-outlined"> area_chart </span>
+        {{ "add-property.surface" | translate }}
+      </label>
+      <input
+        formControlName="surface"
+        type="number"
+        min="1"
+        max="100"
+        placeholder="0 mp"
+        max="1000000"
+        min="0"
+      />
+      <!-- Partitioning -->
+      <label>
+        <span class="material-icons-outlined"> account_tree </span>
+        {{ "add-property.compart" | translate }}
+      </label>
+      <select formControlName="partitioning">
+        <option disabled selected value="">property type</option>
+        <option value="detached">
+          {{ "add-property.comparts.detached" | translate }}
+        </option>
+        <option value="semidetached">
+          {{ "add-property.comparts.semidetached" | translate }}
+        </option>
+        <option value="nondetached">
+          {{ "add-property.comparts.nondetached" | translate }}
+        </option>
+      </select>
+      <!-- Floor -->
+      <label>
+        <span class="material-icons-outlined"> follow_the_signs </span>
+        {{ "add-property.floor" | translate }}
+      </label>
+      <input formControlName="floor" type="number" min="0" max="100" />
+      <!-- Rooms number -->
+      <label>
+        <span class="material-icons-outlined"> king_bed </span>
+        {{ "add-property.rooms" | translate }}
+      </label>
+      <input
+        formControlName="number_of_rooms"
+        type="number"
+        placeholder="0"
+        max="1000"
+        min="1"
+      />
+      <!-- Due date -->
+      <label>
+        <span class="material-icons-outlined"> event </span>
+        {{ "add-property.date" | translate }}
+      </label>
+      <input
+        formControlName="due_date"
+        type="number"
+        min="1"
+        max="30"
+        placeholder="0"
+      />
+      <!-- Water consumption index -->
+      <label>
+        <span class="material-icons-outlined"> water_drop </span>
+        {{ "add-property.water" | translate }}
+      </label>
+      <input
+        formControlName="water_consumption_index"
+        type="number"
+        placeholder="0"
+        min="0"
+        max="1000000"
+      />
+    </div>
+    <!-- Footer -->
+    <div class="custom-modal-footer">
+      <button class="btn btn-secondary footerButton" type="button" mat-dialog-close mat-button>
+        {{ "add-property.cancel" | translate }}
+      </button>
+      <button type="submit" class="btn btn-primary footerButton" mat-button>
+        {{ "add-property.save" | translate }}
+      </button>
+    </div>
+  </form>
+</div>

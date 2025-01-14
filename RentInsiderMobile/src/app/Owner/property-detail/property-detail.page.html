@@ -1,0 +1,147 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="first"> </ion-menu-button>
+    </ion-buttons>
+    <ion-title>RentInsider</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div *ngIf="!currentProperty">
+    <div class="arrow">
+      <ion-content id="background"> </ion-content>
+    </div>
+  </div>
+
+  <div *ngIf="currentProperty" id="property-background">
+    <div id="property-container"> 
+      <ion-row id="renter-name"> <!-- nume chirias-->
+        <ion-item lines="none"> 
+          <ion-icon  class="whitening" name="person-outline"></ion-icon>
+          <ion-label>{{ "property-detail.renter" | translate }} </ion-label>
+          <ion-input readonly *ngIf="renter"value={{this.getFullName()}} ></ion-input>
+        </ion-item>
+      </ion-row>
+      
+      <ion-row id="renter-buttons"> <!-- butoane -->
+          <ion-button *ngIf="!renter" size="medium" fill="outline" class="whitening_borders" (click)="openAddRenterPage()">
+            <ion-icon class="whitening" name="person-add-outline"></ion-icon>
+          </ion-button>
+          
+          <ion-button *ngIf="renter" color="danger" size="medium" fill="outline" (click)="deleteRenter()">
+            <ion-icon class="whitening" name="trash-outline"></ion-icon>
+          </ion-button>
+    
+          <ion-button *ngIf="renter" id="middle_button" size="medium" fill="outline" class="whitening_borders" (click)="openSubjectList()">
+            <ion-icon class="whitening" name="chatbubble-ellipses-outline"></ion-icon>
+          </ion-button>
+    
+          <ion-button *ngIf="renter" size="medium" fill="outline" class="whitening_borders" (click)="openExpensePage(currentProperty)">
+            <ion-icon name="wallet-outline"></ion-icon>
+          </ion-button>
+          
+          <ion-button *ngIf="renter" size="medium" fill="outline" class="whitening_borders" (click)="openRenterDetailPage()">
+            <ion-icon class="whitening" name="alert-circle-outline"></ion-icon>
+          </ion-button>
+      </ion-row>
+  
+      <ion-row id="property-payment-water"> <!-- detalii proprietate -->
+        <ion-item id="property-payment">
+          <ion-icon class="whitening" name="calendar-outline"></ion-icon>
+          <ion-label>{{ "property-detail.rent-payment-date" | translate }}</ion-label>
+          <ion-input readonly value={{currentProperty.due_date}} ></ion-input>
+        </ion-item>
+        
+        <ion-item id="property-water">
+          <ion-icon class="whitening" name="water-outline" id="property-water-index"></ion-icon>
+          <ion-label>{{ "property-detail.water-index" | translate }}</ion-label>
+          <ion-input readonly value={{currentProperty.water_consumption_index}} ></ion-input>
+        </ion-item>
+      </ion-row>
+    
+      <ion-row id="property-address">
+        <ion-item>
+          <ion-icon class="whitening" name="walk-outline"></ion-icon>
+          <ion-label>{{ "property-detail.home-address" | translate }}</ion-label>
+          <ion-input readonly value={{currentProperty.address}}></ion-input>
+        </ion-item>
+      </ion-row>
+       
+      <ion-row id="property-city">
+        <ion-item>
+          <ion-icon class="whitening" name="business-outline"></ion-icon>
+          <ion-label>{{ "property-detail.city" | translate }}</ion-label>
+          <ion-input readonly value={{currentProperty.city}} ></ion-input>
+        </ion-item>
+      </ion-row>
+    
+      <ion-row id="property-county">
+        <ion-item>
+          <ion-icon class="whitening" name="earth-outline"></ion-icon>
+          <ion-label>{{ "property-detail.county" | translate }}</ion-label>
+          <ion-input readonly value={{currentProperty.county}} ></ion-input>
+        </ion-item>
+      </ion-row>
+      
+      <ion-row id="property-floor-rooms">
+        <ion-item id="property-floor">
+          <ion-icon class="whitening" name="swap-vertical-outline" ></ion-icon>
+          <ion-label>{{ "property-detail.floor" | translate }}</ion-label>
+          <ion-input readonly value={{currentProperty.floor}} ></ion-input>
+        </ion-item>
+          
+        <ion-item id="property-rooms">
+          <ion-icon class="whitening" name="bed-outline"></ion-icon>
+          <ion-label>{{ "property-detail.number-of-rooms" | translate }}</ion-label>
+          <ion-input readonly value={{currentProperty.number_of_rooms}} ></ion-input>
+        </ion-item>
+      </ion-row>
+     
+      <ion-row id="property-partitioning">
+        <ion-item>
+          <ion-icon class="whitening" name="git-branch-outline"></ion-icon>
+          <ion-label>{{ "property-detail.partition" | translate }}</ion-label>
+          <ion-input readonly [value]="'add-property.comparts.' + currentProperty.partitioning | translate"></ion-input>
+        </ion-item>
+      </ion-row>
+    
+      <ion-row id="property-surface-price">
+        <ion-item id="property-surface">
+          <ion-icon class="whitening" name="expand-outline"></ion-icon>
+          <ion-label>{{ "property-detail.surface" | translate }}</ion-label>
+          <ion-input readonly value={{currentProperty.surface}} ></ion-input>
+        </ion-item>
+    
+        <ion-item id="property-price">
+          <ion-icon class="whitening" name="cash-outline"></ion-icon>
+          <ion-label>{{ "property-detail.price" | translate }}</ion-label>
+          <ion-input readonly value={{currentProperty.price}} ></ion-input>
+        </ion-item>
+      </ion-row>
+
+      <ion-row>
+        <div id="footer-separator"></div>
+      </ion-row>
+      
+      <ion-row id="property-edit"> <!-- buton de editare -->
+        <ion-button size="medium" fill="outline" id="edit_property" class="whitening_borders" (click)="editProperty(currentProperty)">
+          {{ "property-detail.edit-property" | translate }}
+        </ion-button>
+      </ion-row>
+
+      <ion-row id="property-edit"> <!-- buton de editare -->
+        <ion-button size="medium" fill="outline" id="uploaded-files" class="whitening_borders" (click)="openUploadedFiles(currentProperty)">
+          {{ "uploaded-files.title" | translate }}
+        </ion-button>
+      </ion-row>
+      
+      <ion-row id="property-delete"> <!-- buton de stergere -->
+        <ion-button size="medium" fill="outline" id="delete_property" color="danger" (click)="deleteProperty()">
+          {{ "property-detail.delete-property" | translate }}
+        </ion-button>
+      </ion-row>
+     
+    </div>
+  </div>
+  
+</ion-content>

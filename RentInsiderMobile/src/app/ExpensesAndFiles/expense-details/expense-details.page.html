@@ -1,0 +1,160 @@
+<ion-header>
+  <ion-toolbar id="expense-toolbar">
+    <ion-buttons slot="start" (click)="previousPage()">
+      <ion-icon size="large" name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+    <ion-title>{{ "expense-details.title" | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- details about the expense -->
+<ion-content>
+  <div *ngIf="currentExpense" id="expense-container">
+
+    <!-- supplier -->
+    <ion-row>
+      <ion-item lines="none" class="label-container">
+        <ion-icon 
+          size="small"
+          name="construct-outline"
+        ></ion-icon>
+        <ion-label>{{ "expense-details.provider" | translate }}</ion-label>
+      </ion-item>
+      <ion-input
+        *ngIf="serviceExpenses[currentExpense.service] !== undefined; else elseBlock"
+        class="expense-info"
+        readonly
+        value="{{ 'expense.' + currentExpense.service | translate }}"
+      ></ion-input>
+      <ng-template #elseBlock>
+        <ion-input
+          class="expense-info"
+          readonly
+          value="{{ currentExpense.service }}"
+        ></ion-input>
+      </ng-template>
+    </ion-row>
+
+    <!-- sum -->
+    <ion-row>
+      <ion-item lines="none" class="label-container">
+        <ion-icon
+          size="small"
+          name="cash-outline"
+        ></ion-icon>
+        <ion-label>{{ "expense-details.sum" | translate }}</ion-label>
+      </ion-item>
+      <ion-input
+        class="expense-info"
+        readonly
+        value="{{currentExpense.sum}}"
+      ></ion-input>
+    </ion-row>
+   
+    <!-- start date (issue date) -->
+    <ion-row>
+      <ion-item lines="none" class="label-container">
+        <ion-icon
+          size="small"
+          name="calendar-clear-outline"
+        ></ion-icon>
+        <ion-label>{{ "expense-details.issue-date" | translate }}</ion-label>
+      </ion-item>
+      <ion-input
+          class="expense-info"
+          readonly
+          value="{{currentExpense.duration.start}}"
+        ></ion-input>
+    </ion-row>
+   
+    <!-- end date (due date) -->
+    <ion-row>
+      <ion-item lines="none" class="label-container">
+        <ion-icon
+          size="small"
+          name="calendar-clear-outline"
+        ></ion-icon>
+        <ion-label>{{ "expense-details.due-date" | translate }}</ion-label>
+      </ion-item>
+      <ion-input
+          class="expense-info"
+          readonly
+          value="{{currentExpense.duration.end}}"
+        ></ion-input>
+    </ion-row>
+
+    <!-- reading type -->
+    <ion-row>
+      <ion-item lines="none" class="label-container">
+        <ion-icon
+          size="small"
+          name="book-outline"
+        ></ion-icon>
+        <ion-label>{{ "expense-details.type" | translate }}</ion-label>
+      </ion-item>
+      <ion-input
+        class="expense-info"
+        readonly
+        [value]="'add-expense.readingType.'+ currentExpense.type | translate"
+      ></ion-input>
+    </ion-row>
+    
+    <!-- expense state (paid / not paid) -->
+    <ion-row>
+      <ion-item lines="none" class="label-container">
+        <ion-icon
+          size="small"
+          name="card-outline"
+        ></ion-icon>
+        <ion-label>{{ "expense-details.state" | translate }}</ion-label>
+      </ion-item>
+      <div class="expense-info" id="expense-paid-info">
+        <ion-input 
+          readonly
+          value="{{ 'expense.' + currentExpense.due | translate }}"
+        ></ion-input>
+        <div>
+          <ion-button
+            id="expense-paid-btn"
+            [ngClass]="{ 'expense-paid': !currentExpense.due, 'expense-unpaid': currentExpense.due }"
+            slot="end"
+            (click)="changeExpenseStatus()">
+            <ion-icon 
+              size="large"
+              name="cash-outline"
+            ></ion-icon>
+          </ion-button>
+        </div>
+      </div>
+    </ion-row>
+
+    <!-- date of receipt of the expense -->
+    <ion-row>
+      <ion-item lines="none" class="label-container">
+        <ion-icon
+          size="small"
+          name="calendar-clear-outline"
+        ></ion-icon>
+        <ion-label>{{ "expense-details.receipt-date" | translate }}</ion-label>
+      </ion-item>
+      <ion-input
+        class="expense-info"
+        readonly
+        value="{{currentExpense.date_of_submition}}"
+      ></ion-input>
+    </ion-row>    
+
+    <ion-row *ngIf="currentExpense.pdf">
+      <ion-button
+        *ngIf="currentExpense.pdf"
+        color="danger"
+        fill="outline"
+        id="expense-file-view-btn"
+        (click)="openSelectedFile(currentExpense.pdf)">
+        <ion-icon name="document-text-outline"></ion-icon>
+        <ion-label>{{ "expense-details.view-file" | translate }}</ion-label>
+      </ion-button>
+    </ion-row>
+    
+  </div>
+</ion-content>

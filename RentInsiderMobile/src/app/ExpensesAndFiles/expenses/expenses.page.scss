@@ -1,0 +1,69 @@
+.culoare{
+    --background:#88BDBC !important;
+    
+}
+
+.culoare_footer{
+    --background:#88BDBC ;
+
+}
+
+ion-content, ion-item{
+    --background:#112D32;
+    color:white;
+}
+
+ion-label, ion-input{
+    --color:white ;
+    color:white ;
+}
+
+.whitening{
+    --color:white ;
+    color:white ;
+}
+
+.buttons_style{
+    --border-color:white ;
+    --color:white ;
+}
+
+ion-grid {
+    padding:0;
+    margin:0;
+    
+    ion-row {
+      font-weight: normal;
+      border: none;
+
+    }
+    ion-col {
+      border: none;
+      border-bottom: 0;
+      border-right: 0;
+
+    }
+
+}
+
+.service-name {
+    font-size: 20px;
+}
+
+hr.title-underline {
+    background: linear-gradient(to right, #88BDBC, #6E6658,#112D32);
+    height: 5px;
+    border:2px;
+    margin-right:15%;
+    width:100%;
+}
+hr.title-underline1 {
+    background: linear-gradient(to right, #112D32, #6E6658, #88BDBC, transparent);
+    height: 5px;
+}
+.green{
+    color: rgb(120, 214, 124);
+}
+.red{
+    color: rgb(216, 100, 100);
+}

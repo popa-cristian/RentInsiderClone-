@@ -1,0 +1,125 @@
+/* You can add global styles to this file, and also import other style files */
+/* @import '~bootstrap/dist/css/bootstrap.min.css'; */
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+::-webkit-scrollbar {
+  height: 1vh;
+}
+
+/* Global dialogs styles */
+/* Modal's body */
+.mat-dialog-container {
+  padding: 0px !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  min-width: 300px;
+  width: 100%;
+  height: 70%;
+  background-color: #254e58;
+}
+
+/* Modal's header */
+.custom-modal-header {
+  display: grid;
+  justify-content: center;
+  background-color: #88bdbc;
+  height: fit-content;
+  padding: 5px;
+
+  .custom-modal-header-content {
+    color: white;
+    margin: 0 !important ;
+  }
+
+}
+
+
+/* Modal's contents */
+.custom-modal-content {
+  background-image: -webkit-linear-gradient(
+    top left,
+    #112d32,
+    #6e6658,
+    #88bdbc
+  );
+  /* Code that doesn't work in the current Chrome version */
+  /* height: 300px;
+  overflow-y: scroll;
+  scrollbar-color: white;
+  scrollbar-width: 10px; */
+}
+.custom-modal-content.white label,
+.custom-modal-content.white div {
+  color: white;
+}
+.custom-modal-content label,
+.custom-modal-content div {
+  color: black;
+}
+/* Modal's footer */
+.custom-modal-footer {
+  display: grid;
+  grid-template-columns: auto auto;
+  background-color: #88bdbc;
+  justify-content: space-around;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* Custom modal's close button (up-right X button) */
+.custom-modal-close-button {
+  background-color: transparent;
+}
+
+/* If the screen size is small, we display one cell in a row */
+@media screen and (max-width: 600px) {
+  .formContent {
+    grid-template-columns: auto !important;
+  }
+}
+
+/* Styles that should apply to each form content */
+.formContent {
+  display: grid;
+  padding: 5px 10px;
+  row-gap: 5px;
+}
+
+/* 1 column forms */
+.formContent.one-column,
+.custom-modal-footer.one-column {
+  grid-template-columns: auto;
+}
+/* 2 column forms */
+.formContent.two-column,
+.custom-modal-footer.two-column {
+  grid-template-columns: auto auto;
+}
+/* Close and save buttons */
+.custom-modal-footer .footerButton {
+  border: 1.5px solid white;
+  color: white;
+  background-color: #254e58;
+  width: 100px;
+}
+
+.footerButton:hover, .footerButton:active, .footerButton:focus{
+  background-image: -webkit-linear-gradient(
+    top left,
+    #112d32,
+    #6e6658,
+    #88bdbc
+  );
+}
+
+#norton-idsafe-field-styling-divId {
+  z-index: 100 !important;
+}

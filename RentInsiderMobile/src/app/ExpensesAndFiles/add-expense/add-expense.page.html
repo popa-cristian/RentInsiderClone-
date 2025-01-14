@@ -1,0 +1,148 @@
+<ion-header>
+  <ion-toolbar id="expense-toolbar">
+    <ion-buttons slot="start" (click)="PreviousPage()">
+      <ion-icon size="large" name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+    <ion-title>{{ "add-expense.title" | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content id="expense-form-container">
+  <!-- expenses form -->
+  <form [formGroup]="ExpenseFormGroup" (ngSubmit)="onSubmit()">
+    <!-- supplier -->
+    <ion-row>
+      <ion-item lines="none" class="label-container">
+        <ion-icon name="construct-outline"></ion-icon>
+        <ion-label>{{ 'add-expense.supplier' | translate }}</ion-label>
+      </ion-item>
+      <ion-select interface="alert" formControlName="service" required class="form-input" placeholder="{{ 'add-expense.electricity' | translate }}">
+        <ion-select-option value="electricity">{{ "add-expense.electricity" | translate }}</ion-select-option>
+        <ion-select-option value="gas">{{ "add-expense.gas" | translate }}</ion-select-option>
+        <ion-select-option value="internet">{{ "add-expense.internet" | translate }}</ion-select-option>
+        <ion-select-option value="water">{{ "add-expense.water" | translate }}</ion-select-option>
+        <ion-select-option value="rent">{{ "add-expense.rent" | translate }}</ion-select-option>
+        <ion-select-option value="">{{ "add-expense.other" | translate }}</ion-select-option>
+      </ion-select>
+    </ion-row>
+
+    <ion-row *ngIf="serviceExpenses[ExpenseFormGroup.value.service] === undefined">
+      <ion-item
+        lines="none"
+        class="label-container"
+        [class.ion-invalid]="ExpenseFormGroup.additionalServiceName === undefined">
+          <ion-label>{{ "add-expense.additional-service" | translate }}</ion-label>
+      </ion-item>
+      <ion-input
+        formControlName="service"
+        required
+        class="form-input"
+      ></ion-input>
+    </ion-row>
+
+    <!-- consumption -->
+    <ion-row>
+      <ion-item lines="none" class="label-container">
+        <ion-icon  name="speedometer-outline"></ion-icon>
+        <ion-label>{{ "add-expense.consumption" | translate }}</ion-label>
+      </ion-item>
+      <ion-input
+        type="number"
+        formControlName="consumed"
+        required
+        class="form-input"
+      ></ion-input>
+    </ion-row>
+
+    <!-- start date (issue date)-->
+    <ion-row>
+      <ion-item lines="none" class="label-container">
+        <ion-icon
+          size="small"
+          name="calendar-clear-outline"
+        ></ion-icon>
+        <ion-label>{{ "add-expense.start" | translate }}</ion-label>
+      </ion-item>
+      <ion-datetime formControlName="start" class="form-input"></ion-datetime>
+    </ion-row>
+
+    <!-- end date (due date)-->
+    <ion-row>
+      <ion-item lines="none" class="label-container">
+        <ion-icon
+          size="small"
+          name="today-outline"
+        ></ion-icon>
+        <ion-label>{{ "add-expense.final" | translate }}</ion-label>
+      </ion-item>
+      <ion-datetime formControlName="end" class="form-input"></ion-datetime>
+    </ion-row>
+
+    <!-- sum -->
+    <ion-row>
+      <ion-item lines="none" class="label-container">
+        <ion-icon
+          size="small"
+          name="cash-outline"
+        ></ion-icon>
+        <ion-label>{{ "add-expense.sum" | translate }}</ion-label>
+      </ion-item>
+      <ion-input
+        type="number"
+        formControlName="sum"
+        required
+        class="form-input"
+        s
+        [class.ion-invalid]="ExpenseFormGroup.sum == 0"
+        placeholder="RON"
+        step="0.01"
+      ></ion-input>
+    </ion-row>
+
+    <!-- reading type -->
+    <ion-row>
+      <ion-item lines="none" class="label-container">
+        <ion-icon
+          size="small"
+          name="book-outline"
+        ></ion-icon>
+        <ion-label>{{ "add-expense.type" | translate }}</ion-label>
+      </ion-item>
+      <ion-select formControlName="type" required interface="alert" class="form-input" placeholder=" {{ 'add-expense.readingType.estimation' | translate }}">
+        <ion-select-option value="estimation">{{ "add-expense.readingType.estimation" | translate }}</ion-select-option>
+        <ion-select-option value="regularization">{{ "add-expense.readingType.regularization" | translate }}</ion-select-option>
+        <ion-select-option value="self-read">{{ "add-expense.readingType.self-read" | translate }}</ion-select-option>
+      </ion-select>
+    </ion-row>
+
+    <!-- file to justify the expense -->
+    <ion-row>
+      <ion-item lines="none" class="label-container">
+        <ion-icon
+          name="document-outline"
+          size="small"
+        ></ion-icon>
+        <ion-label>{{ "add-expense.file" | translate }}</ion-label>
+      </ion-item>
+      <ion-input
+        type="file"
+        (change)="selectFile($event)"
+        class="form-input"
+      ></ion-input>
+    </ion-row>
+
+    <!-- save/submit button -->
+    <ion-row id="save-btn-container">
+      <ion-item lines="none">
+        <ion-button
+          id="save-btn"
+          size="medium"
+          slot="end"
+          fill="outline"
+          type="submit"
+          >{{ "add-expense.save" | translate }}</ion-button
+        >
+      </ion-item>
+    </ion-row>
+  </form>
+</ion-content>

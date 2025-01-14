@@ -1,0 +1,76 @@
+<ion-menu  menuId="first" contentId="ownerMenu">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>RentInsider</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <div (click)="addPropertyPage()">
+      <ion-menu-toggle>
+        <ion-item routerDirection="root" [routerLink]="" detail="false" lines="none">
+          <ion-icon slot="start" name="add"></ion-icon>
+          <ion-label>{{ "owner-main-menu-page.add-property" | translate }}</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+    </div>
+    <div *ngFor="let p of properties" [class.selected]="p === selectedItem" (click)="onSelect(p)">
+      <ion-menu-toggle>
+        <ion-item routerDirection="root" routerLinkActive="active" lines="none">
+          <ion-icon slot="start"></ion-icon>
+          <ion-label>
+            {{p.title}}
+          </ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+    </div> 
+
+  <div (click)="openOwnerDetails()">
+    <ion-menu-toggle>
+      <ion-item routerDirection="root" [routerLink]="" detail="false" lines="none">
+        <ion-icon slot="start" name="create"></ion-icon>
+        <ion-label>{{ "owner-main-menu-page.edit-owner-info" | translate }}</ion-label>
+      </ion-item>
+    </ion-menu-toggle>
+  </div>
+
+  <div (click)="close()">
+    <ion-menu-toggle>
+      <ion-item routerDirection="root" [routerLink]="" detail="false" lines="none">
+        <ion-icon slot="start" name="exit"></ion-icon>
+        <ion-label>{{ "owner-main-menu-page.logout" | translate }}</ion-label>
+      </ion-item>
+    </ion-menu-toggle>
+  </div>
+
+  <div id="language-icons" class="item-center">
+    
+    <li class="li-nav">
+      <button 
+      type="button"
+      class="button-info"
+      (click)="openInfoWiki()"
+      >
+      <img src="../../../assets/img/question.png">
+      </button>
+      <button
+        type="button"
+        class="button-language"
+        (click)="changeLanguage(importedLanguages.ro)"
+      >
+        <img src="../../../assets/language-icons/romania.png" />
+      </button>
+      <button
+        type="button"
+        class="button-language"
+        (click)="changeLanguage(importedLanguages.eng)"
+      >
+        <img src="../../../assets/language-icons/united-kingdom.png" />
+      </button>
+    </li>
+  </div>
+
+  </ion-content>
+</ion-menu>
+
+<ion-router-outlet id="ownerMenu"></ion-router-outlet>

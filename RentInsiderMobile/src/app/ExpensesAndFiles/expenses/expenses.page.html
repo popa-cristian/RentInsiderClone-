@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar class="culoare">
+
+    <ion-buttons slot="start" (click)="previousPage()">
+      <ion-icon size="large" name="arrow-back-outline" ></ion-icon>
+    </ion-buttons>
+
+    <ion-title>{{ "add-expense.title" | translate }}</ion-title>
+
+    <ion-buttons slot="end" (click)="addExpenseCommand()">
+      <ion-icon size="large" name="add-circle-outline"></ion-icon>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <div *ngFor="let expense of expenses" >
+      <ion-row (click)="expandExpense(expense)">
+        
+        <!-- icon -->
+        <ion-col style="color: white; font-size: 80px;">
+          <ion-icon name={{appropriateIcon(expense)}}></ion-icon>
+        </ion-col>
+
+        <!-- service name + due date -->
+        <ion-col>
+          <ion-row>
+            <ion-item>
+      
+              <ion-label 
+                *ngIf="serviceExpenses[expense.service] !== undefined; else elseBlock"
+                class="service-name">{{ "add-expense." + expense.service | translate }}
+              </ion-label>
+              <ng-template #elseBlock>
+                <ion-label class="service-name">{{ expense.service }}</ion-label>
+              </ng-template>
+
+            </ion-item>
+          </ion-row>
+          <ion-row>
+            <ion-input class="white_text" readonly value={{expense.duration.end}} ></ion-input>
+          </ion-row>
+        </ion-col>
+
+        <!-- sum to pay -->
+        <ion-col>
+          <ion-row>
+            <ion-item>
+      
+              <ion-input class="white_text" readonly value={{expense.sum}}> </ion-input> 
+              <ion-input>  RON </ion-input>
+            </ion-item>
+          </ion-row>
+          <ion-row>
+            <div *ngIf="!expense.due"  style="color: rgb(120, 214, 124); font-size: 30px;">
+              <ion-icon name="checkmark-circle-outline"></ion-icon>
+            </div>
+  
+            <div *ngIf="expense.due"  style="color: rgb(216, 100, 100); font-size: 30px;">
+              <ion-icon  name="close-circle-outline"></ion-icon>            
+            </div> 
+            <ion-input *ngIf="!expense.due" class="green" readonly >{{ "expense." + expense.due | translate }}</ion-input>
+            <ion-input *ngIf="expense.due" class="red" readonly >{{ "expense." + expense.due | translate}}</ion-input>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+      <hr class="title-underline">
+    </div>
+  </ion-grid>
+</ion-content>

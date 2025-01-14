@@ -1,0 +1,8 @@
+{
+  "name": "RentInsiderMobile",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,227 @@
+<ion-header>
+  <!-- <ion-toolbar class="culoare">
+    <ion-buttons slot="start">
+      <img
+        src="./assets/icon/Untitled-1_3.png"
+        class="img-fluid"
+        alt="Responsive image"
+      />
+    </ion-buttons>
+    
+  </ion-toolbar> -->
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="rent"> </ion-menu-button>
+    </ion-buttons>
+    <ion-title>RentInsider</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="duedate">
+    <b
+      >{{ "rent-main.paragraph" | translate }} {{due_date}}{{currentDate |
+      date:'/MM/yyyy'}}</b
+    >
+  </div>
+  <br>
+  <h1 style="color: white; margin-left: 30%">
+    {{ "rent-main.title" | translate }}
+  </h1> 
+  <div *ngIf="currentProperty">
+    <ion-item lines="none">
+      <ion-icon name="person-outline"></ion-icon>
+      <ion-label>{{ "rent-main.owner" | translate }}</ion-label>
+      <ion-input
+        id="owner-input"
+        type="text"
+        readonly
+        value="{{GetOwner_FullName()}}"
+      ></ion-input>
+    </ion-item>
+    <ion-row id="renter-buttons"> <!-- butoane -->
+      <!-- <ion-button *ngIf="!renter" size="medium" fill="outline" class="whitening_borders" (click)="openAddRenterPage()">
+        <ion-icon class="whitening" name="person-add-outline"></ion-icon>
+      </ion-button>
+      
+      <ion-button *ngIf="renter" color="danger" size="medium" fill="outline" (click)="deleteRenter()">
+        <ion-icon class="whitening" name="trash-outline"></ion-icon>
+      </ion-button>
+
+      <ion-button *ngIf="renter" id="middle_button" size="medium" fill="outline" class="whitening_borders" (click)="openSubjectList()">
+        <ion-icon class="whitening" name="chatbubble-ellipses-outline"></ion-icon>
+      </ion-button>
+
+      <ion-button *ngIf="renter" size="medium" fill="outline" class="whitening_borders" (click)="openExpensePage(currentProperty)">
+        <ion-icon name="wallet-outline"></ion-icon>
+      </ion-button>
+      
+      <ion-button *ngIf="renter" size="medium" fill="outline" class="whitening_borders" (click)="openRenterDetailPage()">
+        <ion-icon class="whitening" name="alert-circle-outline"></ion-icon>
+      </ion-button> -->
+      <ion-button *ngIf="currentProperty" size="medium" fill="outline" class="whitening_borders" (click)="openExpensePage(currentProperty)">
+        <ion-icon name="wallet-outline"></ion-icon>
+      </ion-button>
+
+      <ion-button id="send_message_button" size="medium" fill="outline" (click)="openChatroomMenu()">
+          <ion-icon name="chatbox-ellipses-outline"></ion-icon>
+       </ion-button>
+
+       <ion-button id="update_water_index_button" size="medium" fill="outline" (click)="onWaterConsumptionIndexUpdate(water_index.value)">
+        <ion-icon name="water-outline"></ion-icon>
+      </ion-button>
+    
+       <ion-button id="owner_details_button" type="button" size="medium" fill="outline" (click)="openOwnerDetailPage()">
+        <ion-icon name="people-circle-outline"></ion-icon>
+      </ion-button>
+      <!-- <ion-button size="medium" fill="outline" class="whitening_borders" (click)="openChatroomMenu()">
+        <ion-icon class="whitening" name="chatbubble-ellipses-outline"></ion-icon>
+      </ion-button> -->
+    </ion-row>
+
+    <ion-item lines="none">
+      <ion-icon name="walk-outline" id="walk-outline"></ion-icon>
+      <ion-label>{{ "rent-main.address" | translate }}</ion-label>
+      <ion-input
+        id="address-input"
+        type="text"
+        readonly
+        value="{{currentProperty.address}}"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-icon name="business-outline"></ion-icon>
+      <ion-label>{{ "rent-main.city" | translate }}</ion-label>
+      <ion-input
+        id="city-input"
+        type="text"
+        readonly
+        value="{{currentProperty.city}}"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-icon name="earth-outline"></ion-icon>
+      <ion-label>{{ "rent-main.county" | translate }}</ion-label>
+      <ion-input
+        readonly
+        id="county-input"
+        type="text"
+        readonly
+        value="{{currentProperty.county}}"
+      >
+      </ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-icon name="swap-vertical-outline"></ion-icon>
+      <ion-label>{{ "rent-main.floor" | translate }}</ion-label>
+      <ion-input
+        id="floor-input"
+        type="text"
+        readonly
+        value="{{currentProperty.floor}}"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-icon name="expand-outline"></ion-icon>
+      <ion-label>{{ "rent-main.surface" | translate }}</ion-label>
+      <ion-input
+        id="surface-input"
+        type="text"
+        readonly
+        value="{{currentProperty.surface}}"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-icon name="bed-outline" id="centrare_camere"></ion-icon>
+      <ion-label>{{ "rent-main.rooms" | translate }}</ion-label>
+      <ion-input
+        id="number-of-rooms-input"
+        type="text"
+        readonly
+        value="{{currentProperty.number_of_rooms}}"
+      >
+      </ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-icon name="git-branch-outline"></ion-icon>
+      <ion-label>{{ "rent-main.compart" | translate }}</ion-label>
+      <ion-input id="partitioning-input" type="text" readonly>
+        {{ "add-property.comparts." + currentProperty.partitioning | translate
+        }}
+      </ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-icon name="water-outline" id="centrare_index"></ion-icon>
+      <ion-label>{{ "rent-main.water" | translate }}</ion-label>
+      <ion-input
+        id="water_index"
+        type="number"
+        value="{{currentProperty.water_consumption_index}}"
+        #water_index
+      ></ion-input>
+    </ion-item>
+
+    <!-- <ion-item lines="none">
+      <ion-row id="rent-edit">
+        <ion-button
+        size="medium"
+        fill="outline"
+        
+        class="whitening_borders"
+        (click)="onWaterConsumptionIndexUpdate(water_index.value)"
+      >
+        {{ "rent-main.send" | translate }}
+      </ion-button>
+      </ion-row>
+    </ion-item> -->
+
+      <ion-row>
+        <div id="footer-separator"></div>
+      </ion-row>
+      <ion-row id="property-edit"> <!-- buton de editare -->
+        <ion-button size="medium" fill="outline" id="uploaded-files" class="whitening_borders" (click)="openUploadedFiles(currentProperty)">
+          {{ "uploaded-files.title" | translate }}
+        </ion-button>
+      </ion-row>
+      <ion-row>
+        <div id="footer-separator"></div>
+      </ion-row>
+
+      <ion-row>
+        <div id="language-icons" class="item-center">
+            <button
+              type="button"
+              class="button-language"
+              (click)="changeLanguage(importedLanguages.ro)"
+            >
+              <img src="../../../assets/language-icons/romania.png" />
+            </button>
+            <button
+              type="button"
+              class="button-language"
+              (click)="changeLanguage(importedLanguages.en)"
+            >
+              <img src="../../../assets/language-icons/united-kingdom.png" />
+            </button>
+
+            <button 
+               type="button"
+              class="button-info"
+             (click)="openInfoWiki()"
+            >
+            <img src="../../../assets/img/question.png">
+           </button>
+        </div>
+
+      </ion-row>
+    
+    <br/>
+  </div>
+</ion-content>

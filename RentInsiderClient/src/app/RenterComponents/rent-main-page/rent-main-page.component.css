@@ -1,0 +1,335 @@
+#number-of-rooms-input,
+#address-input,
+.water_index,
+#floor-input,
+#surface-input,
+#owner-input,
+#address-input,
+#city-input,
+#partitioning-input,
+#county-input {
+  margin-left: 10px;
+  text-align: center;
+}
+
+.water_index {
+  width: 160px;
+}
+
+#water_index_button {
+  background-color: #6e6658;
+  border: none;
+  color: white;
+  text-align: center;
+  margin-bottom: 3%;
+  margin-top: 3%;
+  margin-left: 4%;
+  width: 20%;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  -webkit-box-shadow: 0 2px 5px 0 #b1b4b4;
+  box-shadow: 0 5px 5px 0 #b1b4b4;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+#water_index_button:hover {
+  background-color: #ada18c;
+  color: white;
+}
+
+#number-of-rooms-input,
+#floor-input {
+  width: 40px;
+}
+
+#floor-input {
+  margin-right: 60px;
+}
+
+#surface-input {
+  width: 60px;
+}
+
+#partitioning-input {
+  width: 190px;
+}
+
+#address-input {
+  width: 258px;
+  margin-left: 19px;
+}
+
+#city-input {
+  width: 258px;
+  margin-left: 33px;
+}
+
+#county-input {
+  width: 258px;
+  margin-left: 29px;
+}
+
+#owner-input {
+  width: 220px;
+  border: none;
+}
+
+body {
+  background-image: -webkit-linear-gradient(
+    top left,
+    #112d32,
+    #6e6658,
+    #88bdbc
+  );
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 100vh;
+  background-size: cover;
+}
+::-webkit-scrollbar {
+  overflow-y: scroll;
+  /* height: 300px; */
+  width: 10px;
+  background: white;
+  box-shadow: inset 0 0 4px white;
+}
+::-webkit-scrollbar-thumb {
+  background: #818589;
+  border-radius: 15px;
+}
+
+.wrapperRenter {
+  display: flex;
+  /* justify-content: center; */
+  justify-content: flex-end;
+  width: 100%;
+  min-height: 100%;
+}
+
+#formContentRenter {
+  -webkit-border-radius: 2% 0% 0% 2%;
+  border-radius: 2% 0% 0% 2%;
+  background: #fff;
+  width: 87%;
+  padding-left: 2%;
+  padding-top: 1%;
+  max-width: 87%;
+  position: relative;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+}
+.buton {
+  width: 100%;
+}
+
+#title_text {
+  color: white;
+  font-family: "Dela Gothic One";
+  padding-top: 3%;
+  text-align: center;
+}
+
+#title_image {
+  width: 100%;
+  max-width: 100px;
+  height: 100%;
+  max-height: 100px;
+}
+
+.button-nav {
+  background-color: transparent;
+  border: none;
+  color: white;
+  text-align: left;
+  margin: 0;
+  font-size: 14px;
+  padding: 3px;
+}
+
+.button-list {
+  background-color: transparent;
+  border: 1px;
+  color: black;
+  text-align: left;
+  border-color: black;
+  text-decoration: none;
+  text-align: center;
+  margin-top: 0.2%;
+  margin-bottom: 0.2%;
+  -webkit-border-radius: 2% 0% 0% 2%;
+  border-radius: 2% 0% 0% 2%;
+}
+
+.ul-nav {
+  /* justify-content: center; */
+  align-items: left;
+  list-style-type: none;
+  width: 13%;
+  background-image: -webkit-linear-gradient(
+    top left,
+    #112d32,
+    #6e6658,
+    #88bdbc
+  );
+  position: fixed;
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 2px;
+}
+
+.arrange {
+  margin-top: 1000%;
+}
+
+li {
+  display: block;
+  color: black;
+  border-color: black;
+  text-decoration: none;
+  text-align: left;
+  margin-top: 0.2%;
+  margin-bottom: 0.2%;
+  -webkit-border-radius: 2% 0% 0% 2%;
+  border-radius: 2% 0% 0% 2%;
+}
+
+.li-nav a {
+  display: block;
+  color: white;
+  text-decoration: none;
+}
+
+.white-icon svg {
+  fill: white;
+}
+
+.column-detail2 {
+  float: left;
+  width: 35%;
+  min-width: 380px;
+  max-width: 500px;
+  height: 90%;
+}
+
+.column-files {
+  float: left;
+  width: 55%;
+  height: 90%;
+}
+
+label {
+  color: black;
+  font-size: 18px;
+  padding-bottom: 2%;
+  vertical-align: middle;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+hr.title-underline {
+  background: linear-gradient(to right, #112d32, #6e6658, #88bdbc, transparent);
+  height: 5px;
+  border: 2px;
+}
+
+#send_message_button {
+  color: black;
+  font-size: 3%;
+  border: 1px black;
+  border-style: solid;
+  margin-left: 10%;
+  -webkit-box-shadow: 0 2px 5px 0 #b1b4b4;
+  box-shadow: 0 5px 5px 0 #b1b4b4;
+}
+#view_renter_details {
+  color: black;
+  font-size: 3%;
+  border: 1px black;
+  border-style: solid;
+  margin-left: 30%;
+  -webkit-box-shadow: 0 2px 5px 0 #b1b4b4;
+  box-shadow: 0 5px 5px 0 #b1b4b4;
+}
+
+.wrapper-details {
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: #fff;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding-left: 5%;
+  margin-top: 5%;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding: 0px;
+  align-items: center;
+  border: white;
+}
+#formContent-details {
+  -webkit-border-radius: 2% 0% 0% 2%;
+  border-radius: 2% 0% 0% 2%;
+  background: #fff;
+  width: 87%;
+  margin-left: 4%;
+  padding-left: 3%;
+  padding-top: 1%;
+  max-width: 87%;
+  position: relative;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+}
+
+.wrapper-duedate {
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: #fff;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding-left: 5%;
+  padding-right: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 2%;
+  margin-top: 5%;
+  width: 90%;
+  font-size: 16px;
+  position: relative;
+  padding: 0px;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.wrapper2 {
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: #fff;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 2%;
+  margin-top: 5%;
+  width: 90%;
+  font-size: 14px;
+  position: relative;
+  padding: 0px;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+  align-items: left;
+}
+
+.btn-success,
+.btn-success:hover,
+.btn-success:active,
+.btn-success:visited {
+  background-color: #6e6658 !important;
+  color: white;
+}

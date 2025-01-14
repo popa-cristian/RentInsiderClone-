@@ -1,0 +1,477 @@
+<ion-header>
+  <ion-toolbar class="culoare">
+    <ion-buttons slot="start" (click)="PreviousPage()">
+      <ion-icon size="large" name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+
+    <div *ngIf="propertyExists" class="column-title">
+      <ion-title>{{ "add-property.edit_title" | translate }}</ion-title>
+    </div>
+    <div *ngIf="!propertyExists" class="column-title">
+      <ion-title>{{ "add-property.add_title" | translate }}</ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form
+    [formGroup]="AddPropertyForm"
+    (ngSubmit)="onSubmit()"
+    class="add-property"
+  >
+    <!-- Title -->
+    <ion-item lines="none">
+      <ion-label>{{ "add-property.title" | translate }}: </ion-label>
+      <ion-input
+        formControlName="title"
+        placeholder="{{'add-property.title-placeholder' | translate }}"
+        value="{{selectedProperty.title}}"
+        required
+        maxlength="70"
+      ></ion-input>
+    </ion-item>
+    <!-- Title Warning text -->
+    <div
+      class="form-warning"
+      *ngIf="
+        AddPropertyForm.controls.title.dirty &&
+          AddPropertyForm.controls.title.errors?.required
+      "
+    >
+      <div class="text-danger">
+        <div
+          *ngIf="
+            AddPropertyForm.controls.title.dirty &&
+            AddPropertyForm.controls.title.errors?.required
+          "
+        >
+          * {{ "add-property-warning.required" | translate }}
+        </div>
+      </div>
+    </div>
+
+    <!-- County -->
+    <ion-item lines="none">
+      <ion-icon class="whitening" size="small" name="home-outline"></ion-icon>
+      <ion-label>{{ "add-property.county" | translate}}</ion-label>
+      <ion-select
+        formControlName="county"
+        (ionChange)="setCities()"
+        aria-label="Default select example"
+        id="county_input"
+      >
+        <!--<ion-select-option selected="selected" hidden disable>{{initialCounty}}</ion-select-option> -->
+        <!-- Aparea o optiune goala la judet(cea default) si ramanea in lista si dupa ce schimbai judetul-->
+        <ion-select-option *ngFor="let item of counties" value="{{item.name}}"
+          >{{item.name}}</ion-select-option
+        >
+      </ion-select>
+    </ion-item>
+    <!-- County Warning text -->
+    <div
+      class="form-warning"
+      *ngIf="
+        AddPropertyForm.controls.county.dirty &&
+          AddPropertyForm.controls.county.errors?.required
+      "
+    >
+      <div class="text-danger">
+        <div
+          *ngIf="
+            AddPropertyForm.controls.county.dirty &&
+            AddPropertyForm.controls.county.errors?.required
+          "
+        >
+          * {{ "add-property-warning.required" | translate }}
+        </div>
+      </div>
+    </div>
+
+    <!-- City -->
+    <ion-item lines="none">
+      <ion-icon
+        class="whitening"
+        size="small"
+        name="business-outline"
+      ></ion-icon>
+      <ion-label>{{ "add-property.locality" | translate}}</ion-label>
+      <ion-select
+        formControlName="city"
+        class="form-select-sm"
+        aria-label="Default select example"
+        id="city_input"
+      >
+        <ion-select-option
+          *ngIf="!modifiedCounty"
+          selected="selected"
+          hidden
+          disable
+          >Selectati un judet</ion-select-option
+        >
+        <ion-select-option *ngFor="let item of cities" value="{{item.name}}"
+          >{{item.name}}</ion-select-option
+        >
+      </ion-select>
+    </ion-item>
+    <!-- City Warning text -->
+    <div
+      class="form-warning"
+      *ngIf="
+        AddPropertyForm.controls.city.dirty &&
+          AddPropertyForm.controls.city.errors?.required
+      "
+    >
+      <div class="text-danger">
+        <div
+          *ngIf="
+            AddPropertyForm.controls.city.dirty &&
+            AddPropertyForm.controls.city.errors?.required
+          "
+        >
+          * {{ "add-property-warning.required" | translate }}
+        </div>
+      </div>
+    </div>
+
+    <!-- Address -->
+    <ion-item lines="none">
+      <ion-icon class="whitening" size="small" name="walk-outline"></ion-icon>
+      <ion-label>{{ "add-property.address" | translate }}</ion-label>
+      <ion-input
+        formControlName="address"
+        placeholder="{{'add-property.address-placeholder' | translate }}"
+        value="{{selectedProperty.address}}"
+        required
+        maxlength="70"
+      ></ion-input>
+    </ion-item>
+    <!-- Address Warning text -->
+    <div
+      class="form-warning"
+      *ngIf="
+        AddPropertyForm.controls.address.dirty &&
+          AddPropertyForm.controls.address.errors?.required
+      "
+    >
+      <div class="text-danger">
+        <div
+          *ngIf="
+            AddPropertyForm.controls.address.dirty &&
+            AddPropertyForm.controls.address.errors?.required
+          "
+        >
+          * {{ "add-property-warning.required" | translate }}
+        </div>
+      </div>
+    </div>
+
+    <!-- Price -->
+    <ion-item lines="none">
+      <ion-icon class="whitening" size="small" name="cash-outline"></ion-icon>
+      <ion-label>{{ "add-property.price" | translate }}</ion-label>
+      <ion-input
+        formControlName="price"
+        type="number"
+        value="{{selectedProperty.price}}"
+        required
+        min="0"
+        max="1000000"
+      ></ion-input>
+    </ion-item>
+    <!-- Price Warning text -->
+    <div
+      class="form-warning"
+      *ngIf="
+        AddPropertyForm.controls.price.dirty &&
+          (AddPropertyForm.controls.price.errors?.required ||
+          AddPropertyForm.controls.price.errors?.min ||
+          AddPropertyForm.controls.price.errors?.pattern)
+      "
+    >
+      <div class="text-danger">
+        <div *ngIf="AddPropertyForm.controls.price.errors?.required">
+          * {{ "add-property-warning.required" | translate }}
+        </div>
+
+        <div *ngIf="AddPropertyForm.controls.price.errors?.min">
+          * {{ "add-property-warning.min" | translate }} 0
+        </div>
+
+        <div *ngIf="AddPropertyForm.controls.price.errors?.pattern">
+          * {{ "add-property-warning.number" | translate }}
+        </div>
+      </div>
+    </div>
+
+    <!-- Surface -->
+    <ion-item lines="none">
+      <ion-icon class="whitening" size="small" name="expand-outline"></ion-icon>
+      <ion-label>{{ "add-property.surface" | translate }}</ion-label>
+      <ion-input
+        formControlName="surface"
+        type="number"
+        value="{{selectedProperty.surface}}"
+        required
+        min="0"
+        max="1000000"
+      ></ion-input>
+    </ion-item>
+    <!-- Surface Warning text -->
+    <div
+      class="form-warning"
+      *ngIf="
+        AddPropertyForm.controls.surface.dirty &&
+          (AddPropertyForm.controls.surface.errors?.required ||
+          AddPropertyForm.controls.surface.errors?.min ||
+          AddPropertyForm.controls.surface.errors?.pattern)
+      "
+    >
+      <div class="text-danger">
+        <div *ngIf="AddPropertyForm.controls.surface.errors?.required">
+          * {{ "add-property-warning.required" | translate }}
+        </div>
+
+        <div *ngIf="AddPropertyForm.controls.surface.errors?.min">
+          * {{ "add-property-warning.min" | translate }} 1
+        </div>
+
+        <div *ngIf="AddPropertyForm.controls.surface.errors?.pattern">
+          * {{ "add-property-warning.number" | translate }}
+        </div>
+      </div>
+    </div>
+
+    <!-- Floor -->
+    <ion-item lines="none">
+      <ion-icon
+        class="whitening"
+        size="small"
+        name="swap-vertical-outline"
+      ></ion-icon>
+      <ion-label>{{ "add-property.floor" | translate }}</ion-label>
+      <ion-input
+        formControlName="floor"
+        type="number"
+        placeholder="5"
+        value="{{selectedProperty.floor}}"
+        required
+        min="0"
+        max="100"
+      ></ion-input>
+    </ion-item>
+    <!-- Floor Warning text -->
+    <div
+      class="form-warning"
+      *ngIf="
+        AddPropertyForm.controls.floor.dirty &&
+          (AddPropertyForm.controls.floor.errors?.required ||
+          AddPropertyForm.controls.floor.errors?.min ||
+          AddPropertyForm.controls.floor.errors?.max ||
+          AddPropertyForm.controls.floor.errors?.pattern)
+      "
+    >
+      <div class="text-danger">
+        <div *ngIf="AddPropertyForm.controls.floor.errors?.required">
+          * {{ "add-property-warning.required" | translate }}
+        </div>
+
+        <div *ngIf="AddPropertyForm.controls.floor.errors?.min">
+          * {{ "add-property-warning.min" | translate }} 1
+        </div>
+
+        <div *ngIf="AddPropertyForm.controls.floor.errors?.max">
+          * {{ "add-property-warning.max" | translate }} 100
+        </div>
+
+        <div *ngIf="AddPropertyForm.controls.floor.errors?.pattern">
+          * {{ "add-property-warning.number" | translate }}
+        </div>
+      </div>
+    </div>
+
+    <!-- Compart -->
+    <ion-item lines="none">
+      <ion-icon
+        class="whitening"
+        size="small"
+        name="git-branch-outline"
+      ></ion-icon>
+      <ion-label>{{ "add-property.compart" | translate }}</ion-label>
+
+      <ion-select formControlName="partitioning" value="{{selectedProperty.partitioning}}" required placeholder="{{'add-property.partitioning-placeholder' | translate }}">
+        <ion-select-option value="detached">{{ "add-property.comparts.detached" | translate }}</ion-select-option>
+        <ion-select-option value="semidetached">{{ "add-property.comparts.semidetached" | translate }}</ion-select-option>
+        <ion-select-option value="nondetached">{{ "add-property.comparts.nondetached" | translate }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <!-- Compart Warning text -->
+    <div
+      class="form-warning"
+      *ngIf="
+        AddPropertyForm.controls.partitioning.dirty &&
+          AddPropertyForm.controls.partitioning.errors?.required
+      "
+    >
+      <div class="text-danger">
+        <div
+          *ngIf="
+            AddPropertyForm.controls.partitioning.dirty &&
+            AddPropertyForm.controls.partitioning.errors?.required
+          "
+        >
+          * {{ "add-property-warning.required" | translate }}
+        </div>
+      </div>
+    </div>
+
+    <!-- Rooms -->
+    <ion-item lines="none">
+      <ion-icon class="whitening" size="small" name="bed-outline"></ion-icon>
+      <ion-label>{{ "add-property.rooms" | translate }}</ion-label>
+      <ion-input
+        formControlName="number_of_rooms"
+        type="number"
+        value="{{selectedProperty.number_of_rooms}}"
+        required
+        min="0"
+        max="100"
+      ></ion-input>
+    </ion-item>
+    <!-- Rooms Warning text -->
+    <div
+      class="form-warning"
+      *ngIf="
+        AddPropertyForm.controls.number_of_rooms.dirty &&
+          (AddPropertyForm.controls.number_of_rooms.errors?.required ||
+          AddPropertyForm.controls.number_of_rooms.errors?.min ||
+          AddPropertyForm.controls.number_of_rooms.errors?.pattern)
+      "
+    >
+      <div class="text-danger">
+        <div *ngIf="AddPropertyForm.controls.number_of_rooms.errors?.required">
+          * {{ "add-property-warning.required" | translate }}
+        </div>
+
+        <div *ngIf="AddPropertyForm.controls.number_of_rooms.errors?.min">
+          * {{ "add-property-warning.min" | translate }} 1
+        </div>
+
+        <div *ngIf="AddPropertyForm.controls.number_of_rooms.errors?.pattern">
+          * {{ "add-property-warning.number" | translate }}
+        </div>
+      </div>
+    </div>
+
+    <!-- Date -->
+    <ion-item lines="none">
+      <ion-icon
+        name="calendar-outline"
+        class="whitening"
+        size="small"
+      ></ion-icon>
+      <ion-label>{{ "add-property.date" | translate }}</ion-label>
+      <ion-input
+        formControlName="due_date"
+        type="number"
+        placeholder="10"
+        value="{{selectedProperty.due_date}}"
+        required
+        min="0"
+        max="100"
+      ></ion-input>
+    </ion-item>
+    <!-- Date Warning text -->
+    <div
+      class="form-warning"
+      *ngIf="
+        AddPropertyForm.controls.due_date.dirty &&
+          (AddPropertyForm.controls.due_date.errors?.required ||
+          AddPropertyForm.controls.due_date.errors?.min ||
+          AddPropertyForm.controls.due_date.errors?.max ||
+          AddPropertyForm.controls.due_date.errors?.pattern)
+      "
+    >
+      <div class="text-danger">
+        <div *ngIf="AddPropertyForm.controls.due_date.errors?.required">
+          * {{ "add-property-warning.required" | translate }}
+        </div>
+
+        <div *ngIf="AddPropertyForm.controls.due_date.errors?.min">
+          * {{ "add-property-warning.min" | translate }} 1
+        </div>
+
+        <div *ngIf="AddPropertyForm.controls.due_date.errors?.max">
+          * {{ "add-property-warning.max" | translate }} 30
+        </div>
+
+        <div *ngIf="AddPropertyForm.controls.due_date.errors?.pattern">
+          * {{ "add-property-warning.number" | translate }}
+        </div>
+      </div>
+    </div>
+
+    <!-- Water -->
+    <ion-item lines="none">
+      <ion-icon name="water-outline" class="whitening" size="small"></ion-icon>
+      <ion-label>{{ "add-property.water" | translate }}</ion-label>
+      <ion-input
+        formControlName="water_consumption_index"
+        type="number"
+        value="{{selectedProperty.water_consumption_index}}"
+        required
+        min="0"
+        max="1000000"
+      ></ion-input>
+    </ion-item>
+    <!-- Water Warning text -->
+    <div
+      class="form-warning"
+      *ngIf="
+        AddPropertyForm.controls.water_consumption_index.dirty &&
+          (AddPropertyForm.controls.water_consumption_index.errors?.required ||
+          AddPropertyForm.controls.water_consumption_index.errors?.min ||
+          AddPropertyForm.controls.water_consumption_index.errors?.pattern)
+      "
+    >
+      <div class="text-danger">
+        <div
+          *ngIf="AddPropertyForm.controls.water_consumption_index.errors?.required"
+        >
+          * {{ "add-property-warning.required" | translate }}
+        </div>
+
+        <div
+          *ngIf="AddPropertyForm.controls.water_consumption_index.errors?.min"
+        >
+          * {{ "add-property-warning.min" | translate }} 1
+        </div>
+
+        <div
+          *ngIf="AddPropertyForm.controls.water_consumption_index.errors?.pattern"
+        >
+          * {{ "add-property-warning.number" | translate }}
+        </div>
+      </div>
+    </div>
+
+    <ion-item>
+      <ion-button
+        class="buttons_style"
+        size="medium"
+        slot="start"
+        fill="outline"
+        (click)="PreviousPage()"
+        >{{ "add-property.cancel" | translate }}</ion-button
+      >
+      <ion-button
+        class="buttons_style"
+        size="medium"
+        slot="end"
+        fill="outline"
+        type="submit"
+        (click)="PropNoua()"
+        >{{ "add-property.save" | translate }}</ion-button
+      >
+    </ion-item>
+  </form>
+</ion-content>

@@ -1,0 +1,62 @@
+<ion-split-pane contentId="chatmenu">
+<ion-menu contentId="chatmenu" menuId="second">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>{{ "chatroom-menu.title" | translate }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-menu-toggle>
+      <ion-item detail="false" lines="none" (click)="addSubjectCommand()">
+        <ion-icon slot="start" name="add"></ion-icon>
+        <ion-label>{{ "chatroom-menu.add-subject" | translate }}</ion-label>
+      </ion-item>
+    </ion-menu-toggle>
+
+    <ion-menu-toggle *ngFor="let subject of subjects">
+      <ion-item routerDirection="root" routerLinkActive="active" lines="none" [class.selected]="subject === selectedSubject">
+        <ion-icon slot="start"></ion-icon>
+        <ion-label (click)="onSelect(subject)">
+          {{subject.title}}
+        </ion-label>
+
+        <!-- <ion-button size="medium" fill="outline" id="back_btn" class="border" type="button" (click)="editSubjectCommand(subject)"> -->
+          <ion-icon slot="end" name="create" (click)="editSubjectCommand(subject)" ></ion-icon>
+        <!-- </ion-button> -->
+      </ion-item>
+    </ion-menu-toggle>
+
+    <ion-menu-toggle>
+      <ion-item>
+        <ion-button size="medium" fill="outline" id="back-btn" class="border" type="button" (click)="previousPage()">
+          {{ "chatroom-menu.exit" | translate }}
+        </ion-button>
+      </ion-item>
+    </ion-menu-toggle>
+
+
+    <div id="language-icons" class="item-center">
+      <li class="li-nav">
+        <button
+          type="button"
+          class="button-language"
+          (click)="changeLanguage(importedLanguages.ro)"
+        >
+          <img src="../../../assets/language-icons/romania.png" />
+        </button>
+        <button
+          type="button"
+          class="button-language"
+          (click)="changeLanguage(importedLanguages.eng)"
+        >
+          <img src="../../../assets/language-icons/united-kingdom.png" />
+        </button>
+      </li>
+    </div>
+    
+  </ion-content>
+</ion-menu>
+
+<ion-router-outlet id="chatmenu"></ion-router-outlet>
+</ion-split-pane>

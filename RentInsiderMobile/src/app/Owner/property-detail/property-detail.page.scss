@@ -1,0 +1,140 @@
+ion-toolbar{
+    --background:#88BDBC !important;
+}
+
+ion-content{
+    --background:#112D32 !important;
+}
+
+ion-content{ 
+    //--background: url('/assets/img/V2.png') no-repeat center/cover fixed !important;
+}
+
+ion-label{
+    margin-left:1%;
+    --color:#ffc400 !important;
+    color:#ffc400 !important;
+}
+
+.culoare{
+    --background:#88BDBC !important;
+    
+}
+
+ion-content, ion-item{
+    --background:#112D32;
+
+}
+
+ion-label, ion-input{
+    --color:white  !important;
+    color:white ;
+}
+
+.whitening{
+    color:rgb(255, 166, 0) !important;
+}
+
+.whitening_borders{
+    --border-color:white !important;
+    --color:white !important;
+}
+
+.dropdown-menu{
+    --background:#112D32 !important;
+}
+
+// Layout
+#property-background {
+    height: 100%;
+    background-color: #112D32;
+}
+
+#property-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: fit-content;
+    background-color: #112D32;
+}
+
+// rows
+// ion-row has display: flex by default, but it doesn't hurt to have it here as well
+
+#property-container ion-row {
+    margin-top: 8px;
+}
+
+// text is clipped for some reason if width is not set
+#renter-name ion-item {
+    width: 100%;
+}
+
+// renter buttons row
+#renter-buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+// rows which have 2 items
+#property-payment-water,            // payment date and water index row
+#property-floor-rooms,              // floor and rooms row
+#property-surface-price             // surface and price row
+{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+// each of the 2 items from all of the rows above
+#property-payment, #property-water, // payment date and water index row
+#property-floor, #property-rooms,   // floor and rooms row
+#property-surface, #property-price  // surface and price row
+{
+    width: 50%;
+    min-width: 220px;
+    box-sizing: border-box;
+}
+
+// edit button row
+#property-edit {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0px 0px 0px;
+}
+
+// delete button row
+#property-delete {
+    display: flex;
+    justify-content: center;
+    margin: 0px 0px 30px 0px;
+}
+
+#property-delete > ion-button {
+    border-width: 5px;
+    border-color: rgb(235, 68, 90);
+}
+
+#footer-separator {
+    display: block;
+    margin: 15px auto 20px auto;
+    width: 90%;
+    height: 2px;
+    background-color: #88BDBC;
+    opacity: 20%;
+    border-radius: 10px;
+}
+
+.arrow
+{
+    border: solid rgb(144,188,188);
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 7px;
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+    margin-left: 20px;
+    margin-top: 10px;
+    
+}
+

@@ -1,0 +1,82 @@
+// toolbar in header
+#expense-toolbar {
+    --background: #88BDBC !important;
+}
+
+// expense form
+#expense-form-container {
+    display: flex;
+    flex-direction: column;
+    --background: #112D32;
+}
+
+#expense-form-container ion-item {
+    --background: #112D32;
+    padding: 0;
+}
+
+// form rows
+#expense-form-container ion-row {
+    box-sizing: border-box;
+    width: 100%;
+    justify-content: start;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    padding: 0 15px;
+}
+
+#expense-form-container .label-container,
+#expense-form-container .form-input {
+    width: 50%;
+    box-sizing: border-box;
+}
+
+// labels
+#expense-form-container .label-container {
+    min-width: 270px;
+}
+
+#expense-form-container .label-container ion-icon {
+    max-width: 50px;
+    margin-right: 10px;
+    color: white;
+}
+
+#expense-form-container .label-container ion-label {
+    color: white;
+}
+
+// inputs
+#expense-form-container .form-input {
+    min-width: 270px;
+    max-width: 600px;
+    border-radius: 4px;
+    background-color: #1d4d55;
+    color: white;
+}
+
+// invalid input 
+#expense-form-container .form-input.ion-invalid {
+    border-bottom: 2px solid red;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+// save form button
+#save-btn-container ion-item {
+    margin: 10px auto;
+}
+
+#save-btn {
+    --border-color: white !important;
+    color: white;   
+    margin: 0 auto;
+}
+
+// smaller screens
+@media screen and (max-width: 550px) {
+    #expense-form-container .label-container,
+    #expense-form-container .form-input {
+        width: 100%;
+    }
+}
